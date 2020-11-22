@@ -1,0 +1,6 @@
+framework module Pods_GrubChillTests {
+  umbrella header "Pods-GrubChillTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
