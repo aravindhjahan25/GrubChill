@@ -10,6 +10,7 @@
 		3865154FA3E8B8435D91A06B /* Pods_GrubChill_GrubChillUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7CE2C39704264C7400886 /* Pods_GrubChill_GrubChillUITests.framework */; };
 		451AEA04F9FF5D71DD13EFEE /* Pods_GrubChillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */; };
 		D4B9C867965E6F1EF94FD7CB /* Pods_GrubChill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D261FF5DD0C4F8C8A0FA34D /* Pods_GrubChill.framework */; };
+		F4743D45256C0FA900BB9E57 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D44256C0FA900BB9E57 /* Constant.swift */; };
 		F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */; };
 		F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */; };
 		F4C99532256AB9D7002A3A6C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C99531256AB9D7002A3A6C /* LoginViewController.swift */; };
@@ -72,6 +73,8 @@
 		F4C9962C256B8FF2002A3A6C /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9962B256B8FF2002A3A6C /* BaseController.swift */; };
 		F4EDFECB256BB9FF0056DCEB /* TopPickTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFECA256BB9FF0056DCEB /* TopPickTableCell.swift */; };
 		F4EDFED7256BC3AB0056DCEB /* TopPickCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */; };
+		F4EDFEDC256BD5530056DCEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFEDB256BD5530056DCEB /* RegisterViewController.swift */; };
+		F4EDFEE2256BDDA90056DCEB /* LoginModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFEE1256BDDA90056DCEB /* LoginModelDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,7 @@
 		B6DF07CBFA6F22133C51CB22 /* Pods-GrubChillTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChillTests.release.xcconfig"; path = "Target Support Files/Pods-GrubChillTests/Pods-GrubChillTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7E7CE2C39704264C7400886 /* Pods_GrubChill_GrubChillUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChill_GrubChillUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5D238FCE7A1CFE0011305F /* Pods-GrubChill-GrubChillUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChill-GrubChillUITests.debug.xcconfig"; path = "Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4743D44256C0FA900BB9E57 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F4C9952A256AB9D7002A3A6C /* GrubChill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubChill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +173,8 @@
 		F4C9962B256B8FF2002A3A6C /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		F4EDFECA256BB9FF0056DCEB /* TopPickTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPickTableCell.swift; sourceTree = "<group>"; };
 		F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPickCollectionViewCell.swift; sourceTree = "<group>"; };
+		F4EDFEDB256BD5530056DCEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		F4EDFEE1256BDDA90056DCEB /* LoginModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +253,7 @@
 		F4C9952C256AB9D7002A3A6C /* GrubChill */ = {
 			isa = PBXGroup;
 			children = (
+				F4EDFEE0256BDD980056DCEB /* ModelDTO */,
 				F4C995D9256ACBE7002A3A6C /* Common */,
 				F4C995BD256ABFA1002A3A6C /* UI */,
 				F4C9956A256ABA5A002A3A6C /* images */,
@@ -283,6 +290,7 @@
 			children = (
 				F4C99531256AB9D7002A3A6C /* LoginViewController.swift */,
 				F4C99533256AB9D7002A3A6C /* Main.storyboard */,
+				F4EDFEDB256BD5530056DCEB /* RegisterViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -369,6 +377,7 @@
 			children = (
 				F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */,
 				F4C9962B256B8FF2002A3A6C /* BaseController.swift */,
+				F4743D44256C0FA900BB9E57 /* Constant.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -416,6 +425,22 @@
 				F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F4EDFEE0256BDD980056DCEB /* ModelDTO */ = {
+			isa = PBXGroup;
+			children = (
+				F4EDFEE9256BF2210056DCEB /* RegisterModel */,
+			);
+			path = ModelDTO;
+			sourceTree = "<group>";
+		};
+		F4EDFEE9256BF2210056DCEB /* RegisterModel */ = {
+			isa = PBXGroup;
+			children = (
+				F4EDFEE1256BDDA90056DCEB /* LoginModelDTO.swift */,
+			);
+			path = RegisterModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -701,14 +726,17 @@
 				F4EDFED7256BC3AB0056DCEB /* TopPickCollectionViewCell.swift in Sources */,
 				F4C99627256B8FCC002A3A6C /* CartListViewController.swift in Sources */,
 				F4C995F5256AD2F4002A3A6C /* SideMenuViewController.swift in Sources */,
+				F4EDFEE2256BDDA90056DCEB /* LoginModelDTO.swift in Sources */,
 				F4C99532256AB9D7002A3A6C /* LoginViewController.swift in Sources */,
 				F4EDFECB256BB9FF0056DCEB /* TopPickTableCell.swift in Sources */,
 				F4C9962C256B8FF2002A3A6C /* BaseController.swift in Sources */,
+				F4743D45256C0FA900BB9E57 /* Constant.swift in Sources */,
 				F4C995D5256ACBB7002A3A6C /* DashboardViewController.swift in Sources */,
 				F4C995BF256ABFB4002A3A6C /* CustomView.swift in Sources */,
 				F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */,
 				F4C9960D256AE373002A3A6C /* TermsandConditionViewController.swift in Sources */,
 				F4C99603256ADA20002A3A6C /* HomeViewController.swift in Sources */,
+				F4EDFEDC256BD5530056DCEB /* RegisterViewController.swift in Sources */,
 				F4C995FB256AD315002A3A6C /* SideMenuCell.swift in Sources */,
 				F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */,
 				F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */,
@@ -892,6 +920,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3A2ZCD2BLN;
 				INFOPLIST_FILE = GrubChill/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -912,6 +941,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3A2ZCD2BLN;
 				INFOPLIST_FILE = GrubChill/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
