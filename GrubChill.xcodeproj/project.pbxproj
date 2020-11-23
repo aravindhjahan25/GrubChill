@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -59,6 +59,19 @@
 		F4C995B8256ABA5A002A3A6C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = F4C99591256ABA5A002A3A6C /* back.png */; };
 		F4C995BF256ABFB4002A3A6C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995BE256ABFB4002A3A6C /* CustomView.swift */; };
 		F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995C6256AC330002A3A6C /* CustomButton.swift */; };
+		F4C995D0256ACB9A002A3A6C /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C995CF256ACB9A002A3A6C /* Dashboard.storyboard */; };
+		F4C995D5256ACBB7002A3A6C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */; };
+		F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */; };
+		F4C995F5256AD2F4002A3A6C /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995F4256AD2F4002A3A6C /* SideMenuViewController.swift */; };
+		F4C995FB256AD315002A3A6C /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995FA256AD315002A3A6C /* SideMenuCell.swift */; };
+		F4C99603256ADA20002A3A6C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C99602256ADA20002A3A6C /* HomeViewController.swift */; };
+		F4C99608256AE289002A3A6C /* SideMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C99607256AE289002A3A6C /* SideMenu.storyboard */; };
+		F4C9960D256AE373002A3A6C /* TermsandConditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9960C256AE373002A3A6C /* TermsandConditionViewController.swift */; };
+		F4C9961F256B8D83002A3A6C /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C9961E256B8D82002A3A6C /* Cart.storyboard */; };
+		F4C99627256B8FCC002A3A6C /* CartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C99626256B8FCC002A3A6C /* CartListViewController.swift */; };
+		F4C9962C256B8FF2002A3A6C /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9962B256B8FF2002A3A6C /* BaseController.swift */; };
+		F4EDFECB256BB9FF0056DCEB /* TopPickTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFECA256BB9FF0056DCEB /* TopPickTableCell.swift */; };
+		F4EDFED7256BC3AB0056DCEB /* TopPickCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +156,19 @@
 		F4C99591256ABA5A002A3A6C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		F4C995BE256ABFB4002A3A6C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		F4C995C6256AC330002A3A6C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		F4C995CF256ACB9A002A3A6C /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+ext.swift"; sourceTree = "<group>"; };
+		F4C995F4256AD2F4002A3A6C /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		F4C995FA256AD315002A3A6C /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
+		F4C99602256ADA20002A3A6C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F4C99607256AE289002A3A6C /* SideMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SideMenu.storyboard; sourceTree = "<group>"; };
+		F4C9960C256AE373002A3A6C /* TermsandConditionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsandConditionViewController.swift; sourceTree = "<group>"; };
+		F4C9961E256B8D82002A3A6C /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
+		F4C99626256B8FCC002A3A6C /* CartListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListViewController.swift; sourceTree = "<group>"; };
+		F4C9962B256B8FF2002A3A6C /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		F4EDFECA256BB9FF0056DCEB /* TopPickTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPickTableCell.swift; sourceTree = "<group>"; };
+		F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPickCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +247,7 @@
 		F4C9952C256AB9D7002A3A6C /* GrubChill */ = {
 			isa = PBXGroup;
 			children = (
+				F4C995D9256ACBE7002A3A6C /* Common */,
 				F4C995BD256ABFA1002A3A6C /* UI */,
 				F4C9956A256ABA5A002A3A6C /* images */,
 				F4C995BC256ABF91002A3A6C /* CustomClass */,
@@ -318,9 +345,77 @@
 		F4C995BD256ABFA1002A3A6C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F4C9961D256B8D6D002A3A6C /* Cart */,
+				F4C995EA256AD29A002A3A6C /* SideMenu */,
+				F4C995CE256ACB89002A3A6C /* Dashboard */,
 				F4C99560256ABA18002A3A6C /* Login */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		F4C995CE256ACB89002A3A6C /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				F4C99630256B92FB002A3A6C /* DashboardHeader */,
+				F4C995CF256ACB9A002A3A6C /* Dashboard.storyboard */,
+				F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */,
+				F4C99602256ADA20002A3A6C /* HomeViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		F4C995D9256ACBE7002A3A6C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */,
+				F4C9962B256B8FF2002A3A6C /* BaseController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F4C995EA256AD29A002A3A6C /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F4C995F9256AD2FB002A3A6C /* Cells */,
+				F4C995F4256AD2F4002A3A6C /* SideMenuViewController.swift */,
+				F4C99607256AE289002A3A6C /* SideMenu.storyboard */,
+				F4C9960C256AE373002A3A6C /* TermsandConditionViewController.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		F4C995F9256AD2FB002A3A6C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F4C995FA256AD315002A3A6C /* SideMenuCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F4C9961D256B8D6D002A3A6C /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				F4C9961E256B8D82002A3A6C /* Cart.storyboard */,
+				F4C99626256B8FCC002A3A6C /* CartListViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		F4C99630256B92FB002A3A6C /* DashboardHeader */ = {
+			isa = PBXGroup;
+			children = (
+				F4C9963E256B98A6002A3A6C /* Cell */,
+			);
+			path = DashboardHeader;
+			sourceTree = "<group>";
+		};
+		F4C9963E256B98A6002A3A6C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F4EDFECA256BB9FF0056DCEB /* TopPickTableCell.swift */,
+				F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +429,7 @@
 				F4C99526256AB9D7002A3A6C /* Sources */,
 				F4C99527256AB9D7002A3A6C /* Frameworks */,
 				F4C99528256AB9D7002A3A6C /* Resources */,
+				9015FC1ABA6D9CAC8AE7752B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -371,6 +467,7 @@
 				F4C99547256AB9D9002A3A6C /* Sources */,
 				F4C99548256AB9D9002A3A6C /* Frameworks */,
 				F4C99549256AB9D9002A3A6C /* Resources */,
+				CAC7424DB64A51218578A148 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -440,6 +537,8 @@
 				F4C99594256ABA5A002A3A6C /* mexica.png in Resources */,
 				F4C995A1256ABA5A002A3A6C /* banner3.jpg in Resources */,
 				F4C9959C256ABA5A002A3A6C /* order.png in Resources */,
+				F4C995D0256ACB9A002A3A6C /* Dashboard.storyboard in Resources */,
+				F4C99608256AE289002A3A6C /* SideMenu.storyboard in Resources */,
 				F4C9959D256ABA5A002A3A6C /* dish2.png in Resources */,
 				F4C995B1256ABA5A002A3A6C /* dishitem4.png in Resources */,
 				F4C995A7256ABA5A002A3A6C /* user.png in Resources */,
@@ -455,6 +554,7 @@
 				F4C99596256ABA5A002A3A6C /* banner5.jpeg in Resources */,
 				F4C995A8256ABA5A002A3A6C /* menu.png in Resources */,
 				F4C99598256ABA5A002A3A6C /* french.png in Resources */,
+				F4C9961F256B8D83002A3A6C /* Cart.storyboard in Resources */,
 				F4C995A6256ABA5A002A3A6C /* banner4.png in Resources */,
 				F4C995AF256ABA5A002A3A6C /* dishitem5.png in Resources */,
 				F4C995B4256ABA5A002A3A6C /* rest2.png in Resources */,
@@ -557,6 +657,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9015FC1ABA6D9CAC8AE7752B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrubChill/Pods-GrubChill-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrubChill/Pods-GrubChill-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrubChill/Pods-GrubChill-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAC7424DB64A51218578A148 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -564,10 +698,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4EDFED7256BC3AB0056DCEB /* TopPickCollectionViewCell.swift in Sources */,
+				F4C99627256B8FCC002A3A6C /* CartListViewController.swift in Sources */,
+				F4C995F5256AD2F4002A3A6C /* SideMenuViewController.swift in Sources */,
 				F4C99532256AB9D7002A3A6C /* LoginViewController.swift in Sources */,
+				F4EDFECB256BB9FF0056DCEB /* TopPickTableCell.swift in Sources */,
+				F4C9962C256B8FF2002A3A6C /* BaseController.swift in Sources */,
+				F4C995D5256ACBB7002A3A6C /* DashboardViewController.swift in Sources */,
 				F4C995BF256ABFB4002A3A6C /* CustomView.swift in Sources */,
 				F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */,
+				F4C9960D256AE373002A3A6C /* TermsandConditionViewController.swift in Sources */,
+				F4C99603256ADA20002A3A6C /* HomeViewController.swift in Sources */,
+				F4C995FB256AD315002A3A6C /* SideMenuCell.swift in Sources */,
 				F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */,
+				F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */,
 				F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

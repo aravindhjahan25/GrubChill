@@ -29,3 +29,22 @@ class CustomView : UIView {
     }
     
 }
+
+class MainBG : UIView {
+    @IBInspectable var dropShadow: Bool = false {
+        didSet {
+            layer.backgroundColor = UIColor(red: 0xd7/255, green: 0x51/255, blue: 0x47/255, alpha: 1.0).cgColor
+            
+            if dropShadow{
+                layer.masksToBounds = false
+                layer.shadowColor = UIColor.black.cgColor
+                layer.shadowOffset = CGSize(width: 0, height: 3)
+                layer.shadowRadius = 1
+                layer.shadowOpacity = 0.2
+                layer.shouldRasterize = true
+                layer.rasterizationScale = dropShadow ? UIScreen.main.scale : 1
+                
+            }
+        }
+    }
+}

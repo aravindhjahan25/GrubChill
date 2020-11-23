@@ -7,9 +7,12 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: BaseController {
     
     @IBOutlet weak var loginView : UIView!
+    
+    @IBOutlet weak var emailID : UITextField!
+    @IBOutlet weak var password : UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +23,11 @@ class LoginViewController: UIViewController {
         
         loginView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 50.0)
         super.viewWillAppear(animated)
+    }
+    
+    @IBAction func loginBtn(_ sender : UIButton){
+        let dashBoard = UIStoryboard.named.dashboard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(dashBoard, animated: true)
     }
 
 }

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Termsand Condition View Controller-->
+        <scene sceneID="4E8-1b-xkE">
+            <objects>
+                <viewController storyboardIdentifier="TermsandConditionViewController" id="Mzg-ee-Q4Y" customClass="TermsandConditionViewController" customModule="GrubChill" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ljd-XL-amg" customClass="MainBG" customModule="GrubChill" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tGU-Rj-whL" customClass="MainBG" customModule="GrubChill" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNE-m6-eeK" userLabel="back">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back.png" translatesAutoresizingMaskIntoConstraints="NO" id="gIX-Ez-SEp">
+                                                <rect key="frame" x="17.5" y="17.5" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="Ow7-pu-7Wj"/>
+                                                    <constraint firstAttribute="height" constant="25" id="vkt-WU-rqc"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhM-JN-x29">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <connections>
+                                                    <action selector="popBack:" destination="Mzg-ee-Q4Y" eventType="touchUpInside" id="JQy-ho-WpO"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="jhM-JN-x29" secondAttribute="bottom" id="3f0-9K-Mxa"/>
+                                            <constraint firstAttribute="height" constant="60" id="5ct-nv-oiF"/>
+                                            <constraint firstAttribute="width" constant="60" id="9d5-fE-YDt"/>
+                                            <constraint firstAttribute="trailing" secondItem="jhM-JN-x29" secondAttribute="trailing" id="Bz9-bc-rCK"/>
+                                            <constraint firstItem="jhM-JN-x29" firstAttribute="leading" secondItem="XNE-m6-eeK" secondAttribute="leading" id="Wup-Ce-Saz"/>
+                                            <constraint firstItem="jhM-JN-x29" firstAttribute="top" secondItem="XNE-m6-eeK" secondAttribute="top" id="tcL-kO-CmX"/>
+                                            <constraint firstItem="gIX-Ez-SEp" firstAttribute="centerX" secondItem="XNE-m6-eeK" secondAttribute="centerX" id="uRW-Wz-VPo"/>
+                                            <constraint firstItem="gIX-Ez-SEp" firstAttribute="centerY" secondItem="XNE-m6-eeK" secondAttribute="centerY" id="vGu-tz-1zW"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="XNE-m6-eeK" firstAttribute="leading" secondItem="tGU-Rj-whL" secondAttribute="leading" id="A2Z-z6-9PS"/>
+                                    <constraint firstAttribute="bottom" secondItem="XNE-m6-eeK" secondAttribute="bottom" id="Yq8-PX-Q3c"/>
+                                    <constraint firstAttribute="height" constant="60" id="abw-mb-V3d"/>
+                                    <constraint firstItem="XNE-m6-eeK" firstAttribute="top" secondItem="tGU-Rj-whL" secondAttribute="top" id="jnX-aT-6iT"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUi-VK-j9k">
+                                <rect key="frame" x="0.0" y="104" width="414" height="792"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vwr-O0-Vpt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tGU-Rj-whL" firstAttribute="top" secondItem="vwr-O0-Vpt" secondAttribute="top" id="BLA-iY-6Yh"/>
+                            <constraint firstAttribute="bottom" secondItem="tUi-VK-j9k" secondAttribute="bottom" id="Dks-5Y-1Yq"/>
+                            <constraint firstItem="vwr-O0-Vpt" firstAttribute="trailing" secondItem="tUi-VK-j9k" secondAttribute="trailing" id="Fr1-d5-c0Y"/>
+                            <constraint firstItem="tUi-VK-j9k" firstAttribute="top" secondItem="tGU-Rj-whL" secondAttribute="bottom" id="HeE-zr-Shv"/>
+                            <constraint firstItem="tGU-Rj-whL" firstAttribute="leading" secondItem="vwr-O0-Vpt" secondAttribute="leading" id="bYu-92-TGQ"/>
+                            <constraint firstItem="tUi-VK-j9k" firstAttribute="leading" secondItem="vwr-O0-Vpt" secondAttribute="leading" id="mHO-xq-yYK"/>
+                            <constraint firstItem="vwr-O0-Vpt" firstAttribute="trailing" secondItem="tGU-Rj-whL" secondAttribute="trailing" id="xgP-2T-Fa8"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYf-sU-r6s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-291.304347826087" y="84.375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="back.png" width="384" height="384"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

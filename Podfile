@@ -6,6 +6,9 @@ target 'GrubChill' do
   use_frameworks!
 
   # Pods for GrubChill
+  pod 'ObjectMapper', '~> 3.5'
+  pod 'Alamofire'
+  pod 'SideMenu'
 
   target 'GrubChillTests' do
     inherit! :search_paths
