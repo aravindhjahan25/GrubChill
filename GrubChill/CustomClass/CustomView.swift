@@ -33,7 +33,7 @@ class CustomView : UIView {
 class MainBG : UIView {
     @IBInspectable var dropShadow: Bool = false {
         didSet {
-            layer.backgroundColor = UIColor(red: 0xd7/255, green: 0x51/255, blue: 0x47/255, alpha: 1.0).cgColor
+            layer.backgroundColor = UIColor(red: 0xd7/255, green: 0x41/255, blue: 0x47/255, alpha: 1.0).cgColor
             
             if dropShadow{
                 layer.masksToBounds = false

@@ -11,6 +11,10 @@
 		451AEA04F9FF5D71DD13EFEE /* Pods_GrubChillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */; };
 		D4B9C867965E6F1EF94FD7CB /* Pods_GrubChill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D261FF5DD0C4F8C8A0FA34D /* Pods_GrubChill.framework */; };
 		F4743D45256C0FA900BB9E57 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D44256C0FA900BB9E57 /* Constant.swift */; };
+		F4743D5A256C349F00BB9E57 /* LoginPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D59256C349F00BB9E57 /* LoginPreference.swift */; };
+		F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D5E256C3F1200BB9E57 /* SupportViewController.swift */; };
+		F4743D64256C3F2000BB9E57 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D63256C3F2000BB9E57 /* MyProfileViewController.swift */; };
+		F4743D6A256C3FB700BB9E57 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4743D69256C3FB700BB9E57 /* Profile.storyboard */; };
 		F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */; };
 		F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */; };
 		F4C99532256AB9D7002A3A6C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C99531256AB9D7002A3A6C /* LoginViewController.swift */; };
@@ -60,7 +64,6 @@
 		F4C995B8256ABA5A002A3A6C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = F4C99591256ABA5A002A3A6C /* back.png */; };
 		F4C995BF256ABFB4002A3A6C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995BE256ABFB4002A3A6C /* CustomView.swift */; };
 		F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995C6256AC330002A3A6C /* CustomButton.swift */; };
-		F4C995D0256ACB9A002A3A6C /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C995CF256ACB9A002A3A6C /* Dashboard.storyboard */; };
 		F4C995D5256ACBB7002A3A6C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */; };
 		F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */; };
 		F4C995F5256AD2F4002A3A6C /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995F4256AD2F4002A3A6C /* SideMenuViewController.swift */; };
@@ -105,6 +108,10 @@
 		C7E7CE2C39704264C7400886 /* Pods_GrubChill_GrubChillUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChill_GrubChillUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5D238FCE7A1CFE0011305F /* Pods-GrubChill-GrubChillUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChill-GrubChillUITests.debug.xcconfig"; path = "Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F4743D44256C0FA900BB9E57 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		F4743D59256C349F00BB9E57 /* LoginPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPreference.swift; sourceTree = "<group>"; };
+		F4743D5E256C3F1200BB9E57 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
+		F4743D63256C3F2000BB9E57 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		F4743D69256C3FB700BB9E57 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		F4C9952A256AB9D7002A3A6C /* GrubChill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubChill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,7 +167,6 @@
 		F4C99591256ABA5A002A3A6C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		F4C995BE256ABFB4002A3A6C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		F4C995C6256AC330002A3A6C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		F4C995CF256ACB9A002A3A6C /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+ext.swift"; sourceTree = "<group>"; };
 		F4C995F4256AD2F4002A3A6C /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +232,15 @@
 				B6DF07CBFA6F22133C51CB22 /* Pods-GrubChillTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F4743D68256C3FA100BB9E57 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				F4743D63256C3F2000BB9E57 /* MyProfileViewController.swift */,
+				F4743D69256C3FB700BB9E57 /* Profile.storyboard */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		F4C99521256AB9D7002A3A6C = {
@@ -353,6 +368,7 @@
 		F4C995BD256ABFA1002A3A6C /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				F4743D68256C3FA100BB9E57 /* Profile */,
 				F4C9961D256B8D6D002A3A6C /* Cart */,
 				F4C995EA256AD29A002A3A6C /* SideMenu */,
 				F4C995CE256ACB89002A3A6C /* Dashboard */,
@@ -365,7 +381,6 @@
 			isa = PBXGroup;
 			children = (
 				F4C99630256B92FB002A3A6C /* DashboardHeader */,
-				F4C995CF256ACB9A002A3A6C /* Dashboard.storyboard */,
 				F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */,
 				F4C99602256ADA20002A3A6C /* HomeViewController.swift */,
 			);
@@ -378,6 +393,7 @@
 				F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */,
 				F4C9962B256B8FF2002A3A6C /* BaseController.swift */,
 				F4743D44256C0FA900BB9E57 /* Constant.swift */,
+				F4743D59256C349F00BB9E57 /* LoginPreference.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -389,6 +405,7 @@
 				F4C995F4256AD2F4002A3A6C /* SideMenuViewController.swift */,
 				F4C99607256AE289002A3A6C /* SideMenu.storyboard */,
 				F4C9960C256AE373002A3A6C /* TermsandConditionViewController.swift */,
+				F4743D5E256C3F1200BB9E57 /* SupportViewController.swift */,
 			);
 			path = SideMenu;
 			sourceTree = "<group>";
@@ -562,7 +579,6 @@
 				F4C99594256ABA5A002A3A6C /* mexica.png in Resources */,
 				F4C995A1256ABA5A002A3A6C /* banner3.jpg in Resources */,
 				F4C9959C256ABA5A002A3A6C /* order.png in Resources */,
-				F4C995D0256ACB9A002A3A6C /* Dashboard.storyboard in Resources */,
 				F4C99608256AE289002A3A6C /* SideMenu.storyboard in Resources */,
 				F4C9959D256ABA5A002A3A6C /* dish2.png in Resources */,
 				F4C995B1256ABA5A002A3A6C /* dishitem4.png in Resources */,
@@ -581,6 +597,7 @@
 				F4C99598256ABA5A002A3A6C /* french.png in Resources */,
 				F4C9961F256B8D83002A3A6C /* Cart.storyboard in Resources */,
 				F4C995A6256ABA5A002A3A6C /* banner4.png in Resources */,
+				F4743D6A256C3FB700BB9E57 /* Profile.storyboard in Resources */,
 				F4C995AF256ABA5A002A3A6C /* dishitem5.png in Resources */,
 				F4C995B4256ABA5A002A3A6C /* rest2.png in Resources */,
 				F4C99537256AB9D9002A3A6C /* Assets.xcassets in Resources */,
@@ -732,6 +749,7 @@
 				F4C9962C256B8FF2002A3A6C /* BaseController.swift in Sources */,
 				F4743D45256C0FA900BB9E57 /* Constant.swift in Sources */,
 				F4C995D5256ACBB7002A3A6C /* DashboardViewController.swift in Sources */,
+				F4743D64256C3F2000BB9E57 /* MyProfileViewController.swift in Sources */,
 				F4C995BF256ABFB4002A3A6C /* CustomView.swift in Sources */,
 				F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */,
 				F4C9960D256AE373002A3A6C /* TermsandConditionViewController.swift in Sources */,
@@ -739,7 +757,9 @@
 				F4EDFEDC256BD5530056DCEB /* RegisterViewController.swift in Sources */,
 				F4C995FB256AD315002A3A6C /* SideMenuCell.swift in Sources */,
 				F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */,
+				F4743D5A256C349F00BB9E57 /* LoginPreference.swift in Sources */,
 				F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */,
+				F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */,
 				F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

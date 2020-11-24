@@ -15,7 +15,7 @@ class LoginViewController: BaseController {
     
     @IBOutlet weak var emailIDTextFeild : UITextField!
     @IBOutlet weak var passwordTextFeild: UITextField!
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +32,7 @@ class LoginViewController: BaseController {
     
     @IBAction func loginBtn(_ sender : UIButton){
         if emailIDTextFeild.text != "" && passwordTextFeild.text != ""{
-            ProgressHUD.show("Please Wait")
+            ProgressHUD.show("Please Wait...")
             let URL = Constant.Base_URL + Constant.LOGIN
             let body = [
                 "email": emailIDTextFeild.text ?? "" ,
@@ -61,8 +61,19 @@ class LoginViewController: BaseController {
                     if statusCode == 200 {
                         let loginDTO = LoginModelDTO(JSON: JSON as! [String : Any])
                         if loginDTO?.status == "Success" {
+                            self.sharedPref.createLoginSession(
+                                _id: (loginDTO?.data?._id)!,
+                                phonenumber: (loginDTO?.data?.phonenumber)!,
+                                username: (loginDTO?.data?.username)!,
+                                email: (loginDTO?.data?.phonenumber)!,
+                                role: (loginDTO?.data?.phonenumber)!,
+                                status: (loginDTO?.data?.phonenumber)!,
+                                isVerified: (loginDTO?.data?.isVerified)!,
+                                stripe_id: (loginDTO?.data?.phonenumber)!,
+                                business_id: (loginDTO?.data?.phonenumber)!)
+                            
                             ProgressHUD.dismiss()
-                            let dashBoard = UIStoryboard.named.dashboard.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+                            let dashBoard = UIStoryboard.named.main.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
                             self.navigationController?.pushViewController(dashBoard, animated: true)
                         }else{
                             print("Failed")

@@ -11,8 +11,28 @@ class SideMenuViewController: BaseController {
     
     @IBOutlet weak var skipLogin: UIView!
     @IBOutlet weak var loggedIn: UIView!
+    
+    @IBOutlet weak var userName : UILabel!
+    @IBOutlet weak var phoneNO : UILabel!
 
     override func viewWillAppear(_ animated: Bool) {
+        if isKeyPresentInUserDefaults(key: "_id"){
+            let uName = UserDefaults.standard.string(forKey: "username") ?? ""
+            if uName != "" {
+                skipLogin.isHidden = true
+                loggedIn.isHidden = false
+                print("uName --> \(uName)")
+                userName.text = uName
+                phoneNO.text = UserDefaults.standard.string(forKey: "phonenumber") ?? ""
+            }else{
+                loggedIn.isHidden = true
+                skipLogin.isHidden = false
+            }
+            
+        }else{
+            loggedIn.isHidden = true
+            skipLogin.isHidden = false
+        }
         
         super.viewWillAppear(animated)
     }
