@@ -10,6 +10,8 @@ import UIKit
 
 class BaseController : UIViewController {
     
+    @IBOutlet weak var showEmptyView: UIView!
+    
     var sharedPref = LoginPreference()
     
     @IBAction func popBack(_ sender : UIButton) {

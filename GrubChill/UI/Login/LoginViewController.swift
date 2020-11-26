@@ -65,7 +65,7 @@ class LoginViewController: BaseController {
                                 _id: (loginDTO?.data?._id)!,
                                 phonenumber: (loginDTO?.data?.phonenumber)!,
                                 username: (loginDTO?.data?.username)!,
-                                email: (loginDTO?.data?.phonenumber)!,
+                                email: (loginDTO?.data?.email)!,
                                 role: (loginDTO?.data?.phonenumber)!,
                                 status: (loginDTO?.data?.phonenumber)!,
                                 isVerified: (loginDTO?.data?.isVerified)!,

@@ -15,6 +15,13 @@
 		F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D5E256C3F1200BB9E57 /* SupportViewController.swift */; };
 		F4743D64256C3F2000BB9E57 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D63256C3F2000BB9E57 /* MyProfileViewController.swift */; };
 		F4743D6A256C3FB700BB9E57 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4743D69256C3FB700BB9E57 /* Profile.storyboard */; };
+		F49D6F5B256E6417003CAA66 /* RestrauntsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6F5A256E6417003CAA66 /* RestrauntsDTO.swift */; };
+		F49D6F67256E66A0003CAA66 /* UIImageView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6F66256E66A0003CAA66 /* UIImageView+ext.swift */; };
+		F49D6FCE25700FA0003CAA66 /* DashboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FCD25700FA0003CAA66 /* DashboardTableViewCell.swift */; };
+		F49D6FDC25701611003CAA66 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F49D6FDB25701611003CAA66 /* Dashboard.storyboard */; };
+		F49D6FE425701744003CAA66 /* RestrauntMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FE325701744003CAA66 /* RestrauntMenuViewController.swift */; };
+		F49D6FE925701CD3003CAA66 /* RestrauntMenusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FE825701CD3003CAA66 /* RestrauntMenusTableViewCell.swift */; };
+		F49D6FEE25701D68003CAA66 /* RestrauntMenuDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FED25701D68003CAA66 /* RestrauntMenuDTO.swift */; };
 		F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */; };
 		F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */; };
 		F4C99532256AB9D7002A3A6C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C99531256AB9D7002A3A6C /* LoginViewController.swift */; };
@@ -64,7 +71,6 @@
 		F4C995B8256ABA5A002A3A6C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = F4C99591256ABA5A002A3A6C /* back.png */; };
 		F4C995BF256ABFB4002A3A6C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995BE256ABFB4002A3A6C /* CustomView.swift */; };
 		F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995C6256AC330002A3A6C /* CustomButton.swift */; };
-		F4C995D5256ACBB7002A3A6C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */; };
 		F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */; };
 		F4C995F5256AD2F4002A3A6C /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995F4256AD2F4002A3A6C /* SideMenuViewController.swift */; };
 		F4C995FB256AD315002A3A6C /* SideMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C995FA256AD315002A3A6C /* SideMenuCell.swift */; };
@@ -74,7 +80,6 @@
 		F4C9961F256B8D83002A3A6C /* Cart.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C9961E256B8D82002A3A6C /* Cart.storyboard */; };
 		F4C99627256B8FCC002A3A6C /* CartListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C99626256B8FCC002A3A6C /* CartListViewController.swift */; };
 		F4C9962C256B8FF2002A3A6C /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9962B256B8FF2002A3A6C /* BaseController.swift */; };
-		F4EDFECB256BB9FF0056DCEB /* TopPickTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFECA256BB9FF0056DCEB /* TopPickTableCell.swift */; };
 		F4EDFED7256BC3AB0056DCEB /* TopPickCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */; };
 		F4EDFEDC256BD5530056DCEB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFEDB256BD5530056DCEB /* RegisterViewController.swift */; };
 		F4EDFEE2256BDDA90056DCEB /* LoginModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EDFEE1256BDDA90056DCEB /* LoginModelDTO.swift */; };
@@ -112,6 +117,13 @@
 		F4743D5E256C3F1200BB9E57 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		F4743D63256C3F2000BB9E57 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		F4743D69256C3FB700BB9E57 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		F49D6F5A256E6417003CAA66 /* RestrauntsDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntsDTO.swift; sourceTree = "<group>"; };
+		F49D6F66256E66A0003CAA66 /* UIImageView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ext.swift"; sourceTree = "<group>"; };
+		F49D6FCD25700FA0003CAA66 /* DashboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableViewCell.swift; sourceTree = "<group>"; };
+		F49D6FDB25701611003CAA66 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
+		F49D6FE325701744003CAA66 /* RestrauntMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenuViewController.swift; sourceTree = "<group>"; };
+		F49D6FE825701CD3003CAA66 /* RestrauntMenusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenusTableViewCell.swift; sourceTree = "<group>"; };
+		F49D6FED25701D68003CAA66 /* RestrauntMenuDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenuDTO.swift; sourceTree = "<group>"; };
 		F4C9952A256AB9D7002A3A6C /* GrubChill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubChill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,7 +179,6 @@
 		F4C99591256ABA5A002A3A6C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		F4C995BE256ABFB4002A3A6C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		F4C995C6256AC330002A3A6C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+ext.swift"; sourceTree = "<group>"; };
 		F4C995F4256AD2F4002A3A6C /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		F4C995FA256AD315002A3A6C /* SideMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuCell.swift; sourceTree = "<group>"; };
@@ -177,7 +188,6 @@
 		F4C9961E256B8D82002A3A6C /* Cart.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cart.storyboard; sourceTree = "<group>"; };
 		F4C99626256B8FCC002A3A6C /* CartListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListViewController.swift; sourceTree = "<group>"; };
 		F4C9962B256B8FF2002A3A6C /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
-		F4EDFECA256BB9FF0056DCEB /* TopPickTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPickTableCell.swift; sourceTree = "<group>"; };
 		F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPickCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4EDFEDB256BD5530056DCEB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		F4EDFEE1256BDDA90056DCEB /* LoginModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelDTO.swift; sourceTree = "<group>"; };
@@ -241,6 +251,34 @@
 				F4743D69256C3FB700BB9E57 /* Profile.storyboard */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		F49D6F59256E63FE003CAA66 /* DashboardDTO */ = {
+			isa = PBXGroup;
+			children = (
+				F49D6F5A256E6417003CAA66 /* RestrauntsDTO.swift */,
+				F49D6FED25701D68003CAA66 /* RestrauntMenuDTO.swift */,
+			);
+			path = DashboardDTO;
+			sourceTree = "<group>";
+		};
+		F49D6F65256E668B003CAA66 /* Ext */ = {
+			isa = PBXGroup;
+			children = (
+				F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */,
+				F49D6F66256E66A0003CAA66 /* UIImageView+ext.swift */,
+			);
+			path = Ext;
+			sourceTree = "<group>";
+		};
+		F49D6FCC25700F7E003CAA66 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F49D6FCD25700FA0003CAA66 /* DashboardTableViewCell.swift */,
+				F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */,
+				F49D6FE825701CD3003CAA66 /* RestrauntMenusTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		F4C99521256AB9D7002A3A6C = {
@@ -380,9 +418,10 @@
 		F4C995CE256ACB89002A3A6C /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				F4C99630256B92FB002A3A6C /* DashboardHeader */,
-				F4C995D4256ACBB7002A3A6C /* DashboardViewController.swift */,
+				F49D6FCC25700F7E003CAA66 /* Cell */,
 				F4C99602256ADA20002A3A6C /* HomeViewController.swift */,
+				F49D6FDB25701611003CAA66 /* Dashboard.storyboard */,
+				F49D6FE325701744003CAA66 /* RestrauntMenuViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -390,7 +429,7 @@
 		F4C995D9256ACBE7002A3A6C /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				F4C995DA256ACBFA002A3A6C /* UIStoryboard+ext.swift */,
+				F49D6F65256E668B003CAA66 /* Ext */,
 				F4C9962B256B8FF2002A3A6C /* BaseController.swift */,
 				F4743D44256C0FA900BB9E57 /* Constant.swift */,
 				F4743D59256C349F00BB9E57 /* LoginPreference.swift */,
@@ -427,26 +466,10 @@
 			path = Cart;
 			sourceTree = "<group>";
 		};
-		F4C99630256B92FB002A3A6C /* DashboardHeader */ = {
-			isa = PBXGroup;
-			children = (
-				F4C9963E256B98A6002A3A6C /* Cell */,
-			);
-			path = DashboardHeader;
-			sourceTree = "<group>";
-		};
-		F4C9963E256B98A6002A3A6C /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				F4EDFECA256BB9FF0056DCEB /* TopPickTableCell.swift */,
-				F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */,
-			);
-			path = Cell;
-			sourceTree = "<group>";
-		};
 		F4EDFEE0256BDD980056DCEB /* ModelDTO */ = {
 			isa = PBXGroup;
 			children = (
+				F49D6F59256E63FE003CAA66 /* DashboardDTO */,
 				F4EDFEE9256BF2210056DCEB /* RegisterModel */,
 			);
 			path = ModelDTO;
@@ -589,6 +612,7 @@
 				F4C995AE256ABA5A002A3A6C /* dishitem7.png in Resources */,
 				F4C995AA256ABA5A002A3A6C /* password.png in Resources */,
 				F4C995A0256ABA5A002A3A6C /* delivery.png in Resources */,
+				F49D6FDC25701611003CAA66 /* Dashboard.storyboard in Resources */,
 				F4C995B3256ABA5A002A3A6C /* dish.png in Resources */,
 				F4C9959F256ABA5A002A3A6C /* banner2.jpg in Resources */,
 				F4C995B2256ABA5A002A3A6C /* rest1.png in Resources */,
@@ -741,16 +765,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4EDFED7256BC3AB0056DCEB /* TopPickCollectionViewCell.swift in Sources */,
+				F49D6FCE25700FA0003CAA66 /* DashboardTableViewCell.swift in Sources */,
 				F4C99627256B8FCC002A3A6C /* CartListViewController.swift in Sources */,
 				F4C995F5256AD2F4002A3A6C /* SideMenuViewController.swift in Sources */,
 				F4EDFEE2256BDDA90056DCEB /* LoginModelDTO.swift in Sources */,
+				F49D6F67256E66A0003CAA66 /* UIImageView+ext.swift in Sources */,
 				F4C99532256AB9D7002A3A6C /* LoginViewController.swift in Sources */,
-				F4EDFECB256BB9FF0056DCEB /* TopPickTableCell.swift in Sources */,
 				F4C9962C256B8FF2002A3A6C /* BaseController.swift in Sources */,
 				F4743D45256C0FA900BB9E57 /* Constant.swift in Sources */,
-				F4C995D5256ACBB7002A3A6C /* DashboardViewController.swift in Sources */,
+				F49D6FE425701744003CAA66 /* RestrauntMenuViewController.swift in Sources */,
+				F49D6F5B256E6417003CAA66 /* RestrauntsDTO.swift in Sources */,
 				F4743D64256C3F2000BB9E57 /* MyProfileViewController.swift in Sources */,
 				F4C995BF256ABFB4002A3A6C /* CustomView.swift in Sources */,
+				F49D6FEE25701D68003CAA66 /* RestrauntMenuDTO.swift in Sources */,
 				F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */,
 				F4C9960D256AE373002A3A6C /* TermsandConditionViewController.swift in Sources */,
 				F4C99603256ADA20002A3A6C /* HomeViewController.swift in Sources */,
@@ -759,6 +786,7 @@
 				F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */,
 				F4743D5A256C349F00BB9E57 /* LoginPreference.swift in Sources */,
 				F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */,
+				F49D6FE925701CD3003CAA66 /* RestrauntMenusTableViewCell.swift in Sources */,
 				F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */,
 				F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */,
 			);
