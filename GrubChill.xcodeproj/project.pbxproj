@@ -10,6 +10,8 @@
 		3865154FA3E8B8435D91A06B /* Pods_GrubChill_GrubChillUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7CE2C39704264C7400886 /* Pods_GrubChill_GrubChillUITests.framework */; };
 		451AEA04F9FF5D71DD13EFEE /* Pods_GrubChillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */; };
 		D4B9C867965E6F1EF94FD7CB /* Pods_GrubChill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D261FF5DD0C4F8C8A0FA34D /* Pods_GrubChill.framework */; };
+		F4436BE22572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4436BE02572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift */; };
+		F4436BE32572A9FA006A01F8 /* RestrauntDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4436BE12572A9FA006A01F8 /* RestrauntDetailHeaderCell.xib */; };
 		F4743D45256C0FA900BB9E57 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D44256C0FA900BB9E57 /* Constant.swift */; };
 		F4743D5A256C349F00BB9E57 /* LoginPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D59256C349F00BB9E57 /* LoginPreference.swift */; };
 		F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4743D5E256C3F1200BB9E57 /* SupportViewController.swift */; };
@@ -112,6 +114,8 @@
 		B6DF07CBFA6F22133C51CB22 /* Pods-GrubChillTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChillTests.release.xcconfig"; path = "Target Support Files/Pods-GrubChillTests/Pods-GrubChillTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7E7CE2C39704264C7400886 /* Pods_GrubChill_GrubChillUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChill_GrubChillUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED5D238FCE7A1CFE0011305F /* Pods-GrubChill-GrubChillUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChill-GrubChillUITests.debug.xcconfig"; path = "Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F4436BE02572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntDetailHeaderCell.swift; sourceTree = "<group>"; };
+		F4436BE12572A9FA006A01F8 /* RestrauntDetailHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestrauntDetailHeaderCell.xib; sourceTree = "<group>"; };
 		F4743D44256C0FA900BB9E57 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		F4743D59256C349F00BB9E57 /* LoginPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPreference.swift; sourceTree = "<group>"; };
 		F4743D5E256C3F1200BB9E57 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +246,15 @@
 				B6DF07CBFA6F22133C51CB22 /* Pods-GrubChillTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F4436BAD2572A041006A01F8 /* XIB */ = {
+			isa = PBXGroup;
+			children = (
+				F4436BE02572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift */,
+				F4436BE12572A9FA006A01F8 /* RestrauntDetailHeaderCell.xib */,
+			);
+			path = XIB;
 			sourceTree = "<group>";
 		};
 		F4743D68256C3FA100BB9E57 /* Profile */ = {
@@ -418,6 +431,7 @@
 		F4C995CE256ACB89002A3A6C /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				F4436BAD2572A041006A01F8 /* XIB */,
 				F49D6FCC25700F7E003CAA66 /* Cell */,
 				F4C99602256ADA20002A3A6C /* HomeViewController.swift */,
 				F49D6FDB25701611003CAA66 /* Dashboard.storyboard */,
@@ -591,6 +605,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4436BE32572A9FA006A01F8 /* RestrauntDetailHeaderCell.xib in Resources */,
 				F4C9953A256AB9D9002A3A6C /* LaunchScreen.storyboard in Resources */,
 				F4C99593256ABA5A002A3A6C /* support.png in Resources */,
 				F4C99599256ABA5A002A3A6C /* noodle.png in Resources */,
@@ -788,6 +803,7 @@
 				F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */,
 				F49D6FE925701CD3003CAA66 /* RestrauntMenusTableViewCell.swift in Sources */,
 				F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */,
+				F4436BE22572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift in Sources */,
 				F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

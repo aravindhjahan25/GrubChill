@@ -9,18 +9,15 @@ import UIKit
 import Alamofire
 import ProgressHUD
 
-class RestrauntMenuViewController: BaseController, UITableViewDataSource {
+class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var restrauntName :UILabel!
     @IBOutlet weak var address :UILabel!
-    @IBOutlet weak var category :UILabel!
     
     @IBOutlet weak var menuListTable: UITableView!
 
     var restrauntDetails: RestrauntList?
     var restrauntMenu = RestrauntMenuDTO()
-    var menuList = [MenuList]()
-    var itemArrays = [ItemsArrayDTO]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,19 +42,12 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource {
                     if statusCode == 200 {
                         print("JSON--> \(JSON)")
                         self.restrauntMenu = RestrauntMenuDTO(JSON: JSON as! [String: Any])!
-                        for index in self.restrauntMenu.data! {
-                            self.menuList.append(index)
-                            for itemIndex in index.items! {
-                                self.itemArrays.append(itemIndex)
-                            }
-                        }
-                        
                         self.restrauntName.text = self.restrauntDetails?.name ?? ""
                         self.address.text =
                             "\(self.restrauntDetails!.address ?? ""),\(self.restrauntDetails!.city ?? ""),\n\(self.restrauntDetails!.state ?? ""),\n\(self.restrauntDetails!.country ?? "") - \(self.restrauntDetails!.zipCode ?? "")"
                         
-                        self.category.text = self.menuList[0].category ?? ""
                         self.menuListTable.dataSource = self
+                        self.menuListTable.delegate = self
                         self.showEmptyView.isHidden = true
                         
                         ProgressHUD.dismiss()
@@ -77,14 +67,27 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource {
         }
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int{
+        return self.restrauntMenu.data!.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = Bundle.main.loadNibNamed("RestrauntDetailHeaderCell", owner: self, options: nil)?.first as! RestrauntDetailHeaderCell
+        headerView.configure(str: self.restrauntMenu.data![section].category ?? "")
+        return headerView
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.itemArrays.count
+        return self.restrauntMenu.data![section].items!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestrauntMenusTableViewCell", for: indexPath as IndexPath) as! RestrauntMenusTableViewCell
-        cell.configure(itemSingle: self.itemArrays[indexPath.row])
+        cell.configure(itemSingle: self.restrauntMenu.data![indexPath.section].items![indexPath.row])
         return cell
     }
 
