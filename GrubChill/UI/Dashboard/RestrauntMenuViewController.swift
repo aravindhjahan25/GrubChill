@@ -53,7 +53,8 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource {
                         }
                         
                         self.restrauntName.text = self.restrauntDetails?.name ?? ""
-                        self.address.text = "\(self.restrauntDetails!.address ?? ""), \(self.restrauntDetails!.city ?? ""), \(self.restrauntDetails!.state ?? ""), \(self.restrauntDetails!.country ?? "")"
+                        self.address.text =
+                            "\(self.restrauntDetails!.address ?? ""),\(self.restrauntDetails!.city ?? ""),\n\(self.restrauntDetails!.state ?? ""),\n\(self.restrauntDetails!.country ?? "") - \(self.restrauntDetails!.zipCode ?? "")"
                         
                         self.category.text = self.menuList[0].category ?? ""
                         self.menuListTable.dataSource = self

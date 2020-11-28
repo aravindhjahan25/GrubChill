@@ -20,7 +20,7 @@ class DashboardTableViewCell: UITableViewCell {
         restrauntName.text = restrauntSingle.name ?? ""
         
         secondName.text = "\(restrauntSingle.categoryone ?? ""), \(restrauntSingle.categorytwo ?? "" )"
-        address.text = "\(restrauntSingle.address ?? ""), \(restrauntSingle.city ?? ""), \(restrauntSingle.state ?? ""), \(restrauntSingle.country ?? "")"
+        address.text = "\(restrauntSingle.address ?? ""), \(restrauntSingle.city ?? ""), \(restrauntSingle.state ?? ""), \(restrauntSingle.country ?? "") - \(restrauntSingle.zipCode ?? "")"
         
         let imageURL = restrauntSingle.logo ?? ""
         imageCollection.downloadImage(from: URL(string: imageURL)!)
