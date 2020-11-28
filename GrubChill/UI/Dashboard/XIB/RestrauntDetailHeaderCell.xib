@@ -12,34 +12,48 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="RestrauntDetailHeaderCell" customModule="GrubChill" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snK-IX-QbH">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU5-K3-snb">
+                                <rect key="frame" x="0.0" y="10" width="320" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="wd2-ru-CF7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04n-bR-Rqj">
+                                <rect key="frame" x="0.0" y="43" width="320" height="2"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="pZ0-M6-kxi"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU5-K3-snb">
-                        <rect key="frame" x="0.0" y="9.5" width="320" height="25"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="wd2-ru-CF7"/>
+                            <constraint firstItem="rU5-K3-snb" firstAttribute="centerY" secondItem="snK-IX-QbH" secondAttribute="centerY" id="GtV-gU-0XU"/>
+                            <constraint firstItem="rU5-K3-snb" firstAttribute="leading" secondItem="snK-IX-QbH" secondAttribute="leading" id="Gym-KX-PiQ"/>
+                            <constraint firstItem="04n-bR-Rqj" firstAttribute="leading" secondItem="snK-IX-QbH" secondAttribute="leading" id="Pls-dc-Xeh"/>
+                            <constraint firstAttribute="bottom" secondItem="04n-bR-Rqj" secondAttribute="bottom" id="k2X-Qy-1bg"/>
+                            <constraint firstAttribute="trailing" secondItem="04n-bR-Rqj" secondAttribute="trailing" id="kyA-kM-eFD"/>
+                            <constraint firstAttribute="trailing" secondItem="rU5-K3-snb" secondAttribute="trailing" id="xJx-je-9oD"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="rU5-K3-snb" secondAttribute="trailing" id="4Mb-NI-bco"/>
-                    <constraint firstItem="snK-IX-QbH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="CyB-e8-o5e"/>
-                    <constraint firstItem="snK-IX-QbH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SBh-3n-Qdd"/>
-                    <constraint firstAttribute="trailing" secondItem="snK-IX-QbH" secondAttribute="trailing" id="Vfd-zT-zbU"/>
-                    <constraint firstItem="rU5-K3-snb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="dlb-pK-Chg"/>
-                    <constraint firstItem="rU5-K3-snb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eYg-or-3Wv"/>
-                    <constraint firstAttribute="bottom" secondItem="snK-IX-QbH" secondAttribute="bottom" id="sUG-h2-kDe"/>
+                    <constraint firstItem="snK-IX-QbH" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="3hV-Kj-mX1"/>
+                    <constraint firstAttribute="trailing" secondItem="snK-IX-QbH" secondAttribute="trailing" id="7F2-lS-zvL"/>
+                    <constraint firstItem="snK-IX-QbH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="QBp-TG-G0m"/>
+                    <constraint firstAttribute="bottom" secondItem="snK-IX-QbH" secondAttribute="bottom" id="wSk-jI-1fK"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
