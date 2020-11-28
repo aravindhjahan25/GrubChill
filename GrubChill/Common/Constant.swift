@@ -14,7 +14,7 @@ class Constant {
     static let LOGIN = "user/login"
     static let REGISTER = "user/register"
     static let DASHBOARD_ENDPOINT = "restaurants"
-    static let MENUS_ENDPOINT = "menus/"
+    static let MENUS_ENDPOINT = "menus"
 
     
     

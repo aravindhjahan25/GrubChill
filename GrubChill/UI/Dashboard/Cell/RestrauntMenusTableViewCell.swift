@@ -17,7 +17,7 @@ class RestrauntMenusTableViewCell: UITableViewCell {
     @IBOutlet weak var menuImage: UIImageView!
 
 
-    func configure(itemSingle: ItemsArrayDTO) {
+    func configure(itemSingle: Itemdata) {
         
         cardView.cardDesign(shadowPath: false, radius: 8)
         

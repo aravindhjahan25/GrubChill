@@ -30,7 +30,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     }
     
     func getMenuList(){
-        let urlString = Constant.Base_URL + Constant.MENUS_ENDPOINT + (self.restrauntDetails?.businessid)!
+        let urlString = Constant.Base_URL + Constant.DASHBOARD_ENDPOINT + "/" + (self.restrauntDetails?.businessid)!
         ProgressHUD.show("Please Wait...")
         
         AF.request(urlString, method: .get, encoding: JSONEncoding.default).responseJSON {
@@ -68,7 +68,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     }
     
     func numberOfSections(in tableView: UITableView) -> Int{
-        return self.restrauntMenu.data!.count
+        return self.restrauntMenu.data?.menu?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -77,17 +77,18 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = Bundle.main.loadNibNamed("RestrauntDetailHeaderCell", owner: self, options: nil)?.first as! RestrauntDetailHeaderCell
-        headerView.configure(str: self.restrauntMenu.data![section].category ?? "")
+        print("\(self.restrauntMenu.data?.menu?[section].category)")
+        headerView.configure(str: self.restrauntMenu.data?.menu?[section].category ?? "")
         return headerView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.restrauntMenu.data![section].items!.count
+        return self.restrauntMenu.data?.menu?[section].items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestrauntMenusTableViewCell", for: indexPath as IndexPath) as! RestrauntMenusTableViewCell
-        cell.configure(itemSingle: self.restrauntMenu.data![indexPath.section].items![indexPath.row])
+        cell.configure(itemSingle: self.restrauntMenu.data!.menu![indexPath.section].items![indexPath.row])
         return cell
     }
 
