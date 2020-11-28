@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		3865154FA3E8B8435D91A06B /* Pods_GrubChill_GrubChillUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7CE2C39704264C7400886 /* Pods_GrubChill_GrubChillUITests.framework */; };
 		451AEA04F9FF5D71DD13EFEE /* Pods_GrubChillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */; };
+		84B58ED32572BEC100CAE9B2 /* SubTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B58ED12572BEC100CAE9B2 /* SubTotalTableViewCell.swift */; };
+		84B58ED42572BEC100CAE9B2 /* SubTotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B58ED22572BEC100CAE9B2 /* SubTotalTableViewCell.xib */; };
+		84B58EDA2572C0E000CAE9B2 /* MenuItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B58ED82572C0E000CAE9B2 /* MenuItemsTableViewCell.swift */; };
+		84B58EDB2572C0E000CAE9B2 /* MenuItemsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B58ED92572C0E000CAE9B2 /* MenuItemsTableViewCell.xib */; };
+		84B58EE12572E12F00CAE9B2 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B58EE02572E12F00CAE9B2 /* IntrinsicTableView.swift */; };
 		D4B9C867965E6F1EF94FD7CB /* Pods_GrubChill.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D261FF5DD0C4F8C8A0FA34D /* Pods_GrubChill.framework */; };
 		F4436BE22572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4436BE02572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift */; };
 		F4436BE32572A9FA006A01F8 /* RestrauntDetailHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4436BE12572A9FA006A01F8 /* RestrauntDetailHeaderCell.xib */; };
@@ -109,6 +114,11 @@
 		11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChillTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA8FE4CFA37813F8EDB758 /* Pods-GrubChill-GrubChillUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChill-GrubChillUITests.release.xcconfig"; path = "Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5220C701F4F08C5626047B66 /* Pods-GrubChill.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChill.debug.xcconfig"; path = "Target Support Files/Pods-GrubChill/Pods-GrubChill.debug.xcconfig"; sourceTree = "<group>"; };
+		84B58ED12572BEC100CAE9B2 /* SubTotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTotalTableViewCell.swift; sourceTree = "<group>"; };
+		84B58ED22572BEC100CAE9B2 /* SubTotalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubTotalTableViewCell.xib; sourceTree = "<group>"; };
+		84B58ED82572C0E000CAE9B2 /* MenuItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsTableViewCell.swift; sourceTree = "<group>"; };
+		84B58ED92572C0E000CAE9B2 /* MenuItemsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemsTableViewCell.xib; sourceTree = "<group>"; };
+		84B58EE02572E12F00CAE9B2 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		998133DE1912EA25714E5EAC /* Pods-GrubChill.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChill.release.xcconfig"; path = "Target Support Files/Pods-GrubChill/Pods-GrubChill.release.xcconfig"; sourceTree = "<group>"; };
 		A6B9EB265F52F756A5742B4C /* Pods-GrubChillTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChillTests.debug.xcconfig"; path = "Target Support Files/Pods-GrubChillTests/Pods-GrubChillTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6DF07CBFA6F22133C51CB22 /* Pods-GrubChillTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChillTests.release.xcconfig"; path = "Target Support Files/Pods-GrubChillTests/Pods-GrubChillTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -412,6 +422,7 @@
 			children = (
 				F4C995BE256ABFB4002A3A6C /* CustomView.swift */,
 				F4C995C6256AC330002A3A6C /* CustomButton.swift */,
+				84B58EE02572E12F00CAE9B2 /* IntrinsicTableView.swift */,
 			);
 			path = CustomClass;
 			sourceTree = "<group>";
@@ -476,6 +487,10 @@
 			children = (
 				F4C9961E256B8D82002A3A6C /* Cart.storyboard */,
 				F4C99626256B8FCC002A3A6C /* CartListViewController.swift */,
+				84B58ED12572BEC100CAE9B2 /* SubTotalTableViewCell.swift */,
+				84B58ED82572C0E000CAE9B2 /* MenuItemsTableViewCell.swift */,
+				84B58ED92572C0E000CAE9B2 /* MenuItemsTableViewCell.xib */,
+				84B58ED22572BEC100CAE9B2 /* SubTotalTableViewCell.xib */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -645,9 +660,11 @@
 				F4C995B8256ABA5A002A3A6C /* back.png in Resources */,
 				F4C995B5256ABA5A002A3A6C /* veg.png in Resources */,
 				F4C99595256ABA5A002A3A6C /* aboutus.png in Resources */,
+				84B58EDB2572C0E000CAE9B2 /* MenuItemsTableViewCell.xib in Resources */,
 				F4C995B0256ABA5A002A3A6C /* profile.png in Resources */,
 				F4C995A5256ABA5A002A3A6C /* home.png in Resources */,
 				F4C995AC256ABA5A002A3A6C /* logo.png in Resources */,
+				84B58ED42572BEC100CAE9B2 /* SubTotalTableViewCell.xib in Resources */,
 				F4C995AD256ABA5A002A3A6C /* dishitem6.png in Resources */,
 				F4C99592256ABA5A002A3A6C /* check.png in Resources */,
 				F4C99535256AB9D7002A3A6C /* Main.storyboard in Resources */,
@@ -782,12 +799,14 @@
 				F4EDFED7256BC3AB0056DCEB /* TopPickCollectionViewCell.swift in Sources */,
 				F49D6FCE25700FA0003CAA66 /* DashboardTableViewCell.swift in Sources */,
 				F4C99627256B8FCC002A3A6C /* CartListViewController.swift in Sources */,
+				84B58EE12572E12F00CAE9B2 /* IntrinsicTableView.swift in Sources */,
 				F4C995F5256AD2F4002A3A6C /* SideMenuViewController.swift in Sources */,
 				F4EDFEE2256BDDA90056DCEB /* LoginModelDTO.swift in Sources */,
 				F49D6F67256E66A0003CAA66 /* UIImageView+ext.swift in Sources */,
 				F4C99532256AB9D7002A3A6C /* LoginViewController.swift in Sources */,
 				F4C9962C256B8FF2002A3A6C /* BaseController.swift in Sources */,
 				F4743D45256C0FA900BB9E57 /* Constant.swift in Sources */,
+				84B58EDA2572C0E000CAE9B2 /* MenuItemsTableViewCell.swift in Sources */,
 				F49D6FE425701744003CAA66 /* RestrauntMenuViewController.swift in Sources */,
 				F49D6F5B256E6417003CAA66 /* RestrauntsDTO.swift in Sources */,
 				F4743D64256C3F2000BB9E57 /* MyProfileViewController.swift in Sources */,
@@ -805,6 +824,7 @@
 				F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */,
 				F4436BE22572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift in Sources */,
 				F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */,
+				84B58ED32572BEC100CAE9B2 /* SubTotalTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
