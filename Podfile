@@ -10,6 +10,8 @@ target 'GrubChill' do
   pod 'Alamofire'
   pod 'SideMenu'
   pod 'ProgressHUD', '~> 13.4'
+  pod 'IntroScreen'
+
 
   target 'GrubChillTests' do
     inherit! :search_paths

@@ -9,13 +9,15 @@ import UIKit
 import ProgressHUD
 import Alamofire
 
-class CartListViewController: BaseController, UITableViewDataSource, UITableViewDelegate {
+class CartListViewController: BaseController, UITableViewDataSource, UITableViewDelegate ,UICollectionViewDelegate,UICollectionViewDataSource {
     
     @IBOutlet weak var cartTableView : UITableView!
-    
-    
+    @IBOutlet weak var AddressCollection : UICollectionView!
+
     var restrauntDetails: RestrauntList?
     var restrauntMenu = RestrauntMenuDTO()
+    
+    var addressArray = [String]()
 
 
     override func viewDidLoad() {
@@ -24,6 +26,8 @@ class CartListViewController: BaseController, UITableViewDataSource, UITableView
 //        cartTableView?.register(SubTotalTableViewCell.nib, forCellReuseIdentifier: SubTotalTableViewCell.identifier)
 //        
 //        cartTableView?.register(MenuItemsTableViewCell.nib, forCellReuseIdentifier: MenuItemsTableViewCell.identifier)
+        
+        addressArray = ["Address 1","Address 2","Address 3","Address 4","Address 5","Address 6","Address 7"]
 
         self.getMenuList()
     }
@@ -51,6 +55,19 @@ class CartListViewController: BaseController, UITableViewDataSource, UITableView
                         self.cartTableView.reloadData()
                         
                         self.cartTableView.layoutIfNeeded()
+                        
+//                        self.cartTableView.frame.size = self.cartTableView.contentSize
+
+//                        self.cartTableView.isScrollEnabled=false
+                        self.cartTableView.rowHeight = UITableView.automaticDimension
+
+//                        DispatchQueue.main.sync {
+                           
+                                //This code will run in the main thread:
+                                var  frame:CGRect = self.cartTableView.frame;
+                                frame.size.height = self.cartTableView.contentSize.height;
+                                self.cartTableView.frame = frame;
+//                            }
                     }
                     
                     break
@@ -65,6 +82,11 @@ class CartListViewController: BaseController, UITableViewDataSource, UITableView
             }
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+    }
+
+    
     
     func numberOfSections(in tableView: UITableView) -> Int{
         return self.restrauntMenu.data?.menu?.count ?? 0
@@ -88,9 +110,22 @@ class CartListViewController: BaseController, UITableViewDataSource, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestrauntMenusTableViewCell", for: indexPath as IndexPath) as! RestrauntMenusTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuItemsTableViewCell", for: indexPath as IndexPath) as! MenuItemsTableViewCell
         cell.configure(itemSingle: self.restrauntMenu.data!.menu![indexPath.section].items![indexPath.row])
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.addressArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCollectionViewCell", for: indexPath as IndexPath) as! AddressCollectionViewCell
+//        cell.configure(restrauntSingle: self.restrauntList.data![indexPath.row])
+        
+        cell.AddressLab.text = self.addressArray[indexPath.row]
+        
+        return cell
+    }
+  
 }

@@ -24,10 +24,6 @@ class MenuItemsTableViewCell: UITableViewCell {
     @IBOutlet weak var addButton : UIButton!
     @IBOutlet weak var SubButton : UIButton!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    
-    }
     
     func configure(itemSingle: Itemdata) {
         
@@ -43,20 +39,5 @@ class MenuItemsTableViewCell: UITableViewCell {
         }
     }
 
-    
-    static var nib:UINib {
-        return UINib(nibName: identifier, bundle: nil)
-    }
-    
-    static var identifier: String {
-        return String(describing: self)
-    }
-    
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
 }
