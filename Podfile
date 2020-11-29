@@ -10,7 +10,8 @@ target 'GrubChill' do
   pod 'Alamofire'
   pod 'SideMenu'
   pod 'ProgressHUD', '~> 13.4'
-  pod 'IntroScreen'
+  pod 'SQLite.swift', '~> 0.12.0'
+
 
 
   target 'GrubChillTests' do
