@@ -12,8 +12,19 @@ class CustomButton : UIButton {
     
     @IBInspectable var cornerRadius: CGFloat = 10 {
         didSet {
+            self.setTitleColor(UIColor.white, for: .normal)
             layer.cornerRadius = layer.frame.height / 2
             layer.backgroundColor = UIColor(red: 0xd7/255, green: 0x51/255, blue: 0x47/255, alpha: 1.0).cgColor
+        }
+    }
+    
+    @IBInspectable var allCaps: Bool = false {
+        didSet{
+            if allCaps {
+                self.setTitle(self.title(for: .normal)?.uppercased(), for: .normal)
+            }else{
+                self.setTitle(self.title(for: .normal), for: .normal)
+            }
         }
     }
     

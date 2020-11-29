@@ -48,3 +48,15 @@ class MainBG : UIView {
         }
     }
 }
+
+
+class QuantityButtonView : UIView {
+    @IBInspectable var cornerRadius: CGFloat = 10 {
+        didSet {
+            layer.shadowColor = UIColor.black.cgColor
+            layer.borderColor = UIColor(red: 0xd7/255, green: 0x41/255, blue: 0x47/255, alpha: 1.0).cgColor
+            layer.borderWidth = 1
+            layer.cornerRadius = cornerRadius
+        }
+    }
+}
