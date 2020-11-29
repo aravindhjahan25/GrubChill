@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU5-K3-snb">
-                                <rect key="frame" x="0.0" y="10" width="320" height="25"/>
+                                <rect key="frame" x="20" y="10" width="290" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="wd2-ru-CF7"/>
                                 </constraints>
@@ -41,11 +41,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="rU5-K3-snb" firstAttribute="centerY" secondItem="snK-IX-QbH" secondAttribute="centerY" id="GtV-gU-0XU"/>
-                            <constraint firstItem="rU5-K3-snb" firstAttribute="leading" secondItem="snK-IX-QbH" secondAttribute="leading" id="Gym-KX-PiQ"/>
+                            <constraint firstItem="rU5-K3-snb" firstAttribute="leading" secondItem="snK-IX-QbH" secondAttribute="leading" constant="20" id="Gym-KX-PiQ"/>
                             <constraint firstItem="04n-bR-Rqj" firstAttribute="leading" secondItem="snK-IX-QbH" secondAttribute="leading" id="Pls-dc-Xeh"/>
                             <constraint firstAttribute="bottom" secondItem="04n-bR-Rqj" secondAttribute="bottom" id="k2X-Qy-1bg"/>
                             <constraint firstAttribute="trailing" secondItem="04n-bR-Rqj" secondAttribute="trailing" id="kyA-kM-eFD"/>
-                            <constraint firstAttribute="trailing" secondItem="rU5-K3-snb" secondAttribute="trailing" id="xJx-je-9oD"/>
+                            <constraint firstAttribute="trailing" secondItem="rU5-K3-snb" secondAttribute="trailing" constant="10" id="xJx-je-9oD"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -77,7 +77,6 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = Bundle.main.loadNibNamed("RestrauntDetailHeaderCell", owner: self, options: nil)?.first as! RestrauntDetailHeaderCell
-        print("\(self.restrauntMenu.data?.menu?[section].category)")
         headerView.configure(str: self.restrauntMenu.data?.menu?[section].category ?? "")
         return headerView
     }
