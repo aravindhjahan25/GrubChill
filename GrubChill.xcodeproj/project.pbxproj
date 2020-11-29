@@ -27,6 +27,7 @@
 		F49D6FE425701744003CAA66 /* RestrauntMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FE325701744003CAA66 /* RestrauntMenuViewController.swift */; };
 		F49D6FE925701CD3003CAA66 /* RestrauntMenusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FE825701CD3003CAA66 /* RestrauntMenusTableViewCell.swift */; };
 		F49D6FEE25701D68003CAA66 /* RestrauntMenuDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FED25701D68003CAA66 /* RestrauntMenuDTO.swift */; };
+		F4C263682573DE6E00EEC41B /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C263672573DE6E00EEC41B /* CartTableViewCell.swift */; };
 		F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */; };
 		F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */; };
 		F4C99532256AB9D7002A3A6C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C99531256AB9D7002A3A6C /* LoginViewController.swift */; };
@@ -134,6 +135,7 @@
 		F49D6FE325701744003CAA66 /* RestrauntMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenuViewController.swift; sourceTree = "<group>"; };
 		F49D6FE825701CD3003CAA66 /* RestrauntMenusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenusTableViewCell.swift; sourceTree = "<group>"; };
 		F49D6FED25701D68003CAA66 /* RestrauntMenuDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenuDTO.swift; sourceTree = "<group>"; };
+		F4C263672573DE6E00EEC41B /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		F4C9952A256AB9D7002A3A6C /* GrubChill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubChill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +298,14 @@
 				F49D6FCD25700FA0003CAA66 /* DashboardTableViewCell.swift */,
 				F4EDFED6256BC3AB0056DCEB /* TopPickCollectionViewCell.swift */,
 				F49D6FE825701CD3003CAA66 /* RestrauntMenusTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		F4C263662573DE5900EEC41B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F4C263672573DE6E00EEC41B /* CartTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -481,6 +491,7 @@
 		F4C9961D256B8D6D002A3A6C /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				F4C263662573DE5900EEC41B /* Cell */,
 				F4C9961E256B8D82002A3A6C /* Cart.storyboard */,
 				84B58EEB2573A37400CAE9B2 /* AddressCollectionViewCell.swift */,
 				F4C99626256B8FCC002A3A6C /* CartListViewController.swift */,
@@ -815,6 +826,7 @@
 				F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */,
 				F49D6FE925701CD3003CAA66 /* RestrauntMenusTableViewCell.swift in Sources */,
 				F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */,
+				F4C263682573DE6E00EEC41B /* CartTableViewCell.swift in Sources */,
 				F4436BE22572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift in Sources */,
 				F4C995C7256AC330002A3A6C /* CustomButton.swift in Sources */,
 			);
