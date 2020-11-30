@@ -19,10 +19,22 @@ class CartListViewController: BaseController ,UITableViewDataSource {
 //    var restrauntMenu = RestrauntMenuDTO()
 //
 //    var addressArray = [String]()
+    
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var billingView: UIView!
+    @IBOutlet weak var billingheightConstraint: NSLayoutConstraint!
 
-
+    @IBOutlet weak var pickUpSelectedImage: UIImageView!
+    @IBOutlet weak var deliverySelectedImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        billingView.isHidden = true
+        billingheightConstraint.constant = 0
+        
+        pickUpSelectedImage.image = UIImage(named: "check-2.png")
+        deliverySelectedImage.image = UIImage(named: "check.png")
         
 //        cartTableView?.register(SubTotalTableViewCell.nib, forCellReuseIdentifier: SubTotalTableViewCell.identifier)
 //        
@@ -129,4 +141,21 @@ class CartListViewController: BaseController ,UITableViewDataSource {
 //        return cell
 //    }
   
+    @IBAction func pickupBTN(_ sender: UIButton){
+        billingView.isHidden = true
+        billingheightConstraint.constant = 0
+        
+        pickUpSelectedImage.image = UIImage(named: "check-2.png")
+        deliverySelectedImage.image = UIImage(named: "check.png")
+
+    }
+    
+    @IBAction func deliveryBtn(_ sender: UIButton){
+        billingheightConstraint.constant = 205
+        billingView.isHidden = false
+        
+        pickUpSelectedImage.image = UIImage(named: "check.png")
+        deliverySelectedImage.image = UIImage(named: "check-2.png")
+
+    }
 }

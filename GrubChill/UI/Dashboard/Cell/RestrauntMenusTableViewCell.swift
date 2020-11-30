@@ -15,6 +15,9 @@ class RestrauntMenusTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cardView : UIView!
     @IBOutlet weak var menuImage: UIImageView!
+    
+    @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var Quantity: UIView!
 
 
     func configure(itemSingle: Itemdata) {
