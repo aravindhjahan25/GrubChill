@@ -18,6 +18,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
 
     var restrauntDetails: RestrauntList?
     var restrauntMenu = RestrauntMenuDTO()
+    var databaseHandler = DatabaseHandler()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +89,49 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestrauntMenusTableViewCell", for: indexPath as IndexPath) as! RestrauntMenusTableViewCell
         cell.configure(itemSingle: self.restrauntMenu.data!.menu![indexPath.section].items![indexPath.row])
+        
+        cell.add.tag = (indexPath.section*100)+indexPath.row
+        cell.addBtn.tag = (indexPath.section*100)+indexPath.row
+        cell.subBtn.tag = (indexPath.section*100)+indexPath.row
+
+        cell.add.addTarget(self, action: #selector(addAction), for: .touchUpInside)
+        cell.addBtn.addTarget(self, action: #selector(addAction), for: .touchUpInside)
+        cell.subBtn.addTarget(self, action: #selector(subAction), for: .touchUpInside)
+
+        
         return cell
     }
+    
+    @objc func addAction(sender: UIButton) -> Void{
+        
+        let section = sender.tag / 100
+        let row = sender.tag % 100
+        
+        print("\(section)")
+        print("\(row)")
+        
+        self.restrauntMenu.data!.menu![section].items![row].quantity! += 1
+        
+        self.menuListTable.reloadData()
+   }
 
+    @objc func subAction(sender: UIButton) -> Void{
+        
+        let section = sender.tag / 100
+        let row = sender.tag % 100
+        
+        print("\(section)")
+        print("\(row)")
+        
+        
+        self.restrauntMenu.data!.menu![section].items![row].quantity! -= 1
+        
+        
+        var Menudata : Itemdata
+        
+        Menudata = self.restrauntMenu.data!.menu![section].items![row]
+        
+//        databaseHandler.insertCartModel(itemid: "\(Menudata.itemid)", item: Menudata.item, price: Menudata.price, orderid: "", pic: Menudata.pic, quantity: Menudata.quantity, description: Menudata.description, isFavourite: true, isActive: true, optiongroupid: "", optiongroupname: "", optionname: "", optionid: "", optionprice: "")
+        self.menuListTable.reloadData()
+   }
 }

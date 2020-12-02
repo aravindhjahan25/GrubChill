@@ -16,6 +16,8 @@ class HomeViewController: BaseController,
     
     @IBOutlet weak var topPickUp: UICollectionView!
     @IBOutlet weak var restrauntTable: UITableView!
+    var databaseHandler = DatabaseHandler()
+
 
     
     var restrauntList = RestrauntsDTO()
@@ -23,7 +25,9 @@ class HomeViewController: BaseController,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        databaseHandler.createDatabase()
+        databaseHandler.createTable()
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
