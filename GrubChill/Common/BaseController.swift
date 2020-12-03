@@ -23,6 +23,12 @@ class BaseController : UIViewController {
         self.navigationController?.pushViewController(cartVC, animated: true)
     }
     
+    @IBAction func ordersBtn(_ sender : UIButton){
+        let orderVC = UIStoryboard.named.order.instantiateViewController(identifier: "MyOrdersViewController") as! MyOrdersViewController
+        self.navigationController?.pushViewController(orderVC, animated: true)
+    }
+   
+    
     @IBAction func myProfileBtn(_ sender : UIButton){
         let cartVC = UIStoryboard.named.profile.instantiateViewController(identifier: "MyProfileViewController") as! MyProfileViewController
         self.navigationController?.pushViewController(cartVC, animated: true)

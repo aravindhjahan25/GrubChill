@@ -22,6 +22,8 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.presentDeliveryType()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +70,13 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         }
     }
     
+    func presentDeliveryType()  {
+        let detailMenuVC = UIStoryboard.named.dashboard.instantiateViewController(identifier: "DeliveryTypeViewController") as! DeliveryTypeViewController
+        detailMenuVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(detailMenuVC, animated: true)
+        
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int{
         return self.restrauntMenu.data?.menu?.count ?? 0
     }
@@ -111,6 +120,10 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         print("\(row)")
         
         self.restrauntMenu.data!.menu![section].items![row].quantity! += 1
+        
+        let detailMenuVC = UIStoryboard.named.dashboard.instantiateViewController(identifier: "OptionMenuViewController") as! OptionMenuViewController
+        detailMenuVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+            self.present(detailMenuVC, animated: true)
         
         self.menuListTable.reloadData()
    }

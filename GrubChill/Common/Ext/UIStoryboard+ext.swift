@@ -15,5 +15,7 @@ extension UIStoryboard {
         static let sideMenu = UIStoryboard(name: "SideMenu", bundle: nil)
         static let cart = UIStoryboard(name: "Cart", bundle: nil)
         static let profile = UIStoryboard(name: "Profile", bundle: nil)
+        static let order = UIStoryboard(name: "MyOrders", bundle: nil)
+
      }
 }
