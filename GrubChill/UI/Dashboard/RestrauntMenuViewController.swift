@@ -23,7 +23,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.presentDeliveryType()
+        //self.presentDeliveryType()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +55,8 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
                         
                         ProgressHUD.dismiss()
                         self.menuListTable.reloadData()
+                        
+                        self.presentDeliveryType()
                     }
                     
                     break
@@ -71,9 +73,20 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     }
     
     func presentDeliveryType()  {
-        let detailMenuVC = UIStoryboard.named.dashboard.instantiateViewController(identifier: "DeliveryTypeViewController") as! DeliveryTypeViewController
-        detailMenuVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-            self.present(detailMenuVC, animated: true)
+//        let detailMenuVC = UIStoryboard.named.dashboard.instantiateViewController(identifier: "DeliveryTypeViewController") as! DeliveryTypeViewController
+//        detailMenuVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//            self.present(detailMenuVC, animated: true)
+        
+        let myAlert = UIStoryboard.named.dashboard.instantiateViewController(identifier: "DeliveryTypeViewController") as! DeliveryTypeViewController
+        myAlert.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        myAlert.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        myAlert.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        myAlert.view.isOpaque = false
+        let navController = UINavigationController(rootViewController: myAlert)
+        navController.isNavigationBarHidden = true
+        navController.modalPresentationStyle = .overCurrentContext
+        
+        self.present(navController, animated:true, completion: nil)
         
     }
     
