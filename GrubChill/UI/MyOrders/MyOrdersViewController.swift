@@ -19,13 +19,12 @@ class MyOrdersViewController: BaseController ,UITableViewDataSource ,UITableView
         super.viewDidLoad()
         
         self.getMenuList()
-
-        // Do any additional setup after loading the view.
     }
     
     
     func getMenuList(){
-        let urlString = Constant.Base_URL + Constant.My_Orders + "?" + "email=srinivasan@gmail.com"
+        let email: String = UserDefaults.standard.string(forKey: "email")  ?? "srinivasan@gmail.com"
+        let urlString = Constant.Base_URL + Constant.My_Orders + "?email=" +  email
         ProgressHUD.show("Please Wait...")
         
         AF.request(urlString, method: .get, encoding: JSONEncoding.default).responseJSON {
@@ -72,10 +71,19 @@ class MyOrdersViewController: BaseController ,UITableViewDataSource ,UITableView
         
         cell.configure(itemSingle: (self.Myorder.data?[indexPath.row])! )
         
+        return cell
+    }
     
-           return cell
-       
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        print(self.Myorder.data?[indexPath.row].items ?? "nooo")
+        
+        if((self.Myorder.data?[indexPath.row].items!.count)! >= 1){
+            let orderList = UIStoryboard.named.order.instantiateViewController(identifier: "OrderListPopupViewController") as! OrderListPopupViewController
+            orderList.itemsMenu = (self.Myorder.data?[indexPath.row].items)!
+            orderList.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                self.present(orderList, animated: true)
+        }
     }
 
 

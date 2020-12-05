@@ -22,6 +22,8 @@
 		847CC6E5257970EC006588EB /* MyOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CC6E4257970EC006588EB /* MyOrderTableViewCell.swift */; };
 		847CC6EA257973A0006588EB /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 847CC6E92579739F006588EB /* calendar.png */; };
 		84A5A709257BBB8500A5CF86 /* MyOrderDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5A708257BBB8500A5CF86 /* MyOrderDTO.swift */; };
+		84A5A70E257BEB7000A5CF86 /* OrderListPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5A70D257BEB7000A5CF86 /* OrderListPopupViewController.swift */; };
+		84A5A713257BECC800A5CF86 /* OrderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A5A712257BECC800A5CF86 /* OrderListTableViewCell.swift */; };
 		84B58EDA2572C0E000CAE9B2 /* MenuItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B58ED82572C0E000CAE9B2 /* MenuItemsTableViewCell.swift */; };
 		84B58EE12572E12F00CAE9B2 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B58EE02572E12F00CAE9B2 /* IntrinsicTableView.swift */; };
 		84B58EEC2573A37400CAE9B2 /* AddressCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B58EEB2573A37400CAE9B2 /* AddressCollectionViewCell.swift */; };
@@ -139,6 +141,8 @@
 		847CC6E4257970EC006588EB /* MyOrderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrderTableViewCell.swift; sourceTree = "<group>"; };
 		847CC6E92579739F006588EB /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		84A5A708257BBB8500A5CF86 /* MyOrderDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDTO.swift; sourceTree = "<group>"; };
+		84A5A70D257BEB7000A5CF86 /* OrderListPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListPopupViewController.swift; sourceTree = "<group>"; };
+		84A5A712257BECC800A5CF86 /* OrderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewCell.swift; sourceTree = "<group>"; };
 		84B58ED82572C0E000CAE9B2 /* MenuItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemsTableViewCell.swift; sourceTree = "<group>"; };
 		84B58EE02572E12F00CAE9B2 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		84B58EEB2573A37400CAE9B2 /* AddressCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -262,9 +266,11 @@
 		847CC6E02579693F006588EB /* MyOrders */ = {
 			isa = PBXGroup;
 			children = (
+				84A5A712257BECC800A5CF86 /* OrderListTableViewCell.swift */,
 				847CC6E4257970EC006588EB /* MyOrderTableViewCell.swift */,
 				847CC6D6257968F0006588EB /* MyOrders.storyboard */,
 				847CC6DB2579692D006588EB /* MyOrdersViewController.swift */,
+				84A5A70D257BEB7000A5CF86 /* OrderListPopupViewController.swift */,
 			);
 			path = MyOrders;
 			sourceTree = "<group>";
@@ -864,6 +870,7 @@
 				F4743D45256C0FA900BB9E57 /* Constant.swift in Sources */,
 				84B58EDA2572C0E000CAE9B2 /* MenuItemsTableViewCell.swift in Sources */,
 				F49D6FE425701744003CAA66 /* RestrauntMenuViewController.swift in Sources */,
+				84A5A713257BECC800A5CF86 /* OrderListTableViewCell.swift in Sources */,
 				F49D6F5B256E6417003CAA66 /* RestrauntsDTO.swift in Sources */,
 				847CC6C6257952E2006588EB /* OptionMenuTableViewCell.swift in Sources */,
 				F4743D64256C3F2000BB9E57 /* MyProfileViewController.swift in Sources */,
@@ -882,6 +889,7 @@
 				847CC6C12579527D006588EB /* OptionMenuViewController.swift in Sources */,
 				F4743D5A256C349F00BB9E57 /* LoginPreference.swift in Sources */,
 				F4C995DB256ACBFA002A3A6C /* UIStoryboard+ext.swift in Sources */,
+				84A5A70E257BEB7000A5CF86 /* OrderListPopupViewController.swift in Sources */,
 				F49D6FE925701CD3003CAA66 /* RestrauntMenusTableViewCell.swift in Sources */,
 				F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */,
 				F4C263682573DE6E00EEC41B /* CartTableViewCell.swift in Sources */,

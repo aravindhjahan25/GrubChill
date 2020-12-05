@@ -120,9 +120,9 @@ class itemsData : Mappable {
     var item : String?
     var itemid : String?
     var optiongroups : String?
-    var price : String?
+    var price : Float?
     var qty : String?
-    var qty_price : String?
+    var qty_price : Float?
     
     init(){ }
     

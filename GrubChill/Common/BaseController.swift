@@ -24,14 +24,25 @@ class BaseController : UIViewController {
     }
     
     @IBAction func ordersBtn(_ sender : UIButton){
-        let orderVC = UIStoryboard.named.order.instantiateViewController(identifier: "MyOrdersViewController") as! MyOrdersViewController
-        self.navigationController?.pushViewController(orderVC, animated: true)
+        if self.CheckLogin() {
+            let orderVC = UIStoryboard.named.order.instantiateViewController(identifier: "MyOrdersViewController") as! MyOrdersViewController
+            self.navigationController?.pushViewController(orderVC, animated: true)
+        }else{
+            let loginVC = UIStoryboard.named.main.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(loginVC, animated: true)
+        }
     }
    
     
     @IBAction func myProfileBtn(_ sender : UIButton){
-        let cartVC = UIStoryboard.named.profile.instantiateViewController(identifier: "MyProfileViewController") as! MyProfileViewController
-        self.navigationController?.pushViewController(cartVC, animated: true)
+        if self.CheckLogin() {
+            let cartVC = UIStoryboard.named.profile.instantiateViewController(identifier: "MyProfileViewController") as! MyProfileViewController
+            self.navigationController?.pushViewController(cartVC, animated: true)
+        }else{
+            let loginVC = UIStoryboard.named.main.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+            self.navigationController?.pushViewController(loginVC, animated: true)
+        }
+       
     }
     
     @IBAction func supportBtn(_ sender : UIButton){
@@ -47,5 +58,14 @@ class BaseController : UIViewController {
     
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
+    func CheckLogin() -> Bool {
+        print(UserDefaults.standard.string(forKey: "_id") ?? "no")
+        if(UserDefaults.standard.string(forKey: "_id") != nil || UserDefaults.standard.string(forKey: "_id") != ""){
+            return true
+        }else{
+            return false
+        }
     }
 }
