@@ -18,15 +18,12 @@ class HomeViewController: BaseController,
     @IBOutlet weak var restrauntTable: UITableView!
     var databaseHandler = DatabaseHandler()
 
-
-    
     var restrauntList = RestrauntsDTO()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         databaseHandler.createDatabase()
-        databaseHandler.createTable()
 
     }
     

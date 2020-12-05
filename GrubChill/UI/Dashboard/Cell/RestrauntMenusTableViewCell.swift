@@ -19,12 +19,10 @@ class RestrauntMenusTableViewCell: UITableViewCell {
     @IBOutlet weak var menuImage: UIImageView!
     
     @IBOutlet weak var addBtn: UIButton!
-    @IBOutlet weak var add: UIButton!
     @IBOutlet weak var subBtn: UIButton!
 
-    @IBOutlet weak var Quantity: UIView!
-
-    @IBOutlet weak var QuantityView: UIStackView!
+    @IBOutlet weak var QuantityView: UIView!
+    @IBOutlet weak var addBtnQuantity: UIButton!
 
 
     func configure(itemSingle: Itemdata) {
@@ -43,11 +41,11 @@ class RestrauntMenusTableViewCell: UITableViewCell {
         }
         
         if(itemSingle.quantity != 0){
-            addBtn.isHidden = false
-            add.isHidden = true
+            QuantityView.isHidden = false
+            addBtnQuantity.isHidden = true
         }else{
-            addBtn.isHidden = true
-            add.isHidden = false
+            QuantityView.isHidden = true
+            addBtnQuantity.isHidden = false
         }
     }
 }
