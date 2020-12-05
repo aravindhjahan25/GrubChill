@@ -15,6 +15,7 @@ class Constant {
     static let REGISTER = "user/register"
     static let DASHBOARD_ENDPOINT = "restaurants"
     static let MENUS_ENDPOINT = "menus"
+    static let My_Orders = "orders/filter"
 
     
     
@@ -28,4 +29,5 @@ class Constant {
     static let contactPhoneNo = "+1863424766"
     static let contactAddress = "Philadelphia, \nPA, \nUSA"
 
+    
 }

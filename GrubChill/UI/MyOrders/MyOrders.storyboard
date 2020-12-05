@@ -13,7 +13,7 @@
         <scene sceneID="yyS-9e-BhJ">
             <objects>
                 <viewController storyboardIdentifier="MyOrdersViewController" id="0d6-ll-Qym" customClass="MyOrdersViewController" customModule="GrubChill" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Orq-2q-v95">
+                    <view key="view" contentMode="scaleToFill" id="Orq-2q-v95" customClass="MainBG" customModule="GrubChill" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -90,12 +90,16 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="DeliveryType" destination="WV7-Vq-SLr" id="BRv-AI-nhO"/>
+                                            <outlet property="itemId" destination="ymz-MC-HVN" id="6dN-SX-wSR"/>
+                                            <outlet property="orderDate" destination="PWf-Ac-bsj" id="tHY-fV-YRg"/>
+                                            <outlet property="orderId" destination="0gz-wV-LND" id="hmw-Zn-MXA"/>
+                                            <outlet property="paymentType" destination="TAw-mG-Xod" id="iHq-Bs-2AZ"/>
+                                            <outlet property="totalPrice" destination="Roq-LC-Ybu" id="wdz-li-8If"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="0d6-ll-Qym" id="zi4-dc-p9a"/>
-                                    <outlet property="delegate" destination="0d6-ll-Qym" id="fBa-kT-GiD"/>
-                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSs-3a-Lrz" customClass="MainBG" customModule="GrubChill" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
@@ -161,8 +165,14 @@
                             <constraint firstItem="eSs-3a-Lrz" firstAttribute="top" secondItem="tuh-xh-27n" secondAttribute="top" id="iL5-fh-Dxj"/>
                             <constraint firstItem="eSs-3a-Lrz" firstAttribute="trailing" secondItem="59z-E1-syN" secondAttribute="trailing" id="oYd-JC-Np5"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Order" image="history.png" id="iMf-vf-jJS"/>
+                    <connections>
+                        <outlet property="OrderTable" destination="59z-E1-syN" id="BC5-BD-1qW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kr1-qM-0vg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
