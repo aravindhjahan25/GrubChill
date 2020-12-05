@@ -12,19 +12,18 @@ class CartDTO : Mappable {
     
     var itemid : String?
     var item : String?
-    var price : String?
-    var orderid : String?
+    var price : Double?
     var pic : String?
-    var quantity : String?
     var description : String?
-    var isFavourite : String?
-    var isActive : String?
-    var optiongroupname : String?
-    var optiongroupid : String?
-    var optionname : String?
-    var optionid : String?
-    var optionprice : String?
-    
+    var quantity : Int?
+//    var isFavourite : String?
+//    var isActive : String?
+//    var optiongroupname : String?
+//    var optiongroupid : String?
+//    var optionname : String?
+//    var optionid : String?
+//    var optionprice : String?
+//
     init(){ }
     
     required init?(map: Map) { }
@@ -33,9 +32,9 @@ class CartDTO : Mappable {
         itemid <- map["itemid"]
         item <- map["item"]
         price <- map["price"]
-        orderid <- map["orderid"]
+        pic <- map["pic"]
+        quantity <- map["quantity"]
+        description <- map["description"]
+        quantity <- map["quantity"]
     }
-    
-
-
 }

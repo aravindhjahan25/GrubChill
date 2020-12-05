@@ -16,20 +16,12 @@ public struct DatabaseHandler {
     let usersTable = Table("cartModel")
     
     let id = Expression<Int>("id")
-    let itemid = Expression<Int>("itemid")
+    let itemid = Expression<String>("itemid")
     let item = Expression<String>("item")
-    let price = Expression<String>("price")
-    let orderid = Expression<String>("orderid")
+    let price = Expression<Double>("price")
     let pic = Expression<String>("pic")
     let quantity = Expression<Int>("quantity")
     let description = Expression<String>("description")
-    let isFavourite = Expression<Bool>("isFavourite")
-    let isActive = Expression<Bool>("isActive")
-    let optiongroupname = Expression<String>("optiongroupname")
-    let optiongroupid = Expression<String>("optiongroupid")
-    let optionname = Expression<String>("optionname")
-    let optionid = Expression<String>("optionid")
-    let optionprice = Expression<String>("optionprice")
 
     
     var cartDataArray = [CartDTO]()
@@ -59,15 +51,6 @@ public struct DatabaseHandler {
             table.column(self.description)
             table.column(self.pic)
             table.column(self.quantity)
-            table.column(self.orderid)
-            table.column(self.isFavourite)
-            table.column(self.isActive)
-            table.column(self.optiongroupid)
-            table.column(self.optiongroupname)
-            table.column(self.optionname)
-            table.column(self.optionid)
-            table.column(self.optionprice)
-
         }
               
         do {
@@ -82,27 +65,48 @@ public struct DatabaseHandler {
         return self.database
     }
     
-    mutating func insertCartModel(itemid: Int, item : String, price: String, orderid : String, pic : String, quantity : Int, description: String, isFavourite : Bool, isActive : Bool, optiongroupid : String, optiongroupname : String, optionname : String, optionid : String, optionprice : String) -> Bool{
-         let insertUser = self.usersTable.insert(
-            self.itemid <- itemid,
-            self.item <- item,
-            self.price <- price,
-            self.pic <- pic,
-            self.orderid <- orderid,
-            self.quantity <- quantity,
-            self.description <- description,
-            self.isFavourite <- isFavourite,
-            self.isActive <- isActive,
-            self.optiongroupid <- optiongroupid,
-            self.optiongroupname <- optiongroupname,
-            self.optionname <- optionname,
-            self.optionid <- optionid,
-            self.optionprice <- optionprice
-        )
+    mutating func insertCartModel(itemid: String, item : String, price: Double, pic : String, quantity : Int, description: String) -> Bool{
         do {
             let db = createDatabase()
-            try db.run(insertUser)
-            print("INSERTED cart element")
+            self.cartDataArray = [CartDTO]()
+            let checkData = try db.prepare(self.usersTable)
+            for cart in checkData {
+                if cart[self.itemid] == itemid {
+                    let category = CartDTO()
+                    category.itemid = cart[self.itemid]
+                    category.item = cart[self.item]
+                    category.price = cart[self.price]
+                    category.pic = cart[self.pic]
+                    category.description = cart[self.description]
+                    category.quantity = cart[self.quantity]
+
+                    self.cartDataArray.append(category)
+                }
+            }
+            
+            if self.cartDataArray.count == 0{
+                let insertUser = self.usersTable.insert(
+                   self.itemid <- itemid,
+                   self.item <- item,
+                   self.price <- price,
+                   self.pic <- pic,
+                   self.quantity <- quantity,
+                   self.description <- description
+               )
+                try db.run(insertUser)
+                print("INSERTED cart element")
+            }else{
+                let updateUser = self.usersTable.update(
+                    self.itemid <- itemid,
+                    self.item <- item,
+                    self.price <- price,
+                    self.pic <- pic,
+                    self.quantity <- quantity,
+                    self.description <- description
+                )
+                try db.run(updateUser)
+                print("Update cart element")
+            }
             return true
         } catch {
             print(error)
@@ -117,15 +121,12 @@ public struct DatabaseHandler {
             let cartList = try db.prepare(self.usersTable)
             for cart in cartList {
                 let category = CartDTO()
-//                category.itemid = cart[self.itemid]
+                category.itemid = cart[self.itemid]
                 category.item = cart[self.item]
                 category.price = cart[self.price]
                 category.pic = cart[self.pic]
                 category.description = cart[self.description]
-//                category.quantity = cart[self.quantity]
-//                category.isActive = cart[self.isActive]
-//                category.isFavourite = cart[self.isFavourite]
-//                category.isActive = cart[self.isActive]
+                category.quantity = cart[self.quantity]
 
                 self.cartDataArray.append(category)
             }
@@ -139,7 +140,7 @@ public struct DatabaseHandler {
     mutating func deleteCartData(itemsID : Int) -> Bool{
         do {
             let db = createDatabase()
-            let user = "DELETE FROM cartModel WHERE itemsID=\(itemsID)"
+            let user = "DELETE FROM \(usersTable) WHERE itemsID=\(itemsID)"
             let deleteUser = try db.run(user)
             print(deleteUser)
             return true
@@ -158,10 +159,8 @@ public struct DatabaseHandler {
                 qinHand.append(contentsOf: [index[self.quantity]])
             }
             
-            let total = qinHand.reduce(0, +)
-
-            
-            return total
+            //let total = qinHand.reduce(0, +)
+            return qinHand.count
         }catch {
             print(error)
             return 0

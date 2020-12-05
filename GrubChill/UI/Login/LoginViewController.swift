@@ -62,15 +62,15 @@ class LoginViewController: BaseController {
                         let loginDTO = LoginModelDTO(JSON: JSON as! [String : Any])
                         if loginDTO?.status == "Success" {
                             self.sharedPref.createLoginSession(
-                                _id: (loginDTO?.data?._id)!,
-                                phonenumber: (loginDTO?.data?.phonenumber)!,
-                                username: (loginDTO?.data?.username)!,
-                                email: (loginDTO?.data?.email)!,
-                                role: (loginDTO?.data?.phonenumber)!,
-                                status: (loginDTO?.data?.phonenumber)!,
-                                isVerified: (loginDTO?.data?.isVerified)!,
-                                stripe_id: (loginDTO?.data?.phonenumber)!,
-                                business_id: (loginDTO?.data?.phonenumber)!)
+                                _id: (loginDTO?.data?._id ?? ""),
+                                phonenumber: (loginDTO?.data?.phonenumber ?? ""),
+                                username: (loginDTO?.data?.username ?? ""),
+                                email: (loginDTO?.data?.email ?? ""),
+                                role: (loginDTO?.data?.role ?? ""),
+                                status: (loginDTO?.data?.status ?? ""),
+                                isVerified: (loginDTO?.data?.isVerified ?? false),
+                                stripe_id: (loginDTO?.data?.stripe_id ?? ""),
+                                business_id: (loginDTO?.data?.business_id ?? ""))
                             
                             ProgressHUD.dismiss()
                             let dashBoard = UIStoryboard.named.main.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
