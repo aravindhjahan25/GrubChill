@@ -152,6 +152,10 @@ public struct DatabaseHandler {
             self.cartDataArray = [CartItemData]()
             self.OverallCart = [CartDTO]()
 
+            var restaurantIdLab :String = ""
+            var delivery_methodLab :String = ""
+
+
             let db = createDatabase()
             let cartList = try db.prepare(self.usersTable)
             for cart in cartList {
@@ -164,13 +168,15 @@ public struct DatabaseHandler {
                 category.quantity = cart[self.quantity]
                 category.businessid = cart[self.businessid]
                 category.isactive = cart[self.isactive]
+                restaurantIdLab = cart[self.restaurantId]
+                delivery_methodLab = cart[self.delivery_method]
                 
                 self.cartDataArray.append(category)
-                self.OverallCart.a.cartItem = self.cartDataArray
-                OverallCart[0].restaurantId = cart[self.restaurantId]
-                OverallCart[0].delivery_method = cart[self.delivery_method]
-
-
+            }
+            if(self.cartDataArray.count != 0 ){
+                OverallCart[0].restaurantId = restaurantIdLab
+                OverallCart[0].delivery_method = delivery_methodLab
+                OverallCart[0].cartItem = self.cartDataArray
             }
         } catch {
             print(error)
