@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1210,13 +1210,18 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="DesLab" destination="TEz-le-Ajl" id="LBK-NG-Grh"/>
+                                            <outlet property="MenuImg" destination="jcU-dq-VUy" id="nTr-KO-AAE"/>
+                                            <outlet property="MenuLab" destination="aXk-1n-Odj" id="wOA-vG-K6Z"/>
+                                            <outlet property="QuantityLab" destination="lBL-eZ-Gbu" id="p4p-tw-r8c"/>
+                                            <outlet property="RateLab" destination="b4W-3d-AbV" id="YkY-zE-F9N"/>
+                                            <outlet property="SubButton" destination="UOr-C1-p99" id="jyo-eQ-CjS"/>
+                                            <outlet property="TotalPriceLab" destination="KBc-H7-tK8" id="yb0-uO-Ds0"/>
+                                            <outlet property="addButton" destination="of0-nC-0zs" id="xC1-KO-mRE"/>
                                             <outlet property="cardView" destination="afa-3d-3wb" id="dJV-iF-GzV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="8ip-rv-S8v" id="ene-WL-1Eu"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7GB-NW-Gqq"/>

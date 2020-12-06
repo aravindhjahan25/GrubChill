@@ -9,7 +9,7 @@ import UIKit
 import ProgressHUD
 import Alamofire
 
-class CartListViewController: BaseController ,UITableViewDataSource {
+class CartListViewController: BaseController ,UITableViewDataSource, UITableViewDelegate {
                                 //, UITableViewDelegate ,UICollectionViewDelegate,UICollectionViewDataSource {
     
      @IBOutlet weak var cartTableView : UITableView!
@@ -27,6 +27,12 @@ class CartListViewController: BaseController ,UITableViewDataSource {
     @IBOutlet weak var pickUpSelectedImage: UIImageView!
     @IBOutlet weak var deliverySelectedImage: UIImageView!
     
+    var cartMenu = [CartDTO]()
+    
+    var databaseHandler = DatabaseHandler()
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +42,7 @@ class CartListViewController: BaseController ,UITableViewDataSource {
         pickUpSelectedImage.image = UIImage(named: "check-2.png")
         deliverySelectedImage.image = UIImage(named: "check.png")
         
+        
 //        cartTableView?.register(SubTotalTableViewCell.nib, forCellReuseIdentifier: SubTotalTableViewCell.identifier)
 //        
 //        cartTableView?.register(MenuItemsTableViewCell.nib, forCellReuseIdentifier: MenuItemsTableViewCell.identifier)
@@ -43,6 +50,21 @@ class CartListViewController: BaseController ,UITableViewDataSource {
 //        addressArray = ["Address 1","Address 2","Address 3","Address 4","Address 5","Address 6","Address 7"]
 //
 //        self.getMenuList()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      
+        cartMenu = databaseHandler.getCartModelList()
+        
+        print("carrrtttt---> \(cartMenu.toJSONString(prettyPrint: true))")
+        
+        self.cartTableView.dataSource = self
+        self.cartTableView.delegate = self
+
+        ProgressHUD.dismiss()
+        self.cartTableView.reloadData()
+
+
     }
     
     
@@ -119,12 +141,12 @@ class CartListViewController: BaseController ,UITableViewDataSource {
 //
 //
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return cartMenu[section].cartItem?.count ?? 0
     }
 //
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath as IndexPath) as! CartTableViewCell
-        cell.configure()
+        cell.configure(itemSingle: self.cartMenu[indexPath.section].cartItem![indexPath.row])
         return cell
     }
 //

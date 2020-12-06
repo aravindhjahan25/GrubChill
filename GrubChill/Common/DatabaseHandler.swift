@@ -22,9 +22,15 @@ public struct DatabaseHandler {
     let pic = Expression<String>("pic")
     let quantity = Expression<Int>("quantity")
     let description = Expression<String>("description")
+    let isactive = Expression<String>("isactive")
+    let businessid = Expression<String>("businessid")
+    let delivery_method = Expression<String>("delivery_method")
+    let restaurantId = Expression<String>("restaurantId")
 
-    
-    var cartDataArray = [CartDTO]()
+
+
+    var OverallCart = [CartDTO]()
+    var cartDataArray = [CartItemData]()
     var qinHand = [Int]()
     
     mutating func createDatabase() -> Connection{
@@ -42,15 +48,25 @@ public struct DatabaseHandler {
         return self.database
     }
     
+//    "restaurantId":"1202010260502",
+//        "address_id":null,
+//        "couponCode":null,
+//        "delivery_method":"Delivery",
+
+    
     func createTable(){
         let createTable = self.usersTable.create { (table) in
             table.column(self.id, primaryKey: true)
             table.column(self.itemid)
             table.column(self.item)
             table.column(self.price)
+            table.column(self.isactive)
+            table.column(self.businessid)
             table.column(self.description)
             table.column(self.pic)
             table.column(self.quantity)
+            table.column(self.delivery_method)
+            table.column(self.restaurantId)
         }
               
         do {
@@ -65,24 +81,33 @@ public struct DatabaseHandler {
         return self.database
     }
     
-    mutating func insertCartModel(itemid: String, item : String, price: Double, pic : String, quantity : Int, description: String) -> Bool{
+    mutating func insertCartModel(itemid: String, item : String, price: Double, pic : String, quantity : Int, description: String, isactive: String, businessid: String, restaurantId: String, delivery_method: String) -> Bool{
         do {
             let db = createDatabase()
-            self.cartDataArray = [CartDTO]()
+            self.cartDataArray = [CartItemData]()
+            self.OverallCart = [CartDTO]()
+
             let checkData = try db.prepare(self.usersTable)
             for cart in checkData {
                 if cart[self.itemid] == itemid {
-                    let category = CartDTO()
+                    let category = CartItemData()
                     category.itemid = cart[self.itemid]
                     category.item = cart[self.item]
                     category.price = cart[self.price]
                     category.pic = cart[self.pic]
                     category.description = cart[self.description]
                     category.quantity = cart[self.quantity]
-
+                    category.businessid = cart[self.businessid]
+                    category.isactive = cart[self.isactive]
+                    
+                    OverallCart[0].restaurantId = cart[self.restaurantId]
+                    OverallCart[0].delivery_method = cart[self.delivery_method]
                     self.cartDataArray.append(category)
                 }
+                OverallCart[0].cartItem = self.cartDataArray
+
             }
+
             
             if self.cartDataArray.count == 0{
                 let insertUser = self.usersTable.insert(
@@ -91,7 +116,11 @@ public struct DatabaseHandler {
                    self.price <- price,
                    self.pic <- pic,
                    self.quantity <- quantity,
-                   self.description <- description
+                   self.description <- description,
+                    self.businessid <- businessid,
+                    self.isactive <- isactive,
+                    self.restaurantId <- restaurantId,
+                    self.delivery_method <- delivery_method
                )
                 try db.run(insertUser)
                 print("INSERTED cart element")
@@ -102,7 +131,11 @@ public struct DatabaseHandler {
                     self.price <- price,
                     self.pic <- pic,
                     self.quantity <- quantity,
-                    self.description <- description
+                    self.description <- description,
+                    self.businessid <- businessid,
+                    self.isactive <- isactive,
+                    self.restaurantId <- restaurantId,
+                    self.delivery_method <- delivery_method
                 )
                 try db.run(updateUser)
                 print("Update cart element")
@@ -116,36 +149,46 @@ public struct DatabaseHandler {
     
     mutating func getCartModelList() -> [CartDTO]{
         do {
-            self.cartDataArray = [CartDTO]()
+            self.cartDataArray = [CartItemData]()
+            self.OverallCart = [CartDTO]()
+
             let db = createDatabase()
             let cartList = try db.prepare(self.usersTable)
             for cart in cartList {
-                let category = CartDTO()
+                let category = CartItemData()
                 category.itemid = cart[self.itemid]
                 category.item = cart[self.item]
                 category.price = cart[self.price]
                 category.pic = cart[self.pic]
                 category.description = cart[self.description]
                 category.quantity = cart[self.quantity]
-
+                category.businessid = cart[self.businessid]
+                category.isactive = cart[self.isactive]
+                
                 self.cartDataArray.append(category)
+                self.OverallCart.a.cartItem = self.cartDataArray
+                OverallCart[0].restaurantId = cart[self.restaurantId]
+                OverallCart[0].delivery_method = cart[self.delivery_method]
+
+
             }
         } catch {
             print(error)
         }
 
-        return cartDataArray
+        return OverallCart
     }
     
-    mutating func deleteCartData(itemsID : Int) -> Bool{
+    mutating func deleteCartData(itemsID : String) -> Bool{
         do {
             let db = createDatabase()
-            let user = "DELETE FROM \(usersTable) WHERE itemsID=\(itemsID)"
+            let user = "DELETE FROM cartModel WHERE itemid=\"\(itemsID)\""
             let deleteUser = try db.run(user)
-            print(deleteUser)
+            
+            print("deleteUserdeleteUser----->\(deleteUser)")
             return true
         } catch {
-            print(error)
+            print("error----->\(error)")
             return false
         }
     }

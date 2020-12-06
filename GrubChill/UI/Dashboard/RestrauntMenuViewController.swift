@@ -140,10 +140,17 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         Menudata = self.restrauntMenu.data!.menu![section].items![row]
         self.restrauntMenu.data!.menu![section].items![row].quantity! += 1
 
-        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", quantity: Menudata.quantity ?? 0, description: Menudata.description ?? "")
+        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", quantity: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: Menudata.isactive ?? "" , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
         
         print("value ----->> \(value)")
         print("value ----->> \(databaseHandler.getCartCount())")
+        
+        if(self.restrauntMenu.data!.menu![section].items![row].optiongroups?.count != 0){
+            let option = UIStoryboard.named.dashboard.instantiateViewController(identifier: "OptionMenuViewController") as! OptionMenuViewController
+            option.optionMenu = (self.restrauntMenu.data!.menu![section].items![row].optiongroups)!
+            option.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                self.present(option, animated: true)
+        }
 
 
         self.menuListTable.reloadData()
@@ -157,9 +164,22 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         print("\(section)")
         print("\(row)")
         
-        self.restrauntMenu.data!.menu![section].items![row].quantity! -= 1
         var Menudata : Itemdata
         Menudata = self.restrauntMenu.data!.menu![section].items![row]
+        self.restrauntMenu.data!.menu![section].items![row].quantity! -= 1
+        
+
+        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", quantity: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: Menudata.isactive ?? "" , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
+        
+
+        if (self.restrauntMenu.data!.menu![section].items![row].quantity! == 0) {
+             databaseHandler.deleteCartData(itemsID: self.restrauntMenu.data!.menu![section].items![row].itemid ?? "")
+        }
+        
+        print("value ----->> \(value)")
+        print("value ----->> \(databaseHandler.getCartCount())")
+
+        
         self.menuListTable.reloadData()
    }
 }

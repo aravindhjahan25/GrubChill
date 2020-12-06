@@ -25,13 +25,14 @@ class MenuItemsTableViewCell: UITableViewCell {
     @IBOutlet weak var SubButton : UIButton!
 
     
-    func configure(itemSingle: Itemdata) {
+    func configure(itemSingle: CartItemData) {
         
         ImgView.cardDesign(shadowPath: false, radius: 8)
         
         MenuLab.text = itemSingle.item ?? ""
         RateLab.text = "$ \(itemSingle.price ?? 0.0)"
         DesLab.text = itemSingle.description ?? ""
+        QuantityLab.text = "\(itemSingle.quantity ?? 0)"
         
         let imageURL = itemSingle.pic ?? ""
         if imageURL != "" {

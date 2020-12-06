@@ -9,6 +9,32 @@ import Foundation
 import ObjectMapper
 
 class CartDTO : Mappable {
+   
+//    "restaurantId":"1202010260502",
+//    "address_id":null,
+//    "couponCode":null,
+//    "delivery_method":"Delivery",
+    var restaurantId : String?
+    var address_id : String?
+    var couponCode : String?
+    var delivery_method : String?
+    var cartItem : [CartItemData]?
+    
+    init(){ }
+    
+    required init?(map: Map) { }
+
+    func mapping(map: Map) {
+        restaurantId <- map["restaurantId"]
+        address_id <- map["address_id"]
+        couponCode <- map["couponCode"]
+        delivery_method <- map["delivery_method"]
+        cartItem <- map["cartItem"]
+        
+    }
+}
+
+class CartItemData: Mappable {
     
     var itemid : String?
     var item : String?
@@ -16,14 +42,9 @@ class CartDTO : Mappable {
     var pic : String?
     var description : String?
     var quantity : Int?
-//    var isFavourite : String?
-//    var isActive : String?
-//    var optiongroupname : String?
-//    var optiongroupid : String?
-//    var optionname : String?
-//    var optionid : String?
-//    var optionprice : String?
-//
+    var isactive :String?
+    var businessid:String?
+    
     init(){ }
     
     required init?(map: Map) { }
@@ -36,5 +57,7 @@ class CartDTO : Mappable {
         quantity <- map["quantity"]
         description <- map["description"]
         quantity <- map["quantity"]
+        isactive <- map["isactive"]
+        businessid <- map["businessid"]
     }
 }

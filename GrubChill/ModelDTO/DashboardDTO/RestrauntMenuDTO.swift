@@ -155,6 +155,8 @@ class Itemdata: Mappable {
     var orderid: String?
     var optiongroups: [optiongroupsData]?
     var quantity: Int?
+    var businessid : String?
+    
 
     init(){ }
     
@@ -169,6 +171,8 @@ class Itemdata: Mappable {
         isactive <- map["isactive"]
         orderid <- map["orderid"]
         optiongroups <- map["optiongroups"]
+        businessid <- map["businessid"]
+
         quantity = 0
         }
 }
@@ -199,6 +203,8 @@ class optionsData: Mappable {
     var optionid : String?
     var price: String?
     var orderid: String?
+    var selected: Int?
+
        
     init(){ }
     
@@ -209,5 +215,7 @@ class optionsData: Mappable {
         optionid <- map["optionid"]
         price <- map["price"]
         orderid <- map["orderid"]
+        selected <- map["0"]
+
         }
 }
