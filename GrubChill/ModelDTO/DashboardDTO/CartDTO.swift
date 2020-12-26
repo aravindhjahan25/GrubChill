@@ -41,8 +41,8 @@ class CartItemData: Mappable {
     var price : Double?
     var pic : String?
     var description : String?
-    var quantity : Int?
-    var isactive :String?
+    var qty : Int?
+    var isactive : Bool?
     var businessid:String?
     
     init(){ }
@@ -54,9 +54,8 @@ class CartItemData: Mappable {
         item <- map["item"]
         price <- map["price"]
         pic <- map["pic"]
-        quantity <- map["quantity"]
+        qty <- map["qty"]
         description <- map["description"]
-        quantity <- map["quantity"]
         isactive <- map["isactive"]
         businessid <- map["businessid"]
     }

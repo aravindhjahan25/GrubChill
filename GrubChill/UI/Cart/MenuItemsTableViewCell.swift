@@ -32,7 +32,7 @@ class MenuItemsTableViewCell: UITableViewCell {
         MenuLab.text = itemSingle.item ?? ""
         RateLab.text = "$ \(itemSingle.price ?? 0.0)"
         DesLab.text = itemSingle.description ?? ""
-        QuantityLab.text = "\(itemSingle.quantity ?? 0)"
+        QuantityLab.text = "\(itemSingle.qty ?? 0)"
         
         let imageURL = itemSingle.pic ?? ""
         if imageURL != "" {

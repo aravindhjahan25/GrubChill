@@ -16,6 +16,8 @@ class Constant {
     static let DASHBOARD_ENDPOINT = "restaurants"
     static let MENUS_ENDPOINT = "menus"
     static let My_Orders = "orders/filter"
+    
+    static let CART = "cart"
 
     
     

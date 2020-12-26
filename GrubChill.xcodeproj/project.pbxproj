@@ -42,6 +42,7 @@
 		F49D6FE425701744003CAA66 /* RestrauntMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FE325701744003CAA66 /* RestrauntMenuViewController.swift */; };
 		F49D6FE925701CD3003CAA66 /* RestrauntMenusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FE825701CD3003CAA66 /* RestrauntMenusTableViewCell.swift */; };
 		F49D6FEE25701D68003CAA66 /* RestrauntMenuDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49D6FED25701D68003CAA66 /* RestrauntMenuDTO.swift */; };
+		F4A35C58258F6BA8006866A5 /* CartResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A35C57258F6BA8006866A5 /* CartResponseDTO.swift */; };
 		F4C263682573DE6E00EEC41B /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C263672573DE6E00EEC41B /* CartTableViewCell.swift */; };
 		F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */; };
 		F4C99530256AB9D7002A3A6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C9952F256AB9D7002A3A6C /* SceneDelegate.swift */; };
@@ -165,6 +166,7 @@
 		F49D6FE325701744003CAA66 /* RestrauntMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenuViewController.swift; sourceTree = "<group>"; };
 		F49D6FE825701CD3003CAA66 /* RestrauntMenusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenusTableViewCell.swift; sourceTree = "<group>"; };
 		F49D6FED25701D68003CAA66 /* RestrauntMenuDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestrauntMenuDTO.swift; sourceTree = "<group>"; };
+		F4A35C57258F6BA8006866A5 /* CartResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartResponseDTO.swift; sourceTree = "<group>"; };
 		F4C263672573DE6E00EEC41B /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		F4C9952A256AB9D7002A3A6C /* GrubChill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrubChill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C9952D256AB9D7002A3A6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 				F49D6FED25701D68003CAA66 /* RestrauntMenuDTO.swift */,
 				847CC6A125742474006588EB /* CartDTO.swift */,
 				84A5A708257BBB8500A5CF86 /* MyOrderDTO.swift */,
+				F4A35C57258F6BA8006866A5 /* CartResponseDTO.swift */,
 			);
 			path = DashboardDTO;
 			sourceTree = "<group>";
@@ -876,6 +879,7 @@
 				F4743D64256C3F2000BB9E57 /* MyProfileViewController.swift in Sources */,
 				847CC69C25740CF6006588EB /* DatabaseHandler.swift in Sources */,
 				F4C995BF256ABFB4002A3A6C /* CustomView.swift in Sources */,
+				F4A35C58258F6BA8006866A5 /* CartResponseDTO.swift in Sources */,
 				F49D6FEE25701D68003CAA66 /* RestrauntMenuDTO.swift in Sources */,
 				F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */,
 				F4C9960D256AE373002A3A6C /* TermsandConditionViewController.swift in Sources */,
@@ -1073,8 +1077,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B7G295DR4F;
 				INFOPLIST_FILE = GrubChill/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1095,8 +1100,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B7G295DR4F;
 				INFOPLIST_FILE = GrubChill/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

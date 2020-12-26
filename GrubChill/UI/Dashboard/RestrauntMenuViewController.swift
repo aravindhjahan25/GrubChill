@@ -19,7 +19,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     var restrauntDetails: RestrauntList?
     var restrauntMenu = RestrauntMenuDTO()
     var databaseHandler = DatabaseHandler()
-    var cartDataArray = [CartDTO]()
+    var cartDataArray = CartDTO()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -140,7 +140,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         Menudata = self.restrauntMenu.data!.menu![section].items![row]
         self.restrauntMenu.data!.menu![section].items![row].quantity! += 1
 
-        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", quantity: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: Menudata.isactive ?? "" , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
+        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
         
         print("value ----->> \(value)")
         print("value ----->> \(databaseHandler.getCartCount())")
@@ -169,7 +169,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         self.restrauntMenu.data!.menu![section].items![row].quantity! -= 1
         
 
-        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", quantity: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: Menudata.isactive ?? "" , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
+        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
         
 
         if (self.restrauntMenu.data!.menu![section].items![row].quantity! == 0) {

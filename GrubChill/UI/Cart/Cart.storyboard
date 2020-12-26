@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -1223,6 +1223,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-u7-F19">
+                                <rect key="frame" x="0.0" y="104" width="414" height="1396"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7GB-NW-Gqq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1230,10 +1234,14 @@
                             <constraint firstItem="7GB-NW-Gqq" firstAttribute="trailing" secondItem="Onz-YT-eAI" secondAttribute="trailing" id="56M-zI-ybM"/>
                             <constraint firstItem="mJC-Os-XWZ" firstAttribute="top" secondItem="7GB-NW-Gqq" secondAttribute="top" id="7Yn-al-vGX"/>
                             <constraint firstItem="mJC-Os-XWZ" firstAttribute="leading" secondItem="J7s-xS-YN9" secondAttribute="leading" id="BRn-5b-qDl"/>
+                            <constraint firstItem="ryh-u7-F19" firstAttribute="top" secondItem="mJC-Os-XWZ" secondAttribute="bottom" id="DTm-BA-uB3"/>
                             <constraint firstItem="Onz-YT-eAI" firstAttribute="leading" secondItem="7GB-NW-Gqq" secondAttribute="leading" id="Ev8-If-OCd"/>
+                            <constraint firstItem="ryh-u7-F19" firstAttribute="trailing" secondItem="7GB-NW-Gqq" secondAttribute="trailing" id="K8m-vR-d9c"/>
                             <constraint firstItem="7GB-NW-Gqq" firstAttribute="trailing" secondItem="mJC-Os-XWZ" secondAttribute="trailing" id="KIp-Zc-tFP"/>
+                            <constraint firstItem="ryh-u7-F19" firstAttribute="leading" secondItem="7GB-NW-Gqq" secondAttribute="leading" id="WjI-a3-W6e"/>
                             <constraint firstItem="Onz-YT-eAI" firstAttribute="top" secondItem="mJC-Os-XWZ" secondAttribute="bottom" id="awl-nU-jTU"/>
                             <constraint firstAttribute="bottom" secondItem="Onz-YT-eAI" secondAttribute="bottom" id="bI2-it-J9l"/>
+                            <constraint firstAttribute="bottom" secondItem="ryh-u7-F19" secondAttribute="bottom" id="dbD-bc-par"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="NO"/>
@@ -1245,9 +1253,15 @@
                         <outlet property="billingView" destination="WPn-6W-YNO" id="7iN-dN-4f2"/>
                         <outlet property="billingheightConstraint" destination="9Bs-x3-Dac" id="jdU-nc-arl"/>
                         <outlet property="cartTableView" destination="Onz-YT-eAI" id="gbE-E9-Zgn"/>
+                        <outlet property="delevieryChargeLabel" destination="n2Y-kn-MuL" id="lXi-jy-vSl"/>
                         <outlet property="deliverySelectedImage" destination="9B6-sN-t6k" id="j2z-bH-N2d"/>
+                        <outlet property="discountLabel" destination="KaC-ei-aBL" id="duK-IX-wHX"/>
                         <outlet property="mainView" destination="LvU-aP-ZeI" id="4Y5-vC-L1O"/>
                         <outlet property="pickUpSelectedImage" destination="pxo-Yh-hIX" id="724-KF-1kz"/>
+                        <outlet property="showEmptyView" destination="ryh-u7-F19" id="eBt-ka-Lsl"/>
+                        <outlet property="subTotalLabel" destination="Fif-Vb-LFv" id="DiT-dj-ffw"/>
+                        <outlet property="taxLabel" destination="l64-rS-UQY" id="wV6-F0-Dn3"/>
+                        <outlet property="totalLabel" destination="2p4-16-gvX" id="Egk-Pm-xli"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RbZ-QW-DWp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

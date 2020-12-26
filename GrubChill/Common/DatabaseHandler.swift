@@ -10,7 +10,7 @@ import Foundation
 import SQLite
 
 public struct DatabaseHandler {
- 
+    
     var database: Connection!
     
     let usersTable = Table("cartModel")
@@ -20,16 +20,16 @@ public struct DatabaseHandler {
     let item = Expression<String>("item")
     let price = Expression<Double>("price")
     let pic = Expression<String>("pic")
-    let quantity = Expression<Int>("quantity")
+    let qty = Expression<Int>("quantity")
     let description = Expression<String>("description")
-    let isactive = Expression<String>("isactive")
+    let isactive = Expression<Bool>("isactive")
     let businessid = Expression<String>("businessid")
     let delivery_method = Expression<String>("delivery_method")
     let restaurantId = Expression<String>("restaurantId")
-
-
-
-    var OverallCart = [CartDTO]()
+    
+    
+    
+    var OverallCart = CartDTO()
     var cartDataArray = [CartItemData]()
     var qinHand = [Int]()
     
@@ -48,11 +48,11 @@ public struct DatabaseHandler {
         return self.database
     }
     
-//    "restaurantId":"1202010260502",
-//        "address_id":null,
-//        "couponCode":null,
-//        "delivery_method":"Delivery",
-
+    //    "restaurantId":"1202010260502",
+    //        "address_id":null,
+    //        "couponCode":null,
+    //        "delivery_method":"Delivery",
+    
     
     func createTable(){
         let createTable = self.usersTable.create { (table) in
@@ -64,11 +64,11 @@ public struct DatabaseHandler {
             table.column(self.businessid)
             table.column(self.description)
             table.column(self.pic)
-            table.column(self.quantity)
+            table.column(self.qty)
             table.column(self.delivery_method)
             table.column(self.restaurantId)
         }
-              
+        
         do {
             try self.database.run(createTable)
             print("Created Table")
@@ -81,12 +81,12 @@ public struct DatabaseHandler {
         return self.database
     }
     
-    mutating func insertCartModel(itemid: String, item : String, price: Double, pic : String, quantity : Int, description: String, isactive: String, businessid: String, restaurantId: String, delivery_method: String) -> Bool{
+    mutating func insertCartModel(itemid: String, item : String, price: Double, pic : String, qty : Int, description: String, isactive: Bool, businessid: String, restaurantId: String, delivery_method: String) -> Bool{
         do {
             let db = createDatabase()
             self.cartDataArray = [CartItemData]()
-            self.OverallCart = [CartDTO]()
-
+            self.OverallCart = CartDTO()
+            
             let checkData = try db.prepare(self.usersTable)
             for cart in checkData {
                 if cart[self.itemid] == itemid {
@@ -96,32 +96,32 @@ public struct DatabaseHandler {
                     category.price = cart[self.price]
                     category.pic = cart[self.pic]
                     category.description = cart[self.description]
-                    category.quantity = cart[self.quantity]
+                    category.qty = cart[self.qty]
                     category.businessid = cart[self.businessid]
                     category.isactive = cart[self.isactive]
                     
-                    OverallCart[0].restaurantId = cart[self.restaurantId]
-                    OverallCart[0].delivery_method = cart[self.delivery_method]
+                    OverallCart.restaurantId = cart[self.restaurantId]
+                    OverallCart.delivery_method = cart[self.delivery_method]
                     self.cartDataArray.append(category)
                 }
-                OverallCart[0].cartItem = self.cartDataArray
-
+                OverallCart.cartItem = self.cartDataArray
+                
             }
-
+            
             
             if self.cartDataArray.count == 0{
                 let insertUser = self.usersTable.insert(
-                   self.itemid <- itemid,
-                   self.item <- item,
-                   self.price <- price,
-                   self.pic <- pic,
-                   self.quantity <- quantity,
-                   self.description <- description,
+                    self.itemid <- itemid,
+                    self.item <- item,
+                    self.price <- price,
+                    self.pic <- pic,
+                    self.qty <- qty,
+                    self.description <- description,
                     self.businessid <- businessid,
                     self.isactive <- isactive,
                     self.restaurantId <- restaurantId,
                     self.delivery_method <- delivery_method
-               )
+                )
                 try db.run(insertUser)
                 print("INSERTED cart element")
             }else{
@@ -130,7 +130,7 @@ public struct DatabaseHandler {
                     self.item <- item,
                     self.price <- price,
                     self.pic <- pic,
-                    self.quantity <- quantity,
+                    self.qty <- qty,
                     self.description <- description,
                     self.businessid <- businessid,
                     self.isactive <- isactive,
@@ -147,15 +147,15 @@ public struct DatabaseHandler {
         }
     }
     
-    mutating func getCartModelList() -> [CartDTO]{
+    mutating func getCartModelList() -> CartDTO{
         do {
             self.cartDataArray = [CartItemData]()
-            self.OverallCart = [CartDTO]()
-
+            self.OverallCart = CartDTO()
+            
             var restaurantIdLab :String = ""
             var delivery_methodLab :String = ""
-
-
+            
+            
             let db = createDatabase()
             let cartList = try db.prepare(self.usersTable)
             for cart in cartList {
@@ -165,7 +165,7 @@ public struct DatabaseHandler {
                 category.price = cart[self.price]
                 category.pic = cart[self.pic]
                 category.description = cart[self.description]
-                category.quantity = cart[self.quantity]
+                category.qty = cart[self.qty]
                 category.businessid = cart[self.businessid]
                 category.isactive = cart[self.isactive]
                 restaurantIdLab = cart[self.restaurantId]
@@ -174,14 +174,14 @@ public struct DatabaseHandler {
                 self.cartDataArray.append(category)
             }
             if(self.cartDataArray.count != 0 ){
-                OverallCart[0].restaurantId = restaurantIdLab
-                OverallCart[0].delivery_method = delivery_methodLab
-                OverallCart[0].cartItem = self.cartDataArray
+                OverallCart.restaurantId = restaurantIdLab
+                OverallCart.delivery_method = delivery_methodLab
+                OverallCart.cartItem = self.cartDataArray
             }
         } catch {
             print(error)
         }
-
+        
         return OverallCart
     }
     
@@ -205,7 +205,7 @@ public struct DatabaseHandler {
             let db = createDatabase()
             let qList = try db.prepare(self.usersTable)
             for index in qList{
-                qinHand.append(contentsOf: [index[self.quantity]])
+                qinHand.append(contentsOf: [index[self.qty]])
             }
             
             //let total = qinHand.reduce(0, +)
@@ -225,9 +225,9 @@ public struct DatabaseHandler {
             print("DELETE ALL DATA")
             return true
         }catch {
-           print(error)
+            print(error)
             return false
         }
     }
-
+    
 }
