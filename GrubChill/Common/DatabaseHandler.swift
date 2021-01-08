@@ -20,7 +20,7 @@ public struct DatabaseHandler {
     let item = Expression<String>("item")
     let price = Expression<Double>("price")
     let pic = Expression<String>("pic")
-    let qty = Expression<Int>("quantity")
+    var qty = Expression<Int>("quantity")
     let description = Expression<String>("description")
     let isactive = Expression<Bool>("isactive")
     let businessid = Expression<String>("businessid")
@@ -107,6 +107,8 @@ public struct DatabaseHandler {
                 OverallCart.cartItem = self.cartDataArray
             }
             
+            print("counnnnnttttaasddasdsadasd\(self.cartDataArray.count)")
+            
             
             
             if self.cartDataArray.count == 0{
@@ -130,7 +132,9 @@ public struct DatabaseHandler {
                 try db.run(insertUser)
                 print("INSERTED cart element")
             }
-//                else{
+            else{
+                let itemupdate = self.usersTable.filter(self.itemid == itemid)
+                try db.run(itemupdate.update(self.qty <- qty))
 //                let updateUser = self.usersTable.update(
 //                    self.itemid <- itemid,
 //                    self.item <- item,
@@ -144,8 +148,8 @@ public struct DatabaseHandler {
 //                    self.delivery_method <- delivery_method
 //                )
 //                try db.run(updateUser)
-//                print("Update cart element")
-//            }
+                print("Update cart element")
+            }
             return true
         } catch {
             print(error)

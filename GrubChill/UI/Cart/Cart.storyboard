@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -801,13 +802,17 @@
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXB-iR-Xav">
                                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="48.5"/>
                                                                             <subviews>
-                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFo-h9-CiC">
+                                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1234556" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFo-h9-CiC">
                                                                                     <rect key="frame" x="25" y="2" width="369" height="45"/>
+                                                                                    <color key="tintColor" name="AccentColor"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="45" id="8WU-0b-YtO"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
+                                                                                    <connections>
+                                                                                        <outlet property="delegate" destination="8ip-rv-S8v" id="uUG-XY-OqZ"/>
+                                                                                    </connections>
                                                                                 </textField>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xda-6H-jmr">
                                                                                     <rect key="frame" x="0.0" y="46.5" width="414" height="2"/>
@@ -843,6 +848,9 @@
                                                                                                     </constraints>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                                    <connections>
+                                                                                                        <outlet property="delegate" destination="8ip-rv-S8v" id="Pd6-sS-1Dk"/>
+                                                                                                    </connections>
                                                                                                 </textField>
                                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1C-Y6-LNb">
                                                                                                     <rect key="frame" x="0.0" y="47" width="126" height="2"/>
@@ -872,6 +880,9 @@
                                                                                                     </constraints>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                                    <connections>
+                                                                                                        <outlet property="delegate" destination="8ip-rv-S8v" id="Bot-mb-fdE"/>
+                                                                                                    </connections>
                                                                                                 </textField>
                                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2H-cQ-AUj">
                                                                                                     <rect key="frame" x="0.0" y="47" width="126" height="2"/>
@@ -901,6 +912,9 @@
                                                                                                     </constraints>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                                                    <connections>
+                                                                                                        <outlet property="delegate" destination="8ip-rv-S8v" id="CsB-za-QiJ"/>
+                                                                                                    </connections>
                                                                                                 </textField>
                                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qct-nC-Qwc">
                                                                                                     <rect key="frame" x="0.0" y="47" width="136" height="2"/>
@@ -941,6 +955,9 @@
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
+                                                                                    <connections>
+                                                                                        <outlet property="delegate" destination="8ip-rv-S8v" id="5Mk-zB-rtR"/>
+                                                                                    </connections>
                                                                                 </textField>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-sH-eh7">
                                                                                     <rect key="frame" x="0.0" y="46.5" width="414" height="2"/>
@@ -1027,6 +1044,9 @@
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="allCaps" value="YES"/>
                                             </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="checkoutPressed" destination="8ip-rv-S8v" eventType="touchUpInside" id="aqh-BG-N8H"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1250,18 +1270,26 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
+                        <outlet property="Expmonth" destination="z6H-Uh-LA6" id="xlb-dG-URg"/>
+                        <outlet property="Expyear" destination="L90-pb-nlb" id="UoY-Hm-yH9"/>
                         <outlet property="billingView" destination="WPn-6W-YNO" id="7iN-dN-4f2"/>
                         <outlet property="billingheightConstraint" destination="9Bs-x3-Dac" id="jdU-nc-arl"/>
+                        <outlet property="cardNo" destination="RFo-h9-CiC" id="TYQ-cm-tbH"/>
                         <outlet property="cartTableView" destination="Onz-YT-eAI" id="gbE-E9-Zgn"/>
+                        <outlet property="cvv" destination="3B8-Qf-OEN" id="34Q-ao-EXa"/>
                         <outlet property="delevieryChargeLabel" destination="n2Y-kn-MuL" id="lXi-jy-vSl"/>
                         <outlet property="deliverySelectedImage" destination="9B6-sN-t6k" id="j2z-bH-N2d"/>
                         <outlet property="discountLabel" destination="KaC-ei-aBL" id="duK-IX-wHX"/>
+                        <outlet property="emailID" destination="gWJ-1M-Z48" id="8XN-vz-bjl"/>
                         <outlet property="mainView" destination="LvU-aP-ZeI" id="4Y5-vC-L1O"/>
+                        <outlet property="phoneNo" destination="r8n-sK-ytK" id="Srf-qS-VHZ"/>
                         <outlet property="pickUpSelectedImage" destination="pxo-Yh-hIX" id="724-KF-1kz"/>
                         <outlet property="showEmptyView" destination="ryh-u7-F19" id="eBt-ka-Lsl"/>
                         <outlet property="subTotalLabel" destination="Fif-Vb-LFv" id="DiT-dj-ffw"/>
                         <outlet property="taxLabel" destination="l64-rS-UQY" id="wV6-F0-Dn3"/>
                         <outlet property="totalLabel" destination="2p4-16-gvX" id="Egk-Pm-xli"/>
+                        <outlet property="userName" destination="xWs-gB-tei" id="aWS-l0-kn8"/>
+                        <outlet property="zipcode" destination="V9V-0S-GPy" id="9Fb-rc-KKq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RbZ-QW-DWp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1275,6 +1303,9 @@
         <image name="check.png" width="384" height="384"/>
         <image name="delivery.png" width="384" height="384"/>
         <image name="noodle.png" width="512" height="512"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
