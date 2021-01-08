@@ -42,7 +42,7 @@ public struct DatabaseHandler {
             createTable()
             print("Database Created")
         } catch {
-            print(error)
+//            print(error)
         }
         
         return self.database
@@ -73,7 +73,7 @@ public struct DatabaseHandler {
             try self.database.run(createTable)
             print("Created Table")
         } catch {
-            print(error)
+//            print(error)
         }
     }
     
@@ -105,12 +105,17 @@ public struct DatabaseHandler {
                     self.cartDataArray.append(category)
                 }
                 OverallCart.cartItem = self.cartDataArray
-                
             }
             
             
+            
             if self.cartDataArray.count == 0{
+
+//                let datat = try db.prepare(alice)
+
+//                print("alliccccccceeeee------->\(datat)")
                 let insertUser = self.usersTable.insert(
+                    or: .replace,
                     self.itemid <- itemid,
                     self.item <- item,
                     self.price <- price,
@@ -124,22 +129,23 @@ public struct DatabaseHandler {
                 )
                 try db.run(insertUser)
                 print("INSERTED cart element")
-            }else{
-                let updateUser = self.usersTable.update(
-                    self.itemid <- itemid,
-                    self.item <- item,
-                    self.price <- price,
-                    self.pic <- pic,
-                    self.qty <- qty,
-                    self.description <- description,
-                    self.businessid <- businessid,
-                    self.isactive <- isactive,
-                    self.restaurantId <- restaurantId,
-                    self.delivery_method <- delivery_method
-                )
-                try db.run(updateUser)
-                print("Update cart element")
             }
+//                else{
+//                let updateUser = self.usersTable.update(
+//                    self.itemid <- itemid,
+//                    self.item <- item,
+//                    self.price <- price,
+//                    self.pic <- pic,
+//                    self.qty <- qty,
+//                    self.description <- description,
+//                    self.businessid <- businessid,
+//                    self.isactive <- isactive,
+//                    self.restaurantId <- restaurantId,
+//                    self.delivery_method <- delivery_method
+//                )
+//                try db.run(updateUser)
+//                print("Update cart element")
+//            }
             return true
         } catch {
             print(error)
@@ -188,7 +194,7 @@ public struct DatabaseHandler {
     mutating func deleteCartData(itemsID : String) -> Bool{
         do {
             let db = createDatabase()
-            let user = "DELETE FROM cartModel WHERE itemid=\"\(itemsID)\""
+            let user = "DELETE FROM cartModel WHERE itemid=\"\(itemsID)\" Limit 1"
             let deleteUser = try db.run(user)
             
             print("deleteUserdeleteUser----->\(deleteUser)")
@@ -215,6 +221,24 @@ public struct DatabaseHandler {
             return 0
         }
     }
+
+    mutating func getTotalPrice() -> Double{
+        do{
+            var TotalPrice = [Double]()
+            let db = createDatabase()
+            let qList = try db.prepare(self.usersTable)
+            for index in qList{
+                TotalPrice.append(contentsOf: [index[self.price]])
+            }
+            
+            let total = TotalPrice.reduce(0, +)
+            return total
+        }catch {
+            print(error)
+            return 0
+        }
+    }
+
     
     mutating func deleteAllItems() -> Bool{
         

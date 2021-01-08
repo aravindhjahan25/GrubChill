@@ -11,6 +11,7 @@ import ProgressHUD
 
 class HomeViewController: BaseController,
                           UICollectionViewDataSource,
+                          UICollectionViewDelegate,
                           UITableViewDataSource,
                           UITableViewDelegate{
     
@@ -76,6 +77,12 @@ class HomeViewController: BaseController,
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopPickCollectionViewCell", for: indexPath as IndexPath) as! TopPickCollectionViewCell
         cell.configure(restrauntSingle: self.restrauntList.data![indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath){
+        let detailMenuVC = UIStoryboard.named.dashboard.instantiateViewController(identifier: "RestrauntMenuViewController") as! RestrauntMenuViewController
+        detailMenuVC.restrauntDetails = self.restrauntList.data![indexPath.row]
+        self.navigationController?.pushViewController(detailMenuVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

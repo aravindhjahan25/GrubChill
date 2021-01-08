@@ -14,6 +14,18 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     @IBOutlet weak var restrauntName :UILabel!
     @IBOutlet weak var address :UILabel!
     
+    //viewcart list
+    @IBOutlet weak var itemsLab :UILabel!
+    @IBOutlet weak var rateLab :UILabel!
+    
+
+
+    
+    @IBOutlet weak var viewCart :UIView!
+    
+    
+
+    
     @IBOutlet weak var menuListTable: UITableView!
 
     var restrauntDetails: RestrauntList?
@@ -140,16 +152,24 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         Menudata = self.restrauntMenu.data!.menu![section].items![row]
         self.restrauntMenu.data!.menu![section].items![row].quantity! += 1
 
-        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
+        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: (Double(Menudata.quantity!) * Menudata.price!) , pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
         
-        print("value ----->> \(value)")
-        print("value ----->> \(databaseHandler.getCartCount())")
+//        dump(databaseHandler.getCartModelList())
         
         if(self.restrauntMenu.data!.menu![section].items![row].optiongroups?.count != 0){
             let option = UIStoryboard.named.dashboard.instantiateViewController(identifier: "OptionMenuViewController") as! OptionMenuViewController
             option.optionMenu = (self.restrauntMenu.data!.menu![section].items![row].optiongroups)!
             option.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
                 self.present(option, animated: true)
+        }
+        let itemsCount = databaseHandler.getCartCount()
+        let totalprice = databaseHandler.getTotalPrice()
+        if( itemsCount != 0){
+            self.itemsLab.text = "\(itemsCount) Items"
+            self.rateLab.text = "$\(totalprice)"
+            self.viewCart.isHidden = false
+        }else{
+            self.viewCart.isHidden = true
         }
 
 
@@ -169,17 +189,28 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         self.restrauntMenu.data!.menu![section].items![row].quantity! -= 1
         
 
-        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: Menudata.price ?? 0.0, pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
-        
+        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: (Double(Menudata.quantity!) * Menudata.price!) , pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
+
 
         if (self.restrauntMenu.data!.menu![section].items![row].quantity! == 0) {
-             databaseHandler.deleteCartData(itemsID: self.restrauntMenu.data!.menu![section].items![row].itemid ?? "")
+             print(databaseHandler.deleteCartData(itemsID: self.restrauntMenu.data!.menu![section].items![row].itemid ?? ""))
         }
         
         print("value ----->> \(value)")
         print("value ----->> \(databaseHandler.getCartCount())")
+        print("getCartModelList ----->> \(databaseHandler.getCartModelList())")
+        dump(databaseHandler.getCartModelList())
 
-        
+        let itemsCount = databaseHandler.getCartCount()
+        let totalprice = databaseHandler.getTotalPrice()
+        if( itemsCount != 0){
+            self.itemsLab.text = "\(itemsCount) Items"
+            self.rateLab.text = "$\(totalprice)"
+            self.viewCart.isHidden = false
+        }else{
+            self.viewCart.isHidden = true
+        }
+
         self.menuListTable.reloadData()
    }
 }

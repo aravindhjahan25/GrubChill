@@ -11,6 +11,7 @@ target 'GrubChill' do
   pod 'SideMenu'
   pod 'ProgressHUD', '~> 13.4'
   pod 'SQLite.swift', '~> 0.12.0'
+  pod 'IQKeyboardManagerSwift'
 
 
 

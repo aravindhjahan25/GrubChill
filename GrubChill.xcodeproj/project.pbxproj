@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0486EC4C25A76F0900339D0B /* CheckoutDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */; };
 		3865154FA3E8B8435D91A06B /* Pods_GrubChill_GrubChillUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7CE2C39704264C7400886 /* Pods_GrubChill_GrubChillUITests.framework */; };
 		451AEA04F9FF5D71DD13EFEE /* Pods_GrubChillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */; };
 		847CC69C25740CF6006588EB /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CC69A25740CF6006588EB /* DatabaseHandler.swift */; };
@@ -125,6 +126,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDTO.swift; sourceTree = "<group>"; };
 		0D261FF5DD0C4F8C8A0FA34D /* Pods_GrubChill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChillTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA8FE4CFA37813F8EDB758 /* Pods-GrubChill-GrubChillUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChill-GrubChillUITests.release.xcconfig"; path = "Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				847CC6A125742474006588EB /* CartDTO.swift */,
 				84A5A708257BBB8500A5CF86 /* MyOrderDTO.swift */,
 				F4A35C57258F6BA8006866A5 /* CartResponseDTO.swift */,
+				0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */,
 			);
 			path = DashboardDTO;
 			sourceTree = "<group>";
@@ -862,6 +865,7 @@
 				F4EDFED7256BC3AB0056DCEB /* TopPickCollectionViewCell.swift in Sources */,
 				84B58EEC2573A37400CAE9B2 /* AddressCollectionViewCell.swift in Sources */,
 				F49D6FCE25700FA0003CAA66 /* DashboardTableViewCell.swift in Sources */,
+				0486EC4C25A76F0900339D0B /* CheckoutDTO.swift in Sources */,
 				F4C99627256B8FCC002A3A6C /* CartListViewController.swift in Sources */,
 				847CC69D25740CF6006588EB /* DBHandler.swift in Sources */,
 				84B58EE12572E12F00CAE9B2 /* IntrinsicTableView.swift in Sources */,
@@ -1006,7 +1010,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1061,7 +1065,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

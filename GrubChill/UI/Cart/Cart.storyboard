@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,6 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-u7-F19">
+                                <rect key="frame" x="0.0" y="104" width="414" height="1396"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJC-Os-XWZ" customClass="MainBG" customModule="GrubChill" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <subviews>
@@ -803,7 +807,7 @@
                                                                                         <constraint firstAttribute="height" constant="45" id="8WU-0b-YtO"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                    <textInputTraits key="textInputTraits"/>
+                                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="cc-number"/>
                                                                                 </textField>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xda-6H-jmr">
                                                                                     <rect key="frame" x="0.0" y="46.5" width="414" height="2"/>
@@ -838,7 +842,7 @@
                                                                                                         <constraint firstAttribute="height" constant="42" id="JkZ-tL-Efv"/>
                                                                                                     </constraints>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                    <textInputTraits key="textInputTraits"/>
+                                                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                                 </textField>
                                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C1C-Y6-LNb">
                                                                                                     <rect key="frame" x="0.0" y="47" width="126" height="2"/>
@@ -867,7 +871,7 @@
                                                                                                         <constraint firstAttribute="height" constant="42" id="3bc-nT-7nB"/>
                                                                                                     </constraints>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                    <textInputTraits key="textInputTraits"/>
+                                                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                                 </textField>
                                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B2H-cQ-AUj">
                                                                                                     <rect key="frame" x="0.0" y="47" width="126" height="2"/>
@@ -896,7 +900,7 @@
                                                                                                         <constraint firstAttribute="height" constant="42" id="mr8-rA-mFz"/>
                                                                                                     </constraints>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                                    <textInputTraits key="textInputTraits"/>
+                                                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                                 </textField>
                                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qct-nC-Qwc">
                                                                                                     <rect key="frame" x="0.0" y="47" width="136" height="2"/>
@@ -936,7 +940,7 @@
                                                                                         <constraint firstAttribute="height" constant="45" id="78J-H8-7eW"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                                    <textInputTraits key="textInputTraits"/>
+                                                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="postal-code"/>
                                                                                 </textField>
                                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-sH-eh7">
                                                                                     <rect key="frame" x="0.0" y="46.5" width="414" height="2"/>
@@ -1223,10 +1227,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryh-u7-F19">
-                                <rect key="frame" x="0.0" y="104" width="414" height="1396"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7GB-NW-Gqq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
