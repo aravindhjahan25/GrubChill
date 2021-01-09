@@ -44,6 +44,9 @@ class CartTableViewCell: UITableViewCell {
         DesLab.text = itemSingle.description ?? ""
         QuantityLab.text = "\(itemSingle.qty ?? 0)"
         
+        let totalPrice = (Double(itemSingle.qty ?? 0) * (itemSingle.price ?? 0))
+//        TotalPriceLab.text = String(format: "%2f", totalPrice)
+        TotalPriceLab.text = "\(totalPrice)"
         let imageURL = itemSingle.pic ?? ""
         if imageURL != "" {
             MenuImg.downloadImage(from: URL(string: imageURL)!)
