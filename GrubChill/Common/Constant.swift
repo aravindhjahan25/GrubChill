@@ -18,6 +18,8 @@ class Constant {
     static let My_Orders = "orders/filter"
     
     static let CART = "cart"
+    static let CHECKOUT = "checkout"
+
 
     
     

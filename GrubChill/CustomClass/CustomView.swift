@@ -60,3 +60,16 @@ class QuantityButtonView : UIView {
         }
     }
 }
+
+@IBDesignable
+class TextBoxView: UIView {
+
+    @IBInspectable var cornerRadius: CGFloat = 10
+    @IBInspectable var borderWidth: CGFloat = 1
+    @IBInspectable var borderColor: UIColor? = UIColor.lightGray
+    override func layoutSubviews() {
+        layer.borderColor = borderColor?.cgColor ?? UIColor.lightGray.cgColor
+        layer.borderWidth = borderWidth
+        layer.cornerRadius = cornerRadius
+    }
+}

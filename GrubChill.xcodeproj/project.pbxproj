@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0486EC4C25A76F0900339D0B /* CheckoutDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */; };
+		0486EC6525AA258400339D0B /* CartListVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC6425AA258400339D0B /* CartListVc.swift */; };
+		0486EC7D25AA279D00339D0B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC7C25AA279D00339D0B /* CartViewModel.swift */; };
 		3865154FA3E8B8435D91A06B /* Pods_GrubChill_GrubChillUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7E7CE2C39704264C7400886 /* Pods_GrubChill_GrubChillUITests.framework */; };
 		451AEA04F9FF5D71DD13EFEE /* Pods_GrubChillTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */; };
 		847CC69C25740CF6006588EB /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847CC69A25740CF6006588EB /* DatabaseHandler.swift */; };
@@ -127,6 +129,8 @@
 
 /* Begin PBXFileReference section */
 		0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDTO.swift; sourceTree = "<group>"; };
+		0486EC6425AA258400339D0B /* CartListVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListVc.swift; sourceTree = "<group>"; };
+		0486EC7C25AA279D00339D0B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
 		0D261FF5DD0C4F8C8A0FA34D /* Pods_GrubChill.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChill.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		11AF05F2AA3EEB2012FA0B17 /* Pods_GrubChillTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrubChillTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50EA8FE4CFA37813F8EDB758 /* Pods-GrubChill-GrubChillUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrubChill-GrubChillUITests.release.xcconfig"; path = "Target Support Files/Pods-GrubChill-GrubChillUITests/Pods-GrubChill-GrubChillUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -267,6 +271,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0486EC7825AA277D00339D0B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0486EC7C25AA279D00339D0B /* CartViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		847CC6E02579693F006588EB /* MyOrders */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,9 +562,11 @@
 		F4C9961D256B8D6D002A3A6C /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				0486EC7825AA277D00339D0B /* ViewModel */,
 				F4C263662573DE5900EEC41B /* Cell */,
 				F4C9961E256B8D82002A3A6C /* Cart.storyboard */,
 				84B58EEB2573A37400CAE9B2 /* AddressCollectionViewCell.swift */,
+				0486EC6425AA258400339D0B /* CartListVc.swift */,
 				F4C99626256B8FCC002A3A6C /* CartListViewController.swift */,
 				84B58ED82572C0E000CAE9B2 /* MenuItemsTableViewCell.swift */,
 			);
@@ -868,6 +882,7 @@
 				0486EC4C25A76F0900339D0B /* CheckoutDTO.swift in Sources */,
 				F4C99627256B8FCC002A3A6C /* CartListViewController.swift in Sources */,
 				847CC69D25740CF6006588EB /* DBHandler.swift in Sources */,
+				0486EC7D25AA279D00339D0B /* CartViewModel.swift in Sources */,
 				84B58EE12572E12F00CAE9B2 /* IntrinsicTableView.swift in Sources */,
 				F4C995F5256AD2F4002A3A6C /* SideMenuViewController.swift in Sources */,
 				F4EDFEE2256BDDA90056DCEB /* LoginModelDTO.swift in Sources */,
@@ -900,6 +915,7 @@
 				84A5A70E257BEB7000A5CF86 /* OrderListPopupViewController.swift in Sources */,
 				F49D6FE925701CD3003CAA66 /* RestrauntMenusTableViewCell.swift in Sources */,
 				F4743D5F256C3F1200BB9E57 /* SupportViewController.swift in Sources */,
+				0486EC6525AA258400339D0B /* CartListVc.swift in Sources */,
 				F4C263682573DE6E00EEC41B /* CartTableViewCell.swift in Sources */,
 				F4436BE22572A9FA006A01F8 /* RestrauntDetailHeaderCell.swift in Sources */,
 				847CC6E5257970EC006588EB /* MyOrderTableViewCell.swift in Sources */,

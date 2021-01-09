@@ -48,6 +48,8 @@ class HomeViewController: BaseController,
                     if statusCode == 200 {
                         self.restrauntList = RestrauntsDTO(JSON: JSON as! [String : Any])!
                         self.topPickUp.dataSource = self
+                        self.topPickUp.delegate = self
+                        self.restrauntTable.delegate = self
                         self.restrauntTable.dataSource = self
                         ProgressHUD.dismiss()
                         self.topPickUp.reloadData()

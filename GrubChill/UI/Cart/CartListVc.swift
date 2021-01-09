@@ -1,24 +1,23 @@
 //
-//  CartListViewController.swift
+//  CartListVc.swift
 //  GrubChill
 //
-//  Created by Aravindh Jaganathan on 23/11/20.
+//  Created by mac on 09/01/21.
 //
 
 import UIKit
 import ProgressHUD
 import Alamofire
+import RxSwift
+import RxCocoa
 
-class CartListViewController: BaseController ,UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
-    //, UITableViewDelegate ,UICollectionViewDelegate,UICollectionViewDataSource {
+class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
+    
+    private let cartViewVM = CartViewModel()
+    private let disposebag = DisposeBag()
+    
     
     @IBOutlet weak var cartTableView : UITableView!
-    //    @IBOutlet weak var AddressCollection : UICollectionView!
-    //
-    //    var restrauntDetails: RestrauntList?
-    //    var restrauntMenu = RestrauntMenuDTO()
-    //
-    //    var addressArray = [String]()
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var billingView: UIView!
@@ -39,11 +38,15 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
     @IBOutlet weak var cvv: UITextField!
     @IBOutlet weak var zipcode: UITextField!
     
+    @IBOutlet weak var cardNoView: TextBoxView!
+    @IBOutlet weak var ExpmonthView: TextBoxView!
+    @IBOutlet weak var ExpyearView: TextBoxView!
+    @IBOutlet weak var cvvView: TextBoxView!
+    @IBOutlet weak var zipcodeView: TextBoxView!
+    
     @IBOutlet weak var emailID: UITextField!
     @IBOutlet weak var phoneNo: UITextField!
     @IBOutlet weak var userName: UITextField!
-
-
 
 
     var cartMenu = CartDTO()
@@ -52,8 +55,28 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
     
     var cartResponse = CartResponseDTO()
     
+    var delivery_type:String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cartViewVM.cartView = self
+        
+        //RX Binding values
+        cardNo.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.cardNoPublishObject).disposed(by: disposebag)
+        Expyear.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.yearPublishObject).disposed(by: disposebag)
+        Expmonth.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.monthPublichObject).disposed(by: disposebag)
+        cvv.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.cvvPublichObject).disposed(by: disposebag)
+        zipcode.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.zipcodePublichObject).disposed(by: disposebag)
+        
+        
+        cartViewVM.isValidValue.asObservable().subscribe(onNext: {[weak self] (doesContain) in
+            print("\(doesContain)")
+            self?.cardNoView.borderColor = doesContain ? UIColor.lightGray : UIColor.red
+            
+            
+        }).disposed(by:disposebag)
+        
         
         showEmptyView.isHidden = false
         billingView.isHidden = true
@@ -62,14 +85,16 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
         pickUpSelectedImage.image = UIImage(named: "check-2.png")
         deliverySelectedImage.image = UIImage(named: "check.png")
         
+        self.userinfofill()
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-                
+        
         self.cartTableView.dataSource = self
         self.cartTableView.delegate = self
-        
-        
+                
         self.cartAPICall()
     }
     func userinfofill(){
@@ -98,7 +123,8 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
                 cartSingle["price"] = index.price
                 cartSingle["isactive"] = index.isactive
                 cartSingle["qty"] = index.qty
-                
+                cartSingle["item"] = index.item
+            
                 cartItems.append(cartSingle)
             }
             
@@ -142,10 +168,27 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
                 }
             }
         }
-        
-        
     }
     
+    func showToast(message : String , color : UIColor) {
+
+        let toastLabel = UILabel(frame: CGRect(x: 20 , y: self.view.frame.size.height-100, width: self.view.frame.width - 40, height: 50))
+        toastLabel.backgroundColor = color.withAlphaComponent(0.8)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = .systemFont(ofSize: 14.0)
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 10.0, delay: 0.1, options: .curveEaseOut, animations: {
+             toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    } 
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.cartMenu.cartItem?.count ?? 0
     }
@@ -182,6 +225,9 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
         
         self.cartAPICall()
 
+        
+//        dump(databaseHandler.getCartModelList())
+    
     }
 
     @objc func subAction(sender: UIButton) -> Void{
@@ -212,8 +258,10 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
         self.cartAPICall()
 
    }
-
+    
     @IBAction func pickupBTN(_ sender: UIButton){
+        
+        delivery_type = "Pickup"
         billingView.isHidden = true
         billingheightConstraint.constant = 0
         
@@ -223,6 +271,9 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
     }
     
     @IBAction func deliveryBtn(_ sender: UIButton){
+        
+        delivery_type = "Delivery"
+        
         billingheightConstraint.constant = 205
         billingView.isHidden = false
         
@@ -232,10 +283,67 @@ class CartListViewController: BaseController ,UITableViewDataSource, UITableView
     }
     
     @IBAction func checkoutPressed(){
-        
        
+        cartViewVM.vaildator()
+        cartViewVM.checkoutAPI()
     }
     
+    func vaildation() -> Bool{
+        var vaild : Bool = true
+        if (cardNo.text!.count != 16) {
+            cardNo.layer.borderWidth = 0.5
+            cardNo.layer.borderColor = UIColor.red.cgColor
+            vaild = false
+        }
+        if (Expmonth.text!.count != 2) {
+            Expmonth.layer.borderWidth = 0.5
+            Expmonth.layer.borderColor = UIColor.red.cgColor
+            vaild = false
+        }
     
+        if (Expyear.text!.count != 2) {
+            Expyear.layer.borderWidth = 0.5
+            Expyear.layer.borderColor = UIColor.red.cgColor
+            vaild = false
+        }
+        if (cvv.text!.count != 3) {
+            cvv.layer.borderWidth = 0.5
+            cvv.layer.borderColor = UIColor.red.cgColor
+            vaild = false
+        }
+        return vaild
+    }
     
+//    func textField(_ textField: UITextField,
+//                   shouldChangeCharactersIn range: NSRange,
+//                     replacementString string: String)-> Bool{
+//        
+//            cardNo.layer.borderWidth = 0
+//            Expmonth.layer.borderWidth = 0
+//            Expyear.layer.borderWidth = 0
+//            cvv.layer.borderWidth = 0
+//        if (textField == cardNo) {
+//            if (cardNo.text!.count == 16) {
+//                textField.resignFirstResponder()
+//            }
+//        }
+//        if(textField == Expmonth){
+//            if (Expmonth.text!.count == 2) {
+//                textField.resignFirstResponder()
+//            }
+//        }
+//        if(textField == Expyear){
+//            if (Expyear.text!.count == 2) {
+//                textField.resignFirstResponder()
+//            }
+//        }
+//        if(textField == cvv){
+//            if (cvv.text!.count == 3) {
+//                textField.resignFirstResponder()
+//            }
+//        }
+//        
+//        return true
+//    }
+//    
 }

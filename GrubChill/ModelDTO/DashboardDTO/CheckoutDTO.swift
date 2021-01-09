@@ -19,8 +19,6 @@ class CheckoutDTO : Mappable {
     var cardinfo : cardinfoDTO?
     var checkoutItems : CartDataResponse?
     
-
-    
     init(){ }
     
     required init?(map: Map) { }
@@ -79,4 +77,22 @@ class userinfoDTO :Mappable{
         username <- map["username"]
     }
 
+}
+
+class CheckOutResponseDTO: Mappable {
+    var status : String?
+    var message : String?
+    var errors : String?
+   
+    init(){ }
+    
+    required init?(map: Map) { }
+
+    func mapping(map: Map) {
+        status <- map["status"]
+        message <- map["message"]
+        errors <- map["errors"]
+    }
+    
+    
 }

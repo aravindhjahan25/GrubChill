@@ -48,6 +48,10 @@ class LoginViewController: BaseController {
         self.navigationController?.pushViewController(registerVC, animated: true)
     }
     
+    @IBAction func homeBtn(_ sender: UIButton){
+        let dashBoard = UIStoryboard.named.main.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
+        self.navigationController?.pushViewController(dashBoard, animated: true)
+    }
     
     func loginAPI_Call(urlString: String, params: Parameters) {
         

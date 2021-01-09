@@ -19,7 +19,7 @@ class BaseController : UIViewController {
     }
     
     @IBAction func cartBtn(_ sender : UIButton){
-        let cartVC = UIStoryboard.named.cart.instantiateViewController(identifier: "CartListViewController") as! CartListViewController
+        let cartVC = UIStoryboard.named.cart.instantiateViewController(identifier: "CartListViewController") as! CartListVc
         self.navigationController?.pushViewController(cartVC, animated: true)
     }
     
