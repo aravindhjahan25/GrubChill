@@ -76,9 +76,11 @@ class LoginViewController: BaseController {
                             let dashBoard = UIStoryboard.named.main.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
                             self.navigationController?.pushViewController(dashBoard, animated: true)
                         }else{
+                            ProgressHUD.dismiss()
                             print("Failed")
                         }
                     }else{
+                        ProgressHUD.dismiss()
                         print("Status Code Failed")
                     }
                     
