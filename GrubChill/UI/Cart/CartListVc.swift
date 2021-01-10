@@ -11,7 +11,7 @@ import Alamofire
 import RxSwift
 import RxCocoa
 
-class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate,UITextFieldDelegate {
+class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
     
     private let cartViewVM = CartViewModel()
     private let disposebag = DisposeBag()
@@ -69,18 +69,12 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate,UIT
         cvv.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.cvvPublichObject).disposed(by: disposebag)
         zipcode.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.zipcodePublichObject).disposed(by: disposebag)
         
-        
-        cartViewVM.isValidValue.asObservable().subscribe(onNext: {[weak self] (doesContain) in
-            print("\(doesContain)")
-            self?.cardNoView.borderColor = doesContain ? UIColor.lightGray : UIColor.red
-            
-            
-        }).disposed(by:disposebag)
+        cardNo.delegate = self
+        Expmonth.delegate = self
         
         
         showEmptyView.isHidden = false
         billingView.isHidden = true
-        billingheightConstraint.constant = 0
         
         pickUpSelectedImage.image = UIImage(named: "check-2.png")
         deliverySelectedImage.image = UIImage(named: "check.png")
@@ -263,7 +257,7 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate,UIT
         
         delivery_type = "Pickup"
         billingView.isHidden = true
-        billingheightConstraint.constant = 0
+        //billingheightConstraint.constant = 0
         
         pickUpSelectedImage.image = UIImage(named: "check-2.png")
         deliverySelectedImage.image = UIImage(named: "check.png")
@@ -283,8 +277,11 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate,UIT
     }
     
     @IBAction func checkoutPressed(){
-       
-        cartViewVM.vaildator()
+//        if cartViewVM.isValid() {
+//            cartViewVM.checkoutAPI()
+//        }else{
+//            //All feild wrong
+//        }
         cartViewVM.checkoutAPI()
     }
     
@@ -346,4 +343,30 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate,UIT
 //        return true
 //    }
 //    
+}
+
+extension CartListVc: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        switch textField {
+        case cardNo:
+            Observable.combineLatest(self.cartViewVM.cardNoPublishObject, self.cartViewVM.monthValue , resultSelector: {
+                [weak self] cardNOValue, monthValue in
+                let isValid = cardNOValue.isValidCardNo()
+                self?.cardNoView.layer.borderColor = isValid ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+            }).subscribe().disposed(by: disposebag)
+            
+            break
+        case Expmonth:
+            Observable.combineLatest(self.cartViewVM.monthValue, self.cartViewVM.yearValue, resultSelector: {
+                [weak self] monthValue, yearValue in
+                
+            }).subscribe().disposed(by: disposebag)
+            break
+        default:
+            break
+        }
+        return true
+    }
+    
 }

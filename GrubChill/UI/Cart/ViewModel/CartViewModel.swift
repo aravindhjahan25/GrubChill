@@ -19,19 +19,14 @@ class CartViewModel {
     let cvvPublichObject = BehaviorRelay<String>(value: "")
     let zipcodePublichObject = BehaviorRelay<String>(value: "")
     
-    let isValidValue = BehaviorRelay<Bool>(value: false)
+    let cardNoValue = BehaviorRelay<Bool>(value: false)
+    let monthValue = BehaviorRelay<Bool>(value: false)
+    let yearValue = BehaviorRelay<Bool>(value: false)
+    let cvvValue = BehaviorRelay<Bool>(value: false)
+    let zipcodeValue = BehaviorRelay<Bool>(value: false)
     
     var checkoutResponse = CheckOutResponseDTO()
 
-    
-    func vaildator() {
-        if (cardNoPublishObject.value.count != 16 && monthPublichObject.value.count != 2 && monthPublichObject.value.count != 2 && cvvPublichObject.value.count != 3 && zipcodePublichObject.value.count != 6) {
-            isValidValue.accept(false)
-        }else{
-            isValidValue.accept(true)
-        }
-        
-    }
     
     func checkoutAPI(){
         
@@ -143,4 +138,26 @@ class CartViewModel {
         
     }
 
+}
+
+
+import Foundation
+import UIKit
+import CommonCrypto
+
+extension String {
+    
+    func isValidCardNo() -> Bool{
+        if self.count != 16 {
+            return false
+        }else {
+            let phNoRegEx = "^[0-9]+$"
+            let phNoTest = NSPredicate(format:"SELF MATCHES %@", phNoRegEx)
+            if !phNoTest.evaluate(with: self){
+                return false
+            }
+        }
+        return true
+    }
+    
 }
