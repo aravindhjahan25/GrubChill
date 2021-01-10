@@ -775,7 +775,7 @@
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OXB-iR-Xav" customClass="TextBoxView" customModule="GrubChill" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                                             <subviews>
-                                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="4242424242424242" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFo-h9-CiC">
+                                                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFo-h9-CiC">
                                                                                     <rect key="frame" x="10" y="0.0" width="354" height="50"/>
                                                                                     <color key="tintColor" name="AccentColor"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -813,7 +813,7 @@
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ULA-S5-uUB" customClass="TextBoxView" customModule="GrubChill" customModuleProvider="target">
                                                                                             <rect key="frame" x="0.0" y="0.0" width="114.5" height="50"/>
                                                                                             <subviews>
-                                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="02" placeholder="Expiry Month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6H-Uh-LA6">
+                                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Month" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z6H-Uh-LA6">
                                                                                                     <rect key="frame" x="10" y="0.0" width="94.5" height="50"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -833,7 +833,7 @@
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqJ-eZ-t8i" customClass="TextBoxView" customModule="GrubChill" customModuleProvider="target">
                                                                                             <rect key="frame" x="129.5" y="0.0" width="115" height="50"/>
                                                                                             <subviews>
-                                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="22" placeholder="Expiry Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L90-pb-nlb">
+                                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L90-pb-nlb">
                                                                                                     <rect key="frame" x="10" y="0.0" width="95" height="50"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -853,7 +853,7 @@
                                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogk-JJ-hqy" customClass="TextBoxView" customModule="GrubChill" customModuleProvider="target">
                                                                                             <rect key="frame" x="259.5" y="0.0" width="114.5" height="50"/>
                                                                                             <subviews>
-                                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-Qf-OEN">
+                                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3B8-Qf-OEN">
                                                                                                     <rect key="frame" x="10" y="0.0" width="94.5" height="50"/>
                                                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -884,7 +884,7 @@
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOZ-Tn-61C" customClass="TextBoxView" customModule="GrubChill" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="120" width="374" height="50"/>
                                                                             <subviews>
-                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9V-0S-GPy">
+                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V9V-0S-GPy">
                                                                                     <rect key="frame" x="25" y="2.5" width="329" height="45"/>
                                                                                     <constraints>
                                                                                         <constraint firstAttribute="height" constant="45" id="78J-H8-7eW"/>
@@ -895,22 +895,12 @@
                                                                                         <outlet property="delegate" destination="8ip-rv-S8v" id="5Mk-zB-rtR"/>
                                                                                     </connections>
                                                                                 </textField>
-                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbq-sH-eh7">
-                                                                                    <rect key="frame" x="0.0" y="48" width="374" height="2"/>
-                                                                                    <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="2" id="APD-6p-epA"/>
-                                                                                    </constraints>
-                                                                                </view>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="bottom" secondItem="xbq-sH-eh7" secondAttribute="bottom" id="4of-6f-MhX"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="V9V-0S-GPy" secondAttribute="trailing" constant="20" id="51M-MT-1eu"/>
                                                                                 <constraint firstItem="V9V-0S-GPy" firstAttribute="centerY" secondItem="QOZ-Tn-61C" secondAttribute="centerY" id="I5f-7T-lva"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="xbq-sH-eh7" secondAttribute="trailing" id="LQ5-h8-m9O"/>
                                                                                 <constraint firstItem="V9V-0S-GPy" firstAttribute="leading" secondItem="QOZ-Tn-61C" secondAttribute="leading" constant="25" id="TgB-s7-jUm"/>
-                                                                                <constraint firstItem="xbq-sH-eh7" firstAttribute="leading" secondItem="QOZ-Tn-61C" secondAttribute="leading" id="suP-KQ-kIX"/>
                                                                             </constraints>
                                                                         </view>
                                                                     </subviews>
