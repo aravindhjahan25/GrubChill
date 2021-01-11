@@ -175,6 +175,9 @@
                                 <state key="normal" title="Back to Home">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="homeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="60t-X4-Xkt"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

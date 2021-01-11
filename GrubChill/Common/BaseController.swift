@@ -61,11 +61,11 @@ class BaseController : UIViewController {
     }
     
     func CheckLogin() -> Bool {
-        print(UserDefaults.standard.string(forKey: "_id") ?? "no")
-        if(UserDefaults.standard.string(forKey: "_id") != nil || UserDefaults.standard.string(forKey: "_id") != ""){
-            return true
-        }else{
+        print("CheckLogin\(UserDefaults.standard.string(forKey: "email") ?? "no")")
+        if(UserDefaults.standard.string(forKey: "email") == nil || UserDefaults.standard.string(forKey: "email") == ""){
             return false
+        }else{
+            return true
         }
     }
 }
