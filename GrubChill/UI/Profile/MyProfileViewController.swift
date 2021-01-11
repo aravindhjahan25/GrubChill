@@ -16,15 +16,20 @@ class MyProfileViewController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.userinfofill()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+     
+        super.viewWillAppear(animated)
+    }
+    
+    
+    func userinfofill(){
         userName.text = UserDefaults.standard.string(forKey: "username") ?? ""
         emailID.text = UserDefaults.standard.string(forKey: "email") ?? ""
         phoneNo.text = UserDefaults.standard.string(forKey: "phonenumber") ?? ""
-
-        super.viewWillAppear(animated)
     }
 
 }

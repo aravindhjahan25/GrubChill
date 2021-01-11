@@ -344,10 +344,15 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
             self?.userNameView.layer.borderColor = isValidAcc ? UIColor.lightGray.cgColor : UIColor.red.cgColor
         }).subscribe().disposed(by: disposebag)
 
-        if isValidCard && isValidMonth && isValidYear && isValidCvv && isValidAcc {
+        if isValidCard && isValidMonth && isValidYear && isValidCvv && isValidAcc
+        {
             cartViewVM.checkoutAPI()
-        }else{
-            //All feild wrong
+        }else if(!isValidAcc){
+            self.showToast(message: "Account Details Missing" , color: UIColor.red)
+        }
+        else{
+            self.showToast(message: "Card Details Missing or Incorrect Card details" , color: UIColor.red)
+
         }
 //        cartViewVM.checkoutAPI()
     }
