@@ -19,11 +19,20 @@ class CartViewModel {
     let cvvPublichObject = BehaviorRelay<String>(value: "")
     let zipcodePublichObject = BehaviorRelay<String>(value: "")
     
+    let userNamePublichObject = BehaviorRelay<String>(value: "")
+    let phoneNoPublichObject = BehaviorRelay<String>(value: "")
+    let emailPublichObject = BehaviorRelay<String>(value: "")
+
+    
     let cardNoValue = BehaviorRelay<Bool>(value: false)
     let monthValue = BehaviorRelay<Bool>(value: false)
     let yearValue = BehaviorRelay<Bool>(value: false)
     let cvvValue = BehaviorRelay<Bool>(value: false)
     let zipcodeValue = BehaviorRelay<Bool>(value: false)
+    
+    let userNameValue = BehaviorRelay<Bool>(value: false)
+    let emailValue = BehaviorRelay<Bool>(value: false)
+    let phoneNoValue = BehaviorRelay<Bool>(value: false)
     
     var checkoutResponse = CheckOutResponseDTO()
 
@@ -156,6 +165,57 @@ extension String {
             if !phNoTest.evaluate(with: self){
                 return false
             }
+        }
+        return true
+    }
+    
+    func isValidMonth() -> Bool{
+        if self.count != 2 {
+            return false
+        }else {
+            let phNoRegEx = "^[0-9]+$"
+            let phNoTest = NSPredicate(format:"SELF MATCHES %@", phNoRegEx)
+            if !phNoTest.evaluate(with: self){
+                return false
+            }
+            else if(Int(self) ?? 0 < 12){
+                return false
+            }
+        }
+        return true
+    }
+    
+    func isValidYear() -> Bool{
+        if self.count != 2 {
+            return false
+        }else {
+            let phNoRegEx = "^[0-9]+$"
+            let phNoTest = NSPredicate(format:"SELF MATCHES %@", phNoRegEx)
+            if !phNoTest.evaluate(with: self){
+                return false
+            }
+            
+        }
+        return true
+    }
+    
+    func isValidCvv() -> Bool{
+        if self.count != 3 {
+            return false
+        }else {
+            let phNoRegEx = "^[0-9]+$"
+            let phNoTest = NSPredicate(format:"SELF MATCHES %@", phNoRegEx)
+            if !phNoTest.evaluate(with: self){
+                return false
+            }
+                   }
+        return true
+    }
+    
+    func isValidText() -> Bool{
+        if self == "" {
+            print("sleelelelelelelelel")
+            return false
         }
         return true
     }

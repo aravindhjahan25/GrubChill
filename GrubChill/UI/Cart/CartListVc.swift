@@ -43,7 +43,10 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var ExpyearView: TextBoxView!
     @IBOutlet weak var cvvView: TextBoxView!
     @IBOutlet weak var zipcodeView: TextBoxView!
-    
+    @IBOutlet weak var emailIDView: TextBoxView!
+    @IBOutlet weak var phoneNoView: TextBoxView!
+    @IBOutlet weak var userNameView: TextBoxView!
+
     @IBOutlet weak var emailID: UITextField!
     @IBOutlet weak var phoneNo: UITextField!
     @IBOutlet weak var userName: UITextField!
@@ -68,9 +71,18 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
         Expmonth.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.monthPublichObject).disposed(by: disposebag)
         cvv.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.cvvPublichObject).disposed(by: disposebag)
         zipcode.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.zipcodePublichObject).disposed(by: disposebag)
+        userName.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.userNamePublichObject).disposed(by: disposebag)
+        phoneNo.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.phoneNoPublichObject).disposed(by: disposebag)
+        emailID.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.emailPublichObject).disposed(by: disposebag)
         
         cardNo.delegate = self
         Expmonth.delegate = self
+        Expyear.delegate = self
+        cvv.delegate = self
+        zipcode.delegate = self
+        userName.delegate = self
+        phoneNo.delegate = self
+        emailID.delegate = self
         
         
         showEmptyView.isHidden = false
@@ -277,12 +289,67 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
     }
     
     @IBAction func checkoutPressed(){
-//        if cartViewVM.isValid() {
-//            cartViewVM.checkoutAPI()
-//        }else{
-//            //All feild wrong
-//        }
-        cartViewVM.checkoutAPI()
+        var isValidCard = true
+        var isValidMonth = true
+        var isValidYear = true
+        var isValidCvv = true
+        var isValidAcc = true
+
+        Observable.combineLatest(self.cartViewVM.cardNoPublishObject, self.cartViewVM.monthValue , resultSelector: {
+            [weak self] cardNOValue, monthValue in
+            isValidCard = cardNOValue.isValidCardNo()
+            self?.cardNoView.layer.borderColor = isValidCard ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }).subscribe().disposed(by: disposebag)
+        
+        Observable.combineLatest(self.cartViewVM.monthPublichObject, self.cartViewVM.yearValue, resultSelector: {
+            [weak self] monthValue, yearValue in
+             isValidMonth = monthValue.isValidMonth()
+            self?.ExpmonthView.layer.borderColor = isValidMonth ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }).subscribe().disposed(by: disposebag)
+        
+        Observable.combineLatest(self.cartViewVM.yearPublishObject, self.cartViewVM.yearValue, resultSelector: {
+            [weak self] yearValue, cvvValue in
+            isValidYear = yearValue.isValidYear()
+            self?.ExpyearView.layer.borderColor = isValidYear ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }).subscribe().disposed(by: disposebag)
+      
+        Observable.combineLatest(self.cartViewVM.cvvPublichObject, self.cartViewVM.cvvValue, resultSelector: {
+            [weak self] cvvValue, zipcodeValue in
+            isValidCvv = cvvValue.isValidCvv()
+            self?.cvvView.layer.borderColor = isValidCvv ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }).subscribe().disposed(by: disposebag)
+        
+        Observable.combineLatest(self.cartViewVM.zipcodePublichObject, self.cartViewVM.phoneNoValue, resultSelector: {
+            [weak self] zipcodeValue, emailValue in
+            isValidAcc = zipcodeValue.isValidText()
+            self?.zipcodeView.layer.borderColor = isValidAcc ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }).subscribe().disposed(by: disposebag)
+        
+        Observable.combineLatest(self.cartViewVM.phoneNoPublichObject, self.cartViewVM.phoneNoValue, resultSelector: {
+            [weak self] phoneNoValue, emailValue in
+            isValidAcc = phoneNoValue.isValidText()
+            self?.phoneNoView.layer.borderColor = isValidAcc ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }).subscribe().disposed(by: disposebag)
+        
+        
+        Observable.combineLatest(self.cartViewVM.emailPublichObject, self.cartViewVM.emailValue, resultSelector: {
+            [weak self] emailValue, phoneNoValue in
+            isValidAcc = emailValue.isValidText()
+            self?.emailIDView.layer.borderColor = isValidAcc ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }).subscribe().disposed(by: disposebag)
+        
+        Observable.combineLatest(self.cartViewVM.userNamePublichObject, self.cartViewVM.userNameValue, resultSelector: {
+            [weak self] userNameValue, zipcodeValue in
+            isValidAcc = userNameValue.isValidText()
+            self?.userNameView.layer.borderColor = isValidAcc ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+        }).subscribe().disposed(by: disposebag)
+
+        if isValidCard && isValidMonth && isValidYear && isValidCvv && isValidAcc {
+            cartViewVM.checkoutAPI()
+        }else{
+            //All feild wrong
+        }
+//        cartViewVM.checkoutAPI()
     }
     
     func vaildation() -> Bool{
@@ -358,9 +425,24 @@ extension CartListVc: UITextFieldDelegate {
             
             break
         case Expmonth:
-            Observable.combineLatest(self.cartViewVM.monthValue, self.cartViewVM.yearValue, resultSelector: {
+            Observable.combineLatest(self.cartViewVM.monthPublichObject, self.cartViewVM.yearValue, resultSelector: {
                 [weak self] monthValue, yearValue in
-                
+                let isValid = monthValue.isValidMonth()
+                self?.ExpmonthView.layer.borderColor = isValid ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+            }).subscribe().disposed(by: disposebag)
+            break
+        case Expyear:
+            Observable.combineLatest(self.cartViewVM.yearPublishObject, self.cartViewVM.yearValue, resultSelector: {
+                [weak self] yearValue, cvvValue in
+                let isValid = yearValue.isValidMonth()
+                self?.ExpmonthView.layer.borderColor = isValid ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+            }).subscribe().disposed(by: disposebag)
+            break
+        case cvv:
+            Observable.combineLatest(self.cartViewVM.cvvPublichObject, self.cartViewVM.cvvValue, resultSelector: {
+                [weak self] cvvValue, zipcodeValue in
+                let isValid = cvvValue.isValidMonth()
+                self?.ExpmonthView.layer.borderColor = isValid ? UIColor.lightGray.cgColor : UIColor.red.cgColor
             }).subscribe().disposed(by: disposebag)
             break
         default:
