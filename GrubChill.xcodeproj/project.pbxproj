@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045407D125ACE7D6009349E6 /* empty_cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 045407D025ACE7D6009349E6 /* empty_cart.png */; };
 		0486EC4C25A76F0900339D0B /* CheckoutDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */; };
 		0486EC6525AA258400339D0B /* CartListVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC6425AA258400339D0B /* CartListVc.swift */; };
 		0486EC7D25AA279D00339D0B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC7C25AA279D00339D0B /* CartViewModel.swift */; };
@@ -128,6 +129,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		045407D025ACE7D6009349E6 /* empty_cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty_cart.png; sourceTree = "<group>"; };
 		0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDTO.swift; sourceTree = "<group>"; };
 		0486EC6425AA258400339D0B /* CartListVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListVc.swift; sourceTree = "<group>"; };
 		0486EC7C25AA279D00339D0B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 		F4C9956A256ABA5A002A3A6C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				045407D025ACE7D6009349E6 /* empty_cart.png */,
 				847CC6E92579739F006588EB /* calendar.png */,
 				847CC6CA25795B03006588EB /* checkbox.png */,
 				847CC6CB25795B03006588EB /* uncheck.png */,
@@ -715,6 +718,7 @@
 				F4C9959D256ABA5A002A3A6C /* dish2.png in Resources */,
 				F4C995B1256ABA5A002A3A6C /* dishitem4.png in Resources */,
 				F4C995A7256ABA5A002A3A6C /* user.png in Resources */,
+				045407D125ACE7D6009349E6 /* empty_cart.png in Resources */,
 				F4C995B7256ABA5A002A3A6C /* rest3.png in Resources */,
 				F4C995B6256ABA5A002A3A6C /* dishitem.png in Resources */,
 				F4C995A3256ABA5A002A3A6C /* logout.png in Resources */,
@@ -1099,7 +1103,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = B7G295DR4F;
 				INFOPLIST_FILE = GrubChill/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1107,6 +1111,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.food.GrubChill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1123,7 +1128,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 1.2;
 				DEVELOPMENT_TEAM = B7G295DR4F;
 				INFOPLIST_FILE = GrubChill/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1131,6 +1136,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.food.GrubChill;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1146,7 +1152,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3A2ZCD2BLN;
+				DEVELOPMENT_TEAM = B7G295DR4F;
 				INFOPLIST_FILE = GrubChillTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1169,7 +1175,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3A2ZCD2BLN;
+				DEVELOPMENT_TEAM = B7G295DR4F;
 				INFOPLIST_FILE = GrubChillTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (

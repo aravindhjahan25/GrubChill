@@ -50,6 +50,9 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var emailID: UITextField!
     @IBOutlet weak var phoneNo: UITextField!
     @IBOutlet weak var userName: UITextField!
+    
+    @IBOutlet weak var EmptyCartView: UIView!
+
 
 
     var cartMenu = CartDTO()
@@ -100,13 +103,26 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
         
         self.cartTableView.dataSource = self
         self.cartTableView.delegate = self
-                
-        self.cartAPICall()
+        
+        let itemsCount = databaseHandler.getCartCount()
+
+        if(itemsCount == 0){
+            EmptyCartView.isHidden = false
+        }else{
+            EmptyCartView.isHidden = true
+            self.cartAPICall()
+        }
+        
     }
     func userinfofill(){
         userName.text = UserDefaults.standard.string(forKey: "username") ?? ""
         emailID.text = UserDefaults.standard.string(forKey: "email") ?? ""
         phoneNo.text = UserDefaults.standard.string(forKey: "phonenumber") ?? ""
+        
+        cartViewVM.emailPublichObject.accept(emailID.text ?? "")
+        cartViewVM.userNamePublichObject.accept(userName.text ?? "")
+        cartViewVM.phoneNoPublichObject.accept(phoneNo.text ?? "")
+
     }
     
     func cartAPICall(){
@@ -280,7 +296,7 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
         
         delivery_type = "Delivery"
         
-        billingheightConstraint.constant = 205
+//        billingheightConstraint.constant = 205
         billingView.isHidden = false
         
         pickUpSelectedImage.image = UIImage(named: "check.png")
@@ -439,15 +455,15 @@ extension CartListVc: UITextFieldDelegate {
         case Expyear:
             Observable.combineLatest(self.cartViewVM.yearPublishObject, self.cartViewVM.yearValue, resultSelector: {
                 [weak self] yearValue, cvvValue in
-                let isValid = yearValue.isValidMonth()
-                self?.ExpmonthView.layer.borderColor = isValid ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+                let isValid = yearValue.isValidYear()
+                self?.ExpyearView.layer.borderColor = isValid ? UIColor.lightGray.cgColor : UIColor.red.cgColor
             }).subscribe().disposed(by: disposebag)
             break
         case cvv:
             Observable.combineLatest(self.cartViewVM.cvvPublichObject, self.cartViewVM.cvvValue, resultSelector: {
                 [weak self] cvvValue, zipcodeValue in
-                let isValid = cvvValue.isValidMonth()
-                self?.ExpmonthView.layer.borderColor = isValid ? UIColor.lightGray.cgColor : UIColor.red.cgColor
+                let isValid = cvvValue.isValidCvv()
+                self?.cvvView.layer.borderColor = isValid ? UIColor.lightGray.cgColor : UIColor.red.cgColor
             }).subscribe().disposed(by: disposebag)
             break
         default:
