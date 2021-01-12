@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		045407D125ACE7D6009349E6 /* empty_cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 045407D025ACE7D6009349E6 /* empty_cart.png */; };
+		0467FDF625AE363000A3EBC5 /* AddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0467FDF525AE363000A3EBC5 /* AddressTableViewCell.swift */; };
 		0486EC4C25A76F0900339D0B /* CheckoutDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */; };
 		0486EC6525AA258400339D0B /* CartListVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC6425AA258400339D0B /* CartListVc.swift */; };
 		0486EC7D25AA279D00339D0B /* CartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0486EC7C25AA279D00339D0B /* CartViewModel.swift */; };
@@ -130,6 +131,7 @@
 
 /* Begin PBXFileReference section */
 		045407D025ACE7D6009349E6 /* empty_cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = empty_cart.png; sourceTree = "<group>"; };
+		0467FDF525AE363000A3EBC5 /* AddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTableViewCell.swift; sourceTree = "<group>"; };
 		0486EC4B25A76F0900339D0B /* CheckoutDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutDTO.swift; sourceTree = "<group>"; };
 		0486EC6425AA258400339D0B /* CartListVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartListVc.swift; sourceTree = "<group>"; };
 		0486EC7C25AA279D00339D0B /* CartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewModel.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				F4743D63256C3F2000BB9E57 /* MyProfileViewController.swift */,
+				0467FDF525AE363000A3EBC5 /* AddressTableViewCell.swift */,
 				F4743D69256C3FB700BB9E57 /* Profile.storyboard */,
 			);
 			path = Profile;
@@ -906,6 +909,7 @@
 				F49D6FEE25701D68003CAA66 /* RestrauntMenuDTO.swift in Sources */,
 				F4C9952E256AB9D7002A3A6C /* AppDelegate.swift in Sources */,
 				F4C9960D256AE373002A3A6C /* TermsandConditionViewController.swift in Sources */,
+				0467FDF625AE363000A3EBC5 /* AddressTableViewCell.swift in Sources */,
 				F4C99603256ADA20002A3A6C /* HomeViewController.swift in Sources */,
 				F4EDFEDC256BD5530056DCEB /* RegisterViewController.swift in Sources */,
 				847CC6D225795FFA006588EB /* DeliveryTypeViewController.swift in Sources */,

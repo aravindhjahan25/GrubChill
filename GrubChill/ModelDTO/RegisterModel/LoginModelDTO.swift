@@ -42,6 +42,7 @@ class data: Mappable {
     var created_at: String?
     var stripe_id: String?
     var business_id: String?
+    var user_address : userAddressDTO?
     
     init(){ }
     
@@ -60,6 +61,52 @@ class data: Mappable {
         created_at <- map["created_at"]
         stripe_id <- map["stripe_id"]
         business_id <- map["business_id"]
+        user_address <- map["user_address"]
     }
     
 }
+
+class userAddressDTO: Mappable {
+    var _id : String?
+    var email: String?
+    var updated_at: String?
+    var created_at: String?
+    var address : [AddressDTO]?
+    
+    init(){ }
+    
+    required init?(map: Map) { }
+
+    func mapping(map: Map) {
+        _id <- map["_id"]
+        email <- map["email"]
+        updated_at <- map["updated_at"]
+        created_at <- map["created_at"]
+    }
+}
+
+class AddressDTO: Mappable {
+    var address1 : String?
+    var address2 : String?
+    var city: String?
+    var state: String?
+    var zipcode: String?
+    var address_type: String?
+
+    
+    init(){ }
+    
+    required init?(map: Map) { }
+
+    func mapping(map: Map) {
+        address1 <- map["address1"]
+        address2 <- map["address2"]
+        city <- map["city"]
+        state <- map["state"]
+        zipcode <- map["zipcode"]
+        address_type <- map["address_type"]
+
+    }
+    
+}
+

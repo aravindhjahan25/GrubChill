@@ -26,6 +26,8 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     var restrauntMenu = RestrauntMenuDTO()
     var databaseHandler = DatabaseHandler()
     var cartDataArray = CartDTO()
+    var dbcartList = CartDTO()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +43,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         print("Get Data --> \(cartDataArray.toJSON())")
         
         self.viewcartUIView()
+        dbcartList = databaseHandler.getCartModelList()
         super.viewWillAppear(animated)
     }
     
@@ -66,7 +69,10 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
                         self.showEmptyView.isHidden = true
                         
                         ProgressHUD.dismiss()
+                        self.updateList()
+
                         self.menuListTable.reloadData()
+                        
                         
                         self.presentDeliveryType()
                     }
@@ -80,6 +86,23 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
                        
                     }
                     break
+            }
+        }
+    }
+    
+    func updateList(){
+        dbcartList = databaseHandler.getCartModelList()
+        let dbmenulist = dbcartList.cartItem
+        print("\(dbmenulist?.count)")
+        if (dbmenulist?.count != 0 && dbmenulist?.count != nil ){
+            for menu in dbmenulist! {
+                for menuList in self.restrauntMenu.data!.menu! {
+                    for item in menuList.items! {
+                        if(menu.itemid == item.itemid){
+                            item.quantity = menu.qty
+                        }
+                    }
+                }
             }
         }
     }
@@ -123,6 +146,7 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestrauntMenusTableViewCell", for: indexPath as IndexPath) as! RestrauntMenusTableViewCell
         cell.configure(itemSingle: self.restrauntMenu.data!.menu![indexPath.section].items![indexPath.row])
+        
         cell.addBtnQuantity.tag = (indexPath.section*100)+indexPath.row
         cell.addBtn.tag = (indexPath.section*100)+indexPath.row
         cell.subBtn.tag = (indexPath.section*100)+indexPath.row
@@ -142,22 +166,48 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         
         print("\(section)")
         print("\(row)")
-                
-        var Menudata = Itemdata()
-        Menudata = self.restrauntMenu.data!.menu![section].items![row]
-        self.restrauntMenu.data!.menu![section].items![row].quantity! += 1
+        
+        var quantity = self.restrauntMenu.data!.menu![section].items![row].quantity!
 
-        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: (Double(Menudata.quantity!) * Menudata.price!) , pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
         
-        dump(databaseHandler.getCartModelList())
+        dbcartList.restaurantId = dbcartList.restaurantId != nil ? dbcartList.restaurantId : " "
         
-        if(self.restrauntMenu.data!.menu![section].items![row].optiongroups?.count != 0){
-            let option = UIStoryboard.named.dashboard.instantiateViewController(identifier: "OptionMenuViewController") as! OptionMenuViewController
-            option.optionMenu = (self.restrauntMenu.data!.menu![section].items![row].optiongroups)!
-            option.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
-                self.present(option, animated: true)
+        print("dbcartList.restaurantId------------>\(String(describing: dbcartList.restaurantId))")
+        print("self.restrauntMenu.data?.businessid ------------>\(String(describing: self.restrauntMenu.data?.businessid) )")
+      
+        
+        if(dbcartList.restaurantId == self.restrauntMenu.data?.businessid || dbcartList.restaurantId == " "){
+//            var Menudata = Itemdata()
+//            Menudata = self.restrauntMenu.data!.menu![section].items![row]
+//            self.restrauntMenu.data!.menu![section].items![row].quantity! += 1
+//
+//            let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: (Double(Menudata.quantity!) * Menudata.price!) , pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
+//
+//            if(self.restrauntMenu.data!.menu![section].items![row].optiongroups?.count != 0){
+//                let option = UIStoryboard.named.dashboard.instantiateViewController(identifier: "OptionMenuViewController") as! OptionMenuViewController
+//                option.optionMenu = (self.restrauntMenu.data!.menu![section].items![row].optiongroups)!
+//                option.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+//                    self.present(option, animated: true)
+//            }
+//            self.viewcartUIView()
+            self.itemUpdateInResturant(section: section, row: row, qty: quantity+1)
+       
+        }else{
+            let alert = UIAlertController(title: "Replcae cart items", message: "Your cart contains dishes from other resturant.Do you want to discard the selection and add dishes from this resturant",         preferredStyle: UIAlertController.Style.alert)
+
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+                       //Cancel Action
+                   }))
+                   alert.addAction(UIAlertAction(title: "Add",
+                                                 style: UIAlertAction.Style.default,
+                                                 handler:
+                                                    {(_: UIAlertAction!) in
+                                                        self.databaseHandler.deleteAllItems()
+                                                        self.itemUpdateInResturant(section: section, row: row, qty: quantity+1)
+                                                   
+                   }))
+                   self.present(alert, animated: true, completion: nil)
         }
-        self.viewcartUIView()
 
 
         self.menuListTable.reloadData()
@@ -171,27 +221,26 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         print("\(section)")
         print("\(row)")
         
-        var Menudata : Itemdata
-        Menudata = self.restrauntMenu.data!.menu![section].items![row]
-        self.restrauntMenu.data!.menu![section].items![row].quantity! -= 1
+//        var quantity = self.restrauntMenu.data!.menu![section].items![row].quantity!
+
         
+//        var Menudata : Itemdata
+//        Menudata = self.restrauntMenu.data!.menu![section].items![row]
+        self.restrauntMenu.data!.menu![section].items![row].quantity! -= 1
+//
+//
+//        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: (Double(Menudata.quantity!) * Menudata.price!) , pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
 
-        let value : Bool = databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: (Double(Menudata.quantity!) * Menudata.price!) , pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
 
-
+        self.itemUpdateInResturant(section: section, row: row, qty: self.restrauntMenu.data!.menu![section].items![row].quantity!)
+   
         if (self.restrauntMenu.data!.menu![section].items![row].quantity! == 0) {
              print(databaseHandler.deleteCartData(itemsID: self.restrauntMenu.data!.menu![section].items![row].itemid ?? ""))
+
         }
-        
-        print("value ----->> \(value)")
-        print("value ----->> \(databaseHandler.getCartCount())")
-        print("getCartModelList ----->> \(databaseHandler.getCartModelList())")
-        dump(databaseHandler.getCartModelList())
-
-        self.viewcartUIView()
-
         self.menuListTable.reloadData()
-   }
+        self.viewcartUIView()
+    }
     
     func viewcartUIView(){
         let itemsCount = databaseHandler.getCartCount()
@@ -203,5 +252,23 @@ class RestrauntMenuViewController: BaseController, UITableViewDataSource, UITabl
         }else{
             self.viewCart.isHidden = true
         }
+    }
+    
+    func itemUpdateInResturant( section:Int , row:Int , qty:Int) {
+        var Menudata = Itemdata()
+        Menudata = self.restrauntMenu.data!.menu![section].items![row]
+        self.restrauntMenu.data!.menu![section].items![row].quantity! = qty
+
+        let value : Bool = self.databaseHandler.insertCartModel(itemid: Menudata.itemid ?? "", item: Menudata.item ?? "", price: (Double(Menudata.quantity!) * Menudata.price!) , pic: Menudata.pic ?? "", qty: Menudata.quantity ?? 0, description: Menudata.description ?? "" , isactive: true , businessid: Menudata.businessid ?? "" ,restaurantId: self.restrauntMenu.data?.businessid ?? "" , delivery_method: "delivery")
+                            
+        if(self.restrauntMenu.data!.menu![section].items![row].optiongroups?.count != 0){
+            let option = UIStoryboard.named.dashboard.instantiateViewController(identifier: "OptionMenuViewController") as! OptionMenuViewController
+            option.optionMenu = (self.restrauntMenu.data!.menu![section].items![row].optiongroups)!
+            option.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+                self.present(option, animated: true)
+        }
+        self.menuListTable.reloadData()
+        self.viewcartUIView()
+
     }
 }

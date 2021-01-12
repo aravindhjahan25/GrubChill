@@ -172,7 +172,6 @@ class Itemdata: Mappable {
         orderid <- map["orderid"]
         optiongroups <- map["optiongroups"]
         businessid <- map["businessid"]
-
         quantity = 0
         }
 }

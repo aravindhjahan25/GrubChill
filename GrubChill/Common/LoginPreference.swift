@@ -39,6 +39,7 @@ struct LoginPreference{
         UserDefaults.standard.set(isVerified, forKey: "isVerified")
         UserDefaults.standard.set(stripe_id, forKey: "stripe_id")
         UserDefaults.standard.set(business_id, forKey: "business_id")
+//        UserDefaults.standard.set
     }
 
     func clearUserDefaults(){

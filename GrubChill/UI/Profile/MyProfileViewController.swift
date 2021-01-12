@@ -12,6 +12,10 @@ class MyProfileViewController: BaseController {
     @IBOutlet weak var emailID: UILabel!
     @IBOutlet weak var phoneNo: UILabel!
     @IBOutlet weak var userName: UILabel!
+    
+    @IBOutlet weak var addressTable: UITableView!
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,4 +36,15 @@ class MyProfileViewController: BaseController {
         phoneNo.text = UserDefaults.standard.string(forKey: "phonenumber") ?? ""
     }
 
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+////        return self.restrauntList.data!.count
+//        return 0
+//    }
+//    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "AddressTableViewCell", for: indexPath as IndexPath) as! AddressTableViewCell
+////        cell.configure(restrauntSingle: self.restrauntList.data![indexPath.row])
+//        return cell
+//    }
+//    
 }
