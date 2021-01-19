@@ -16,13 +16,13 @@ class AddressTableViewCell: UITableViewCell {
     @IBOutlet weak var zipcodeLab: UILabel!
 
 
-    func configure(Addressdata: AddressDTO) {
+    func configure(Addressdata: [String:Any]) {
 
-        address1Lab.text = Addressdata.address1
-        address2Lab.text = Addressdata.address2
-        stateLab.text = Addressdata.state
-        cityLab.text = Addressdata.city
-        zipcodeLab.text = Addressdata.zipcode
+        address1Lab.text = Addressdata["address1"] as? String
+        address2Lab.text = Addressdata["address2"] as? String
+        stateLab.text = Addressdata["state"] as? String
+        cityLab.text = Addressdata["city"] as? String
+        zipcodeLab.text = Addressdata["zipcode"] as? String
     }
 
     override func awakeFromNib() {

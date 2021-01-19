@@ -82,6 +82,7 @@ class userAddressDTO: Mappable {
         email <- map["email"]
         updated_at <- map["updated_at"]
         created_at <- map["created_at"]
+        address <- map["address"]
     }
 }
 

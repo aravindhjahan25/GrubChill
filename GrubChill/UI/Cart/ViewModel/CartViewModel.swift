@@ -178,7 +178,7 @@ extension String {
             if !phNoTest.evaluate(with: self){
                 return false
             }
-            else if(Int(self) ?? 0 >= 12){
+            else if(Int(self) ?? 0 >= 13){
                 return false
             }
         }

@@ -29,7 +29,8 @@ struct LoginPreference{
                             status : String,
                             isVerified : Bool,
                             stripe_id : String,
-                            business_id : String){
+                            business_id : String,
+                            address : [[String:Any]] ){
         UserDefaults.standard.set(_id, forKey: "_id")
         UserDefaults.standard.set(phonenumber, forKey: "phonenumber")
         UserDefaults.standard.set(username, forKey: "username")
@@ -39,6 +40,8 @@ struct LoginPreference{
         UserDefaults.standard.set(isVerified, forKey: "isVerified")
         UserDefaults.standard.set(stripe_id, forKey: "stripe_id")
         UserDefaults.standard.set(business_id, forKey: "business_id")
+        UserDefaults.standard.set(address, forKey: "address")
+        
 //        UserDefaults.standard.set
     }
 

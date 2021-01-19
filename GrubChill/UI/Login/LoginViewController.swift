@@ -65,6 +65,19 @@ class LoginViewController: BaseController {
                     if statusCode == 200 {
                         let loginDTO = LoginModelDTO(JSON: JSON as! [String : Any])
                         if loginDTO?.status == "Success" {
+                            var user_add = loginDTO?.data?.user_address?.address
+                            var address = [[String: Any]]()
+                            for index in user_add! {
+                                var addressSingle = [String: Any]()
+                                addressSingle["address1"] = index.address1
+                                addressSingle["address2"] = index.address2
+                                addressSingle["address_type"] = index.address_type
+                                addressSingle["city"] = index.city
+                                addressSingle["state"] = index.state
+                                addressSingle["zipcode"] = index.zipcode
+                            
+                                address.append(addressSingle)
+                            }
                             self.sharedPref.createLoginSession(
                                 _id: (loginDTO?.data?._id ?? ""),
                                 phonenumber: (loginDTO?.data?.phonenumber ?? ""),
@@ -74,7 +87,11 @@ class LoginViewController: BaseController {
                                 status: (loginDTO?.data?.status ?? ""),
                                 isVerified: (loginDTO?.data?.isVerified ?? false),
                                 stripe_id: (loginDTO?.data?.stripe_id ?? ""),
-                                business_id: (loginDTO?.data?.business_id ?? ""))
+                                business_id: (loginDTO?.data?.business_id ?? ""),
+                                address: (address)
+                            )
+                            
+                            print(loginDTO?.data?.user_address as Any)
                             
                             ProgressHUD.dismiss()
                             let dashBoard = UIStoryboard.named.main.instantiateViewController(identifier: "HomeViewController") as! HomeViewController
