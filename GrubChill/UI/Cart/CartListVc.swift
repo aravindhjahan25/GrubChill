@@ -11,7 +11,8 @@ import Alamofire
 import RxSwift
 import RxCocoa
 
-class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
+class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     
     private let cartViewVM = CartViewModel()
     private let disposebag = DisposeBag()
@@ -20,7 +21,9 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var cartTableView : UITableView!
     
     @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var billingView: UIView!
+    @IBOutlet weak var billingView: UIStackView!
+    @IBOutlet weak var addressStack: UIStackView!
+
     @IBOutlet weak var billingheightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var pickUpSelectedImage: UIImageView!
@@ -46,6 +49,9 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var emailIDView: TextBoxView!
     @IBOutlet weak var phoneNoView: TextBoxView!
     @IBOutlet weak var userNameView: TextBoxView!
+    
+    @IBOutlet weak var addressCollection: UICollectionView!
+
 
     @IBOutlet weak var emailID: UITextField!
     @IBOutlet weak var phoneNo: UITextField!
@@ -53,7 +59,7 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var EmptyCartView: UIView!
 
-
+    var addressArray : [[String:Any]]!
 
     var cartMenu = CartDTO()
     
@@ -90,6 +96,8 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
         
         showEmptyView.isHidden = false
         billingView.isHidden = true
+        addressStack.isHidden = true
+
         
         pickUpSelectedImage.image = UIImage(named: "check-2.png")
         deliverySelectedImage.image = UIImage(named: "check.png")
@@ -122,8 +130,26 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
         cartViewVM.emailPublichObject.accept(emailID.text ?? "")
         cartViewVM.userNamePublichObject.accept(userName.text ?? "")
         cartViewVM.phoneNoPublichObject.accept(phoneNo.text ?? "")
+        
+        addressArray = (UserDefaults.standard.object(forKey: "address") as! [[String:Any]]) 
+
+        if(addressArray.count != 0 && addressArray != nil){
+            addressCollection.delegate = self
+            addressCollection.dataSource = self
+        }
 
     }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        addressArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCollectionViewCell", for: indexPath as IndexPath) as! AddressCollectionViewCell
+        cell.configure(Addressdata: addressArray[indexPath.row])
+        return cell
+    }
+    
     
     func cartAPICall(){
         
@@ -285,6 +311,8 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
         
         delivery_type = "Pickup"
         billingView.isHidden = true
+        addressStack.isHidden = true
+
         //billingheightConstraint.constant = 0
         
         pickUpSelectedImage.image = UIImage(named: "check-2.png")
@@ -298,6 +326,8 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate {
         
 //        billingheightConstraint.constant = 205
         billingView.isHidden = false
+        addressStack.isHidden = false
+
         
         pickUpSelectedImage.image = UIImage(named: "check.png")
         deliverySelectedImage.image = UIImage(named: "check-2.png")
