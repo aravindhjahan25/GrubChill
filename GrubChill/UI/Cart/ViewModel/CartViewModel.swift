@@ -40,7 +40,7 @@ class CartViewModel {
     func checkoutAPI(){
         
         cartView?.cartMenu = (cartView?.databaseHandler.getCartModelList())!
-        
+
         dump(cartView?.cartMenu)
         
         if cartView?.cartMenu.cartItem?.count ?? 0 > 0 {

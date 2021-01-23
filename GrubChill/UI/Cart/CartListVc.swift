@@ -11,7 +11,7 @@ import Alamofire
 import RxSwift
 import RxCocoa
 
-class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class CartListVc: BaseController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     private let cartViewVM = CartViewModel()
@@ -72,8 +72,9 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cartViewVM.cartView = self
         
+        cartViewVM.cartView = self
+
         //RX Binding values
         cardNo.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.cardNoPublishObject).disposed(by: disposebag)
         Expyear.rx.text.map{ $0 ?? ""}.bind(to: cartViewVM.yearPublishObject).disposed(by: disposebag)
@@ -101,6 +102,7 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UI
         
         pickUpSelectedImage.image = UIImage(named: "check-2.png")
         deliverySelectedImage.image = UIImage(named: "check.png")
+         
         
         self.userinfofill()
         
@@ -108,6 +110,8 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UI
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        //self.cartTableView.register(UINib(nibName:"CartTableFooter", bundle: nil), forHeaderFooterViewReuseIdentifier: CartTableFooter.ReuseID())
         
         self.cartTableView.dataSource = self
         self.cartTableView.delegate = self
@@ -131,12 +135,20 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UI
         cartViewVM.userNamePublichObject.accept(userName.text ?? "")
         cartViewVM.phoneNoPublichObject.accept(phoneNo.text ?? "")
         
-        addressArray = (UserDefaults.standard.object(forKey: "address") as! [[String:Any]]) 
-
+        if isKeyPresentInUserDefaults(key: "address"){
+            addressArray = (UserDefaults.standard.object(forKey: "address")) as! [[String : Any]]
+        }else{
+            addressArray = [[String:Any]]()
+        }
+        
         if(addressArray.count != 0 && addressArray != nil){
             addressCollection.delegate = self
             addressCollection.dataSource = self
+            addressStack.isHidden = false
+        }else{
+            addressStack.isHidden = true
         }
+
 
     }
     
@@ -237,18 +249,6 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UI
         })
     } 
    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cartMenu.cartItem?.count ?? 0
-    }
-    //
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath as IndexPath) as! CartTableViewCell
-        cell.configure(itemSingle: self.cartMenu.cartItem![indexPath.row])
-        
-        cell.addButton.addTarget(self, action: #selector(addAction), for: .touchUpInside)
-        cell.SubButton.addTarget(self, action: #selector(subAction), for: .touchUpInside)
-        return cell
-    }
     
     @objc func addAction(sender: UIButton) -> Void{
         
@@ -312,9 +312,6 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UI
         delivery_type = "Pickup"
         billingView.isHidden = true
         addressStack.isHidden = true
-
-        //billingheightConstraint.constant = 0
-        
         pickUpSelectedImage.image = UIImage(named: "check-2.png")
         deliverySelectedImage.image = UIImage(named: "check.png")
         
@@ -326,7 +323,12 @@ class CartListVc: BaseController ,UITableViewDataSource, UITableViewDelegate, UI
         
 //        billingheightConstraint.constant = 205
         billingView.isHidden = false
-        addressStack.isHidden = false
+        
+        if addressArray.count != 0 {
+            addressStack.isHidden = false
+        }else{
+            addressStack.isHidden = true
+        }
 
         
         pickUpSelectedImage.image = UIImage(named: "check.png")
@@ -502,4 +504,21 @@ extension CartListVc: UITextFieldDelegate {
         return true
     }
     
+}
+
+
+extension CartListVc: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.cartMenu.cartItem?.count ?? 0
+    }
+    //
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CartTableViewCell", for: indexPath as IndexPath) as! CartTableViewCell
+        cell.configure(itemSingle: self.cartMenu.cartItem![indexPath.row])
+        
+        cell.addButton.addTarget(self, action: #selector(addAction), for: .touchUpInside)
+        cell.SubButton.addTarget(self, action: #selector(subAction), for: .touchUpInside)
+        return cell
+    }
 }
